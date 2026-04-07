@@ -1,0 +1,492 @@
+{
+  "Navigation": {
+    "dashboard": "แดชบอร์ด",
+    "calendar": "ปฏิทิน",
+    "tasks": "งาน",
+    "settings": "ตั้งค่า",
+    "profile": "โปรไฟล์"
+  },
+  "Actions": {
+    "addTask": "เพิ่มงาน",
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "delete": "ลบ",
+    "edit": "แก้ไข",
+    "confirm": "ยืนยัน"
+  },
+  "Calendar": {
+    "day": "วัน",
+    "week": "สัปดาห์",
+    "month": "เดือน",
+    "today": "วันนี้",
+    "schedule": "ตารางเวลา"
+  },
+  "Luma": {
+    "greeting": "สวัสดี! ฉันคือ Luma ผู้ช่วย AI ของคุณ",
+    "greetingMorning": "อรุณสวัสดิ์! พร้อมวางแผนวันนี้ไหม?",
+    "greetingAfternoon": "สวัสดีตอนบ่าย! วันนี้เป็นยังไงบ้าง?",
+    "greetingEvening": "สวัสดีตอนเย็น! มาสรุปวันนี้กันเถอะ",
+    "quickActions": "ทำอะไรดี",
+    "organizeToday": "จัดตารางวันนี้",
+    "mostImportant": "งานไหนสำคัญที่สุด",
+    "freeTime": "ฉันมีเวลาว่าง",
+    "summarizeToday": "สรุปวันนี้",
+    "moodNeutral": "พร้อมช่วยเสมอ!",
+    "moodConcerned": "วันนี้งานเยอะเลย ให้ช่วยจัดการไหม?",
+    "moodHappy": "เยี่ยมเลย! ทุกอย่างเป็นไปตามแผน",
+    "moodUrgent": "เตือนนิดนึง — มี deadline ใกล้เข้ามาแล้ว",
+    "moodEncouraging": "ทำได้ดีมาก สู้ต่อไปนะ!",
+    "moodCelebrating": "ทำเสร็จหมดแล้ว! เก่งมาก!"
+  },
+  "Task": {
+    "title": "ชื่องาน",
+    "description": "รายละเอียด",
+    "priority": "ความสำคัญ",
+    "priorityHigh": "สูง",
+    "priorityMedium": "ปานกลาง",
+    "priorityLow": "ต่ำ",
+    "status": "สถานะ",
+    "deadline": "กำหนดส่ง",
+    "duration": "ระยะเวลา",
+    "category": "หมวดหมู่",
+    "estimatedDuration": "ระยะเวลาโดยประมาณ",
+    "energyLevel": "ระดับพลังงาน",
+    "tags": "แท็ก",
+    "minutes": "นาที",
+    "noDeadline": "ไม่มีกำหนดส่ง",
+    "createdAt": "สร้างเมื่อ"
+  },
+  "Tasks": {
+    "pageTitle": "งาน",
+    "pageSubtitle": "จัดการและติดตามงานทั้งหมดของคุณ",
+    "addTask": "เพิ่มงาน",
+    "searchPlaceholder": "ค้นหางาน...",
+    "filterAll": "ทั้งหมด",
+    "filterHigh": "สำคัญสูง",
+    "filterMedium": "ปานกลาง",
+    "filterLow": "ต่ำ",
+    "filterCompleted": "เสร็จแล้ว",
+    "emptyTitle": "ไม่พบงาน",
+    "emptyDescription": "ลองปรับตัวกรองหรือสร้างงานใหม่เพื่อเริ่มต้น",
+    "taskCount": "{count} งาน",
+    "createTitle": "สร้างงานใหม่",
+    "editTitle": "แก้ไขงาน",
+    "titlePlaceholder": "ต้องทำอะไร?",
+    "descriptionPlaceholder": "เพิ่มรายละเอียด...",
+    "categoryWork": "งาน",
+    "categoryDevelopment": "พัฒนา",
+    "categoryDesign": "ออกแบบ",
+    "categoryPersonal": "ส่วนตัว",
+    "categoryMeeting": "ประชุม",
+    "categoryOther": "อื่นๆ",
+    "energyHigh": "พลังงานสูง",
+    "energyMedium": "พลังงานปานกลาง",
+    "energyLow": "พลังงานต่ำ",
+    "tagsPlaceholder": "เพิ่มแท็กแล้วกด Enter",
+    "markComplete": "ทำเสร็จแล้ว",
+    "markIncomplete": "ยังไม่เสร็จ",
+    "deleteConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบงานนี้?",
+    "deleteConfirmDesc": "การดำเนินการนี้ไม่สามารถย้อนกลับได้",
+    "pending": "รอดำเนินการ",
+    "inProgress": "กำลังดำเนินการ",
+    "completed": "เสร็จแล้ว",
+    "taskDetails": "รายละเอียดงาน",
+    "dueIn": "เหลืออีก {days} วัน",
+    "overdue": "เลยกำหนด",
+    "dueToday": "ครบกำหนดวันนี้"
+  },
+  "Auth": {
+    "signIn": "เข้าสู่ระบบ",
+    "signUp": "สมัครสมาชิก",
+    "signInDesc": "ยินดีต้อนรับกลับสู่ Lumina",
+    "signUpDesc": "สร้างบัญชีเพื่อเริ่มต้นใช้งาน",
+    "email": "อีเมล",
+    "emailPlaceholder": "you@example.com",
+    "password": "รหัสผ่าน",
+    "passwordPlaceholder": "กรอกรหัสผ่าน",
+    "name": "ชื่อ",
+    "namePlaceholder": "ชื่อของคุณ",
+    "confirmPassword": "ยืนยันรหัสผ่าน",
+    "confirmPasswordPlaceholder": "กรอกรหัสผ่านอีกครั้ง",
+    "forgotPassword": "ลืมรหัสผ่าน?",
+    "alreadyHaveAccount": "มีบัญชีอยู่แล้ว?",
+    "dontHaveAccount": "ยังไม่มีบัญชี?",
+    "orContinueWith": "ดำเนินการต่อด้วย",
+    "or": "หรือ",
+    "registerSuccess": "สร้างบัญชีสำเร็จ!",
+    "registerSuccessDesc": "บัญชีของคุณถูกสร้างเรียบร้อยแล้ว กรุณาเข้าสู่ระบบเพื่อดำเนินการต่อ",
+    "invalidCredentials": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง",
+    "genericError": "เกิดข้อผิดพลาด กรุณาลองอีกครั้ง",
+    "loading": "กำลังโหลด..."
+  },
+  "Onboarding": {
+    "welcome": "ยินดีต้อนรับสู่ Lumina",
+    "next": "ถัดไป",
+    "back": "ย้อนกลับ",
+    "skip": "ข้าม",
+    "finish": "เสร็จสิ้น",
+    "startUsing": "เริ่มใช้งาน",
+    "step1": {
+      "title": "ยินดีต้อนรับ!",
+      "description": "สวัสดี! ฉันคือ Luma ผู้ช่วย AI ของคุณ",
+      "body": "Lumina คือปฏิทินอัจฉริยะที่จะช่วยจัดตารางงาน วิเคราะห์ลำดับความสำคัญ และบริหารเวลาให้คุณอัตโนมัติ พร้อมเริ่มต้นกันเลย!"
+    },
+    "step2": {
+      "title": "เวลาทำงาน",
+      "description": "ตั้งค่าเวลาทำงานของคุณ เพื่อให้ Luma จัดตารางได้เหมาะสม",
+      "startTime": "เริ่มงาน",
+      "endTime": "เลิกงาน"
+    },
+    "step3": {
+      "title": "ตั้งค่าการแสดงผล",
+      "description": "ปรับแต่ง Lumina ให้เข้ากับสไตล์ของคุณ",
+      "theme": "ธีม",
+      "themeLight": "สว่าง",
+      "themeDark": "มืด",
+      "themeAuto": "อัตโนมัติ",
+      "calendarView": "มุมมองปฏิทิน",
+      "viewDay": "วัน",
+      "viewWeek": "สัปดาห์",
+      "viewMonth": "เดือน",
+      "animationLevel": "ระดับแอนิเมชัน",
+      "animFull": "เต็มรูปแบบ",
+      "animReduced": "ลดลง",
+      "animNone": "ปิด"
+    },
+    "step4": {
+      "title": "บุคลิกของ Luma",
+      "description": "เลือกสไตล์การสื่อสารของ Luma ที่คุณชอบ",
+      "formal": "สุภาพเป็นทางการ",
+      "formalDesc": "สื่อสารอย่างมืออาชีพ",
+      "formalSample": "สวัสดีครับ วันนี้คุณมีงานสำคัญ 3 รายการที่ต้องดำเนินการ ผมแนะนำให้เริ่มจากรายงานประจำเดือนครับ",
+      "friendly": "เป็นกันเอง",
+      "friendlyDesc": "คุยสบาย ๆ เหมือนเพื่อน",
+      "friendlySample": "เฮ้! วันนี้มีงาน 3 อย่างนะ เริ่มจากรายงานประจำเดือนก่อนดีไหม? ไม่ยากเลย!",
+      "cheerful": "ร่าเริง",
+      "cheerfulDesc": "สนุกสนาน มีพลัง",
+      "cheerfulSample": "สวัสดีจ้า~! วันนี้มีงานสนุก ๆ 3 อย่างรอเราอยู่! มาลุยรายงานประจำเดือนกันเลย! 🎉",
+      "motivational": "สร้างแรงบันดาลใจ",
+      "motivationalDesc": "ให้กำลังใจ ผลักดัน",
+      "motivationalSample": "วันใหม่ โอกาสใหม่! คุณมีงาน 3 อย่างที่รอพิชิต เริ่มจากรายงานประจำเดือน — คุณทำได้แน่นอน! 💪",
+      "minimal": "กระชับ",
+      "minimalDesc": "สั้น ตรงประเด็น",
+      "minimalSample": "งานวันนี้: 3 รายการ → เริ่ม: รายงานประจำเดือน"
+    },
+    "step5": {
+      "title": "ภาษา",
+      "description": "เลือกภาษาที่ต้องการใช้งาน",
+      "thai": "ไทย",
+      "english": "English"
+    },
+    "step6": {
+      "title": "พร้อมแล้ว!",
+      "description": "ทุกอย่างพร้อมแล้ว มาเริ่มใช้งาน Lumina กันเลย!",
+      "greeting": {
+        "formal": "ยินดีต้อนรับครับ ผมพร้อมช่วยจัดการตารางงานของคุณอย่างมีประสิทธิภาพแล้วครับ",
+        "friendly": "เย้! พร้อมแล้ว! มาจัดตารางงานให้เป๊ะ ๆ ด้วยกันนะ!",
+        "cheerful": "ว้าว~! ตื่นเต้นมากเลย! เราจะทำให้ทุกวันของคุณสุดยอดไปด้วยกัน! 🌟",
+        "motivational": "การเดินทางสู่ประสิทธิภาพสูงสุดเริ่มต้นแล้ว! ผมจะอยู่เคียงข้างคุณทุกก้าว! 🚀",
+        "minimal": "พร้อมใช้งาน → ไปที่แดชบอร์ด"
+      }
+    }
+  },
+  "App": {
+    "search": "ค้นหางาน, กิจกรรม...",
+    "notifications": "การแจ้งเตือน",
+    "addTask": "เพิ่มงาน",
+    "quickCapture": "จับงานด่วน — พิมพ์งาน...",
+    "profile": "โปรไฟล์",
+    "sidebar": {
+      "dashboard": "แดชบอร์ด",
+      "calendar": "ปฏิทิน",
+      "tasks": "งาน",
+      "analytics": "วิเคราะห์",
+      "settings": "ตั้งค่า",
+      "collapse": "ย่อแถบข้าง",
+      "expand": "ขยายแถบข้าง"
+    },
+    "rightPanel": {
+      "lumaAssistant": "ผู้ช่วย Luma",
+      "todayPriority": "งานสำคัญวันนี้",
+      "scheduleToday": "จัดตารางวันนี้",
+      "mostImportant": "งานไหนสำคัญที่สุด",
+      "openPanel": "เปิดแผง Luma",
+      "closePanel": "ปิดแผง",
+      "chatPlaceholder": "พิมพ์ข้อความถึง Luma..."
+    },
+    "bottomNav": {
+      "dashboard": "แดชบอร์ด",
+      "calendar": "ปฏิทิน",
+      "add": "เพิ่ม",
+      "tasks": "งาน",
+      "luma": "Luma"
+    }
+  },
+  "Dashboard": {
+    "title": "แดชบอร์ด",
+    "subtitle": "ยินดีต้อนรับสู่ Lumina — Luma พร้อมช่วยจัดการตารางงานของคุณ",
+    "greeting": "อรุณสวัสดิ์! นี่คือภาพรวมวันนี้ของคุณ",
+    "todaySchedule": "ตารางวันนี้",
+    "priorityTasks": "งานสำคัญ",
+    "aiInsights": "AI Insights",
+    "viewAll": "ดูทั้งหมด",
+    "noEvents": "ไม่มีกิจกรรมวันนี้",
+    "bestFocusTime": "เวลาโฟกัสที่ดีที่สุด: 9–11 น.",
+    "bestFocusDesc": "ประสิทธิภาพของคุณสูงสุดในช่วงเช้า จัดงาน deep work ไว้ช่วงนี้",
+    "tasksAtRisk": "3 งานเสี่ยงล่าช้า",
+    "tasksAtRiskDesc": "งานเหล่านี้ใกล้ deadline แล้ว ลองจัดลำดับความสำคัญใหม่",
+    "weeklyCompletion": "ความสำเร็จรายสัปดาห์: 78%",
+    "weeklyCompletionDesc": "คุณทำได้ดี! ทำอีก 2 งานเพื่อบรรลุเป้าหมายรายสัปดาห์"
+  },
+  "CalendarPage": {
+    "day": "วัน",
+    "week": "สัปดาห์",
+    "month": "เดือน",
+    "today": "วันนี้",
+    "prev": "ก่อนหน้า",
+    "next": "ถัดไป",
+    "events": "กิจกรรม",
+    "more": "เพิ่มเติม",
+    "noEvents": "ไม่มีกิจกรรม",
+    "shortcutsTitle": "คีย์ลัด",
+    "shortcutsDesc": "นำทางเร็วขึ้นด้วยคีย์บอร์ด",
+    "shortcutsClose": "ปิดหน้าต่าง",
+    "shortcutsToggle": "เปิด/ปิดหน้าต่างนี้",
+    "pressToClose": "กด {key} เพื่อปิด"
+  },
+  "AI": {
+    "intelligenceTitle": "Luma AI — จัดลำดับงาน",
+    "optimizeSchedule": "จัดตารางอัจฉริยะ",
+    "whyThisOrder": "ทำไมงานนี้อยู่ตรงนี้?",
+    "noTasks": "ไม่มีงานค้าง — เยี่ยมเลย!",
+    "optimizeTitle": "จัดตารางอัจฉริยะ",
+    "optimizeDesc": "Luma จะจัดตารางงานให้เหมาะสมกับเวลาทำงานของคุณ (09:00–18:00)",
+    "optimizedSchedule": "ตารางที่จัดใหม่",
+    "overflow": "งานที่จัดไม่ลง",
+    "optimizeApplied": "จัดตารางเรียบร้อย!",
+    "optimizeAppliedDesc": "ตารางงานถูกอัปเดตแล้ว",
+    "undo": "ย้อนกลับ",
+    "confirm": "ยืนยัน",
+    "cancel": "ยกเลิก",
+    "conflictsFound": "พบงานชนกัน {count} คู่",
+    "noConflicts": "ไม่มีงานชนกัน"
+  },
+  "DailyBriefing": {
+    "greetingMorning": "อรุณสวัสดิ์! ☀️",
+    "greetingAfternoon": "สวัสดีตอนบ่าย! 🌤️",
+    "greetingEvening": "สวัสดีตอนเย็น! 🌙",
+    "summary": "วันนี้คุณมี {tasks} งาน, {meetings} ประชุม, {highPriority} งานสำคัญสูง",
+    "topPriority": "งานสำคัญที่สุด",
+    "bestFocusTime": "เวลาโฟกัสที่ดีที่สุด",
+    "focusRecommendation": "ประสิทธิภาพสูงสุดของคุณคือ {time} จัดงาน deep work ไว้ช่วงนี้",
+    "noTasks": "วันนี้ไม่มีงาน — พักผ่อนได้เลย!",
+    "deadline": "กำหนดส่ง",
+    "today": "วันนี้",
+    "tomorrow": "พรุ่งนี้"
+  },
+  "WeeklyReview": {
+    "title": "สรุปรายสัปดาห์",
+    "completionRate": "อัตราความสำเร็จ",
+    "tasksCompleted": "{completed} จาก {total} งาน",
+    "timeByCategory": "เวลาตามหมวดหมู่",
+    "streak": "ความต่อเนื่อง",
+    "streakDays": "{days} วัน",
+    "streakMessage": "สุดยอด! ทำต่อไปนะ!",
+    "lumaRecommendation": "คำแนะนำจาก Luma",
+    "recommendationText": "โฟกัสงานสำคัญสูงในช่วงต้นสัปดาห์ ประสิทธิภาพของคุณสูงสุดในวันอังคารและพุธ",
+    "hours": "ชม.",
+    "thisWeek": "สัปดาห์นี้"
+  },
+  "Analytics": {
+    "title": "วิเคราะห์",
+    "subtitle": "ติดตามประสิทธิภาพและนิสัยการทำงาน",
+    "completionRate": "อัตราความสำเร็จ",
+    "completionDesc": "ทำเสร็จ {completed} จาก {total} งาน",
+    "timeByCategory": "เวลาตามหมวดหมู่",
+    "weeklyActivity": "กิจกรรมรายสัปดาห์",
+    "streak": "ความต่อเนื่อง",
+    "streakDays": "{days} วัน",
+    "productivityScore": "คะแนนประสิทธิภาพ",
+    "scoreDesc": "คำนวณจากการทำงานสำเร็จและความต่อเนื่อง",
+    "categoryWork": "งาน",
+    "categoryDevelopment": "พัฒนา",
+    "categoryDesign": "ออกแบบ",
+    "categoryPersonal": "ส่วนตัว",
+    "categoryMeeting": "ประชุม",
+    "hours": "ชม.",
+    "mon": "จ.",
+    "tue": "อ.",
+    "wed": "พ.",
+    "thu": "พฤ.",
+    "fri": "ศ.",
+    "sat": "ส.",
+    "sun": "อา."
+  },
+  "Settings": {
+    "title": "ตั้งค่า",
+    "subtitle": "ปรับแต่งประสบการณ์ Lumina ของคุณ",
+    "profile": "โปรไฟล์",
+    "displayName": "ชื่อที่แสดง",
+    "appearance": "การแสดงผล",
+    "theme": "ธีม",
+    "theme_light": "สว่าง",
+    "theme_dark": "มืด",
+    "theme_auto": "อัตโนมัติ",
+    "animationLevel": "ระดับแอนิเมชัน",
+    "anim_full": "เต็มรูปแบบ",
+    "anim_reduced": "ลดลง",
+    "anim_none": "ปิด",
+    "calendar": "ตั้งค่าปฏิทิน",
+    "defaultView": "มุมมองเริ่มต้น",
+    "view_day": "วัน",
+    "view_week": "สัปดาห์",
+    "view_month": "เดือน",
+    "workingHours": "เวลาทำงาน",
+    "lumaAI": "Luma AI",
+    "personality": "บุคลิก",
+    "personality_formal": "สุภาพเป็นทางการ",
+    "personality_formal_desc": "สื่อสารอย่างมืออาชีพ",
+    "personality_friendly": "เป็นกันเอง",
+    "personality_friendly_desc": "คุยสบาย ๆ เหมือนเพื่อน",
+    "personality_cheerful": "ร่าเริง",
+    "personality_cheerful_desc": "สนุกสนาน มีพลัง",
+    "personality_motivational": "สร้างแรงบันดาลใจ",
+    "personality_motivational_desc": "ให้กำลังใจ ผลักดัน",
+    "personality_minimal": "กระชับ",
+    "personality_minimal_desc": "สั้น ตรงประเด็น",
+    "aiAggressiveness": "ความเข้มข้น AI",
+    "ai_conservative": "อนุรักษ์นิยม",
+    "ai_balanced": "สมดุล",
+    "ai_proactive": "เชิงรุก",
+    "language": "ภาษา",
+    "pomodoro": "Pomodoro Timer",
+    "workDuration": "ระยะเวลาทำงาน",
+    "breakDuration": "ระยะเวลาพัก",
+    "minutes": "นาที"
+  },
+  "Pomodoro": {
+    "workMode": "เวลาทำงาน",
+    "breakMode": "เวลาพัก",
+    "session": "รอบที่",
+    "start": "เริ่ม",
+    "pause": "หยุดชั่วคราว",
+    "resume": "ทำต่อ",
+    "stop": "หยุด",
+    "skip": "ข้าม",
+    "sessionsCompleted": "รอบที่เสร็จแล้ว",
+    "linkTask": "เชื่อมกับงาน",
+    "noTask": "ไม่ได้เชื่อมกับงาน"
+  },
+  "Common": {
+    "loading": "กำลังโหลด...",
+    "error": "เกิดข้อผิดพลาด",
+    "success": "สำเร็จ",
+    "noData": "ไม่มีข้อมูล",
+    "search": "ค้นหา"
+  },
+  "Landing": {
+    "hero": {
+      "title": "Lumina",
+      "tagline": "ปฏิทินอัจฉริยะที่เข้าใจคุณ",
+      "description": "พบกับ Luma — ผู้ช่วย AI ที่จัดตารางงาน วิเคราะห์ลำดับความสำคัญ และบริหารเวลาให้คุณอัตโนมัติ",
+      "signUp": "เริ่มต้นใช้งาน",
+      "signIn": "เข้าสู่ระบบ"
+    },
+    "features": {
+      "title": "ฟีเจอร์ที่ออกแบบมาเพื่อคุณ",
+      "subtitle": "ทุกเครื่องมือที่คุณต้องการเพื่อบริหารเวลาอย่างชาญฉลาด",
+      "aiScheduling": {
+        "title": "Luma จัดตารางอัจฉริยะ",
+        "description": "AI วิเคราะห์งานทั้งหมดแล้วจัดตารางให้อัตโนมัติ เลือกเวลาที่เหมาะสมที่สุดสำหรับแต่ละงาน"
+      },
+      "priorityIntelligence": {
+        "title": "วิเคราะห์ลำดับความสำคัญ",
+        "description": "Luma คำนวณ priority score จากหลายปัจจัย ช่วยให้คุณรู้ว่าควรทำงานไหนก่อน"
+      },
+      "focusMode": {
+        "title": "โหมดทำงานเข้มข้น",
+        "description": "ซ่อน notifications ทั้งหมดและเข้าสู่โหมด deep work พร้อม Pomodoro Timer ในตัว"
+      },
+      "smartRecommendations": {
+        "title": "คำแนะนำอัจฉริยะ",
+        "description": "Luma เรียนรู้พฤติกรรมของคุณและแนะนำเวลาที่เหมาะสมสำหรับแต่ละประเภทงาน"
+      },
+      "calendarViews": {
+        "title": "มุมมองปฏิทิน Day/Week/Month",
+        "description": "สลับมุมมองได้อย่างลื่นไหล พร้อม drag-and-drop และ keyboard shortcuts"
+      },
+      "quickCapture": {
+        "title": "จับงานด่วน",
+        "description": "พิมพ์งานได้ทุกหน้าด้วย shortcut เดียว Luma จะวิเคราะห์และจัดหมวดหมู่ให้อัตโนมัติ"
+      }
+    },
+    "howItWorks": {
+      "title": "ใช้งานง่ายใน 3 ขั้นตอน",
+      "subtitle": "เริ่มต้นจัดการเวลาอย่างชาญฉลาดได้ทันที",
+      "step1": {
+        "title": "เพิ่มงานของคุณ",
+        "description": "สร้าง tasks, นัดหมาย, deadline และกิจกรรมต่าง ๆ ได้อย่างรวดเร็ว"
+      },
+      "step2": {
+        "title": "Luma วิเคราะห์ให้",
+        "description": "AI คำนวณลำดับความสำคัญ ตรวจจับ conflicts และหาช่วงเวลาที่เหมาะสม"
+      },
+      "step3": {
+        "title": "ตารางที่สมบูรณ์แบบ",
+        "description": "ได้ตารางงานที่ optimize แล้ว พร้อมคำแนะนำจาก Luma ตลอดทั้งวัน"
+      }
+    },
+    "pricing": {
+      "title": "แผนราคาที่เหมาะกับคุณ",
+      "subtitle": "เริ่มต้นฟรี อัปเกรดเมื่อพร้อม",
+      "free": {
+        "name": "Free",
+        "price": "฿0",
+        "period": "/เดือน",
+        "description": "เริ่มต้นจัดการเวลาอย่างชาญฉลาด",
+        "features": [
+          "ปฏิทิน Day/Week/Month",
+          "สร้าง tasks ไม่จำกัด",
+          "AI แนะนำพื้นฐาน 5 ครั้ง/วัน",
+          "Quick Capture",
+          "รองรับ 2 ภาษา"
+        ],
+        "cta": "เริ่มต้นฟรี"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "฿299",
+        "period": "/เดือน",
+        "description": "ปลดล็อกพลัง AI เต็มรูปแบบ",
+        "badge": "แนะนำ",
+        "features": [
+          "ทุกอย่างใน Free",
+          "Luma AI ไม่จำกัด",
+          "Auto Scheduling อัจฉริยะ",
+          "Focus Mode + Pomodoro",
+          "แชร์ปฏิทิน + Collaboration",
+          "Analytics Dashboard",
+          "Export PDF/CSV/ICS",
+          "Priority Support"
+        ],
+        "cta": "เริ่มทดลองใช้ฟรี"
+      }
+    },
+    "footer": {
+      "product": "ผลิตภัณฑ์",
+      "features": "ฟีเจอร์",
+      "pricing": "ราคา",
+      "changelog": "อัปเดต",
+      "company": "บริษัท",
+      "about": "เกี่ยวกับเรา",
+      "blog": "บล็อก",
+      "careers": "ร่วมงาน",
+      "support": "ช่วยเหลือ",
+      "helpCenter": "ศูนย์ช่วยเหลือ",
+      "contact": "ติดต่อเรา",
+      "privacy": "นโยบายความเป็นส่วนตัว",
+      "copyright": "© 2025 Lumina. สงวนลิขสิทธิ์.",
+      "madeWith": "สร้างด้วย ❤️ เพื่อคนที่รักการจัดการเวลา"
+    }
+  }
+}

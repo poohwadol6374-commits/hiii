@@ -1,0 +1,492 @@
+{
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "calendar": "Calendar",
+    "tasks": "Tasks",
+    "settings": "Settings",
+    "profile": "Profile"
+  },
+  "Actions": {
+    "addTask": "Add Task",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "confirm": "Confirm"
+  },
+  "Calendar": {
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "today": "Today",
+    "schedule": "Schedule"
+  },
+  "Luma": {
+    "greeting": "Hi! I'm Luma, your AI assistant.",
+    "greetingMorning": "Good morning! Ready to plan your day?",
+    "greetingAfternoon": "Good afternoon! How's your day going?",
+    "greetingEvening": "Good evening! Let's wrap up your day.",
+    "quickActions": "Quick Actions",
+    "organizeToday": "Organize today",
+    "mostImportant": "Most important task",
+    "freeTime": "I have free time",
+    "summarizeToday": "Summarize today",
+    "moodNeutral": "I'm here to help!",
+    "moodConcerned": "You have a lot on your plate. Let me help.",
+    "moodHappy": "Great job! You're on track.",
+    "moodUrgent": "Heads up — a deadline is approaching.",
+    "moodEncouraging": "You're doing great, keep it up!",
+    "moodCelebrating": "All done! Time to celebrate!"
+  },
+  "Task": {
+    "title": "Title",
+    "description": "Description",
+    "priority": "Priority",
+    "priorityHigh": "High",
+    "priorityMedium": "Medium",
+    "priorityLow": "Low",
+    "status": "Status",
+    "deadline": "Deadline",
+    "duration": "Duration",
+    "category": "Category",
+    "estimatedDuration": "Estimated Duration",
+    "energyLevel": "Energy Level",
+    "tags": "Tags",
+    "minutes": "min",
+    "noDeadline": "No deadline",
+    "createdAt": "Created"
+  },
+  "Tasks": {
+    "pageTitle": "Tasks",
+    "pageSubtitle": "Manage and track all your tasks",
+    "addTask": "Add Task",
+    "searchPlaceholder": "Search tasks...",
+    "filterAll": "All",
+    "filterHigh": "High Priority",
+    "filterMedium": "Medium",
+    "filterLow": "Low",
+    "filterCompleted": "Completed",
+    "emptyTitle": "No tasks found",
+    "emptyDescription": "Try adjusting your filters or create a new task to get started.",
+    "taskCount": "{count} tasks",
+    "createTitle": "Create New Task",
+    "editTitle": "Edit Task",
+    "titlePlaceholder": "What needs to be done?",
+    "descriptionPlaceholder": "Add more details...",
+    "categoryWork": "Work",
+    "categoryDevelopment": "Development",
+    "categoryDesign": "Design",
+    "categoryPersonal": "Personal",
+    "categoryMeeting": "Meeting",
+    "categoryOther": "Other",
+    "energyHigh": "High Energy",
+    "energyMedium": "Medium Energy",
+    "energyLow": "Low Energy",
+    "tagsPlaceholder": "Add tag and press Enter",
+    "markComplete": "Mark Complete",
+    "markIncomplete": "Mark Incomplete",
+    "deleteConfirm": "Are you sure you want to delete this task?",
+    "deleteConfirmDesc": "This action cannot be undone.",
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "taskDetails": "Task Details",
+    "dueIn": "Due in {days} days",
+    "overdue": "Overdue",
+    "dueToday": "Due today"
+  },
+  "Auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signInDesc": "Welcome back to Lumina",
+    "signUpDesc": "Create your account to get started",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "forgotPassword": "Forgot Password?",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "orContinueWith": "Continue with",
+    "or": "or",
+    "registerSuccess": "Account Created!",
+    "registerSuccessDesc": "Your account has been created successfully. Please sign in to continue.",
+    "invalidCredentials": "Invalid email or password. Please try again.",
+    "genericError": "Something went wrong. Please try again.",
+    "loading": "Loading..."
+  },
+  "Onboarding": {
+    "welcome": "Welcome to Lumina",
+    "next": "Next",
+    "back": "Back",
+    "skip": "Skip",
+    "finish": "Finish",
+    "startUsing": "Get Started",
+    "step1": {
+      "title": "Welcome!",
+      "description": "Hi! I'm Luma, your AI assistant.",
+      "body": "Lumina is an intelligent calendar that helps you schedule tasks, analyze priorities, and manage your time automatically. Let's get started!"
+    },
+    "step2": {
+      "title": "Working Hours",
+      "description": "Set your working hours so Luma can schedule tasks at the right time.",
+      "startTime": "Start Time",
+      "endTime": "End Time"
+    },
+    "step3": {
+      "title": "Display Preferences",
+      "description": "Customize Lumina to match your style.",
+      "theme": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeAuto": "Auto",
+      "calendarView": "Calendar View",
+      "viewDay": "Day",
+      "viewWeek": "Week",
+      "viewMonth": "Month",
+      "animationLevel": "Animation Level",
+      "animFull": "Full",
+      "animReduced": "Reduced",
+      "animNone": "None"
+    },
+    "step4": {
+      "title": "Luma's Personality",
+      "description": "Choose how Luma communicates with you.",
+      "formal": "Formal",
+      "formalDesc": "Professional and polished",
+      "formalSample": "Good morning. You have 3 important tasks today. I recommend starting with the monthly report.",
+      "friendly": "Friendly",
+      "friendlyDesc": "Casual and approachable",
+      "friendlySample": "Hey! You've got 3 tasks today. How about starting with the monthly report? Easy peasy!",
+      "cheerful": "Cheerful",
+      "cheerfulDesc": "Fun and energetic",
+      "cheerfulSample": "Hi there~! We've got 3 awesome tasks waiting for us today! Let's crush that monthly report first! 🎉",
+      "motivational": "Motivational",
+      "motivationalDesc": "Inspiring and encouraging",
+      "motivationalSample": "New day, new opportunities! You have 3 tasks to conquer. Start with the monthly report — you've got this! 💪",
+      "minimal": "Minimal",
+      "minimalDesc": "Short and to the point",
+      "minimalSample": "Today: 3 tasks → Start: Monthly report"
+    },
+    "step5": {
+      "title": "Language",
+      "description": "Choose your preferred language.",
+      "thai": "ไทย",
+      "english": "English"
+    },
+    "step6": {
+      "title": "All Set!",
+      "description": "Everything is ready. Let's start using Lumina!",
+      "greeting": {
+        "formal": "Welcome. I'm ready to help you manage your schedule efficiently.",
+        "friendly": "Yay! All set! Let's organize your schedule together!",
+        "cheerful": "Wow~! So excited! We're going to make every day amazing together! 🌟",
+        "motivational": "Your journey to peak productivity starts now! I'll be right here with you every step of the way! 🚀",
+        "minimal": "Ready → Go to dashboard"
+      }
+    }
+  },
+  "App": {
+    "search": "Search tasks, events...",
+    "notifications": "Notifications",
+    "addTask": "Add Task",
+    "quickCapture": "Quick capture — type a task...",
+    "profile": "Profile",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendar",
+      "tasks": "Tasks",
+      "analytics": "Analytics",
+      "settings": "Settings",
+      "collapse": "Collapse sidebar",
+      "expand": "Expand sidebar"
+    },
+    "rightPanel": {
+      "lumaAssistant": "Luma Assistant",
+      "todayPriority": "Today's Priority",
+      "scheduleToday": "Schedule today",
+      "mostImportant": "Most important task",
+      "openPanel": "Open Luma panel",
+      "closePanel": "Close panel",
+      "chatPlaceholder": "Type a message to Luma..."
+    },
+    "bottomNav": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendar",
+      "add": "Add",
+      "tasks": "Tasks",
+      "luma": "Luma"
+    }
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Welcome to Lumina — Luma is ready to help manage your schedule",
+    "greeting": "Good morning! Here's your day at a glance.",
+    "todaySchedule": "Today's Schedule",
+    "priorityTasks": "Priority Tasks",
+    "aiInsights": "AI Insights",
+    "viewAll": "View All",
+    "noEvents": "No events today",
+    "bestFocusTime": "Best focus time: 9–11 AM",
+    "bestFocusDesc": "Your productivity peaks in the morning. Schedule deep work here.",
+    "tasksAtRisk": "3 tasks at risk",
+    "tasksAtRiskDesc": "These tasks are approaching their deadlines. Consider prioritizing them.",
+    "weeklyCompletion": "Weekly completion: 78%",
+    "weeklyCompletionDesc": "You're on track! Complete 2 more tasks to hit your weekly goal."
+  },
+  "CalendarPage": {
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "today": "Today",
+    "prev": "Previous",
+    "next": "Next",
+    "events": "events",
+    "more": "more",
+    "noEvents": "No events",
+    "shortcutsTitle": "Keyboard Shortcuts",
+    "shortcutsDesc": "Navigate faster with your keyboard",
+    "shortcutsClose": "Close modal / overlay",
+    "shortcutsToggle": "Toggle this help overlay",
+    "pressToClose": "Press {key} to close"
+  },
+  "AI": {
+    "intelligenceTitle": "Luma AI — Task Ranking",
+    "optimizeSchedule": "Optimize my schedule",
+    "whyThisOrder": "Why this order?",
+    "noTasks": "No pending tasks — great job!",
+    "optimizeTitle": "Optimize Schedule",
+    "optimizeDesc": "Luma will arrange your tasks within working hours (09:00–18:00)",
+    "optimizedSchedule": "Optimized Schedule",
+    "overflow": "Overflow Tasks",
+    "optimizeApplied": "Schedule optimized!",
+    "optimizeAppliedDesc": "Your schedule has been updated.",
+    "undo": "Undo",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "conflictsFound": "{count} conflicts found",
+    "noConflicts": "No conflicts"
+  },
+  "DailyBriefing": {
+    "greetingMorning": "Good morning! ☀️",
+    "greetingAfternoon": "Good afternoon! 🌤️",
+    "greetingEvening": "Good evening! 🌙",
+    "summary": "Today you have {tasks} tasks, {meetings} meetings, {highPriority} high priority",
+    "topPriority": "Top Priority",
+    "bestFocusTime": "Best Focus Time",
+    "focusRecommendation": "Your peak productivity is {time}. Schedule deep work here.",
+    "noTasks": "No tasks today — enjoy your free time!",
+    "deadline": "Deadline",
+    "today": "Today",
+    "tomorrow": "Tomorrow"
+  },
+  "WeeklyReview": {
+    "title": "Weekly Review",
+    "completionRate": "Completion Rate",
+    "tasksCompleted": "{completed} of {total} tasks",
+    "timeByCategory": "Time by Category",
+    "streak": "Current Streak",
+    "streakDays": "{days} days",
+    "streakMessage": "Keep it up! You're on fire!",
+    "lumaRecommendation": "Luma's Recommendation",
+    "recommendationText": "Focus on high-priority tasks early in the week. Your productivity peaks on Tuesday and Wednesday.",
+    "hours": "h",
+    "thisWeek": "This Week"
+  },
+  "Analytics": {
+    "title": "Analytics",
+    "subtitle": "Track your productivity and habits",
+    "completionRate": "Completion Rate",
+    "completionDesc": "{completed} of {total} tasks completed",
+    "timeByCategory": "Time by Category",
+    "weeklyActivity": "Weekly Activity",
+    "streak": "Current Streak",
+    "streakDays": "{days} days",
+    "productivityScore": "Productivity Score",
+    "scoreDesc": "Based on task completion and consistency",
+    "categoryWork": "Work",
+    "categoryDevelopment": "Development",
+    "categoryDesign": "Design",
+    "categoryPersonal": "Personal",
+    "categoryMeeting": "Meeting",
+    "hours": "h",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  },
+  "Settings": {
+    "title": "Settings",
+    "subtitle": "Customize your Lumina experience",
+    "profile": "Profile",
+    "displayName": "Display Name",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "theme_auto": "Auto",
+    "animationLevel": "Animation Level",
+    "anim_full": "Full",
+    "anim_reduced": "Reduced",
+    "anim_none": "None",
+    "calendar": "Calendar Preferences",
+    "defaultView": "Default View",
+    "view_day": "Day",
+    "view_week": "Week",
+    "view_month": "Month",
+    "workingHours": "Working Hours",
+    "lumaAI": "Luma AI",
+    "personality": "Personality",
+    "personality_formal": "Formal",
+    "personality_formal_desc": "Professional and polished",
+    "personality_friendly": "Friendly",
+    "personality_friendly_desc": "Casual and approachable",
+    "personality_cheerful": "Cheerful",
+    "personality_cheerful_desc": "Fun and energetic",
+    "personality_motivational": "Motivational",
+    "personality_motivational_desc": "Inspiring and encouraging",
+    "personality_minimal": "Minimal",
+    "personality_minimal_desc": "Short and to the point",
+    "aiAggressiveness": "AI Aggressiveness",
+    "ai_conservative": "Conservative",
+    "ai_balanced": "Balanced",
+    "ai_proactive": "Proactive",
+    "language": "Language",
+    "pomodoro": "Pomodoro Timer",
+    "workDuration": "Work Duration",
+    "breakDuration": "Break Duration",
+    "minutes": "min"
+  },
+  "Pomodoro": {
+    "workMode": "Work Time",
+    "breakMode": "Break Time",
+    "session": "Session",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "skip": "Skip",
+    "sessionsCompleted": "sessions completed",
+    "linkTask": "Link to a task",
+    "noTask": "No task linked"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "success": "Success",
+    "noData": "No data available",
+    "search": "Search"
+  },
+  "Landing": {
+    "hero": {
+      "title": "Lumina",
+      "tagline": "The intelligent calendar that understands you",
+      "description": "Meet Luma — your AI assistant that schedules tasks, analyzes priorities, and manages your time automatically",
+      "signUp": "Get Started",
+      "signIn": "Sign In"
+    },
+    "features": {
+      "title": "Features designed for you",
+      "subtitle": "Every tool you need to manage your time intelligently",
+      "aiScheduling": {
+        "title": "AI Smart Scheduling",
+        "description": "AI analyzes all your tasks and schedules them automatically, picking the best time for each one"
+      },
+      "priorityIntelligence": {
+        "title": "Priority Intelligence",
+        "description": "Luma calculates priority scores from multiple factors, helping you know what to tackle first"
+      },
+      "focusMode": {
+        "title": "Focus Mode",
+        "description": "Hide all notifications and enter deep work mode with a built-in Pomodoro Timer"
+      },
+      "smartRecommendations": {
+        "title": "Smart Recommendations",
+        "description": "Luma learns your behavior and recommends the best time for each type of task"
+      },
+      "calendarViews": {
+        "title": "Calendar Views Day/Week/Month",
+        "description": "Switch views seamlessly with drag-and-drop and keyboard shortcuts"
+      },
+      "quickCapture": {
+        "title": "Quick Capture",
+        "description": "Add tasks from any page with a single shortcut. Luma analyzes and categorizes them automatically"
+      }
+    },
+    "howItWorks": {
+      "title": "Get started in 3 simple steps",
+      "subtitle": "Start managing your time intelligently right away",
+      "step1": {
+        "title": "Add your tasks",
+        "description": "Create tasks, appointments, deadlines, and events quickly and easily"
+      },
+      "step2": {
+        "title": "Luma analyzes",
+        "description": "AI calculates priorities, detects conflicts, and finds the best time slots"
+      },
+      "step3": {
+        "title": "Perfect schedule",
+        "description": "Get an optimized schedule with Luma's recommendations throughout the day"
+      }
+    },
+    "pricing": {
+      "title": "Plans that fit your needs",
+      "subtitle": "Start free, upgrade when ready",
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "period": "/month",
+        "description": "Start managing your time intelligently",
+        "features": [
+          "Day/Week/Month calendar",
+          "Unlimited tasks",
+          "Basic AI suggestions (5/day)",
+          "Quick Capture",
+          "Bilingual support"
+        ],
+        "cta": "Get Started Free"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$9",
+        "period": "/month",
+        "description": "Unlock the full power of AI",
+        "badge": "Recommended",
+        "features": [
+          "Everything in Free",
+          "Unlimited Luma AI",
+          "Smart Auto Scheduling",
+          "Focus Mode + Pomodoro",
+          "Calendar Sharing + Collaboration",
+          "Analytics Dashboard",
+          "Export PDF/CSV/ICS",
+          "Priority Support"
+        ],
+        "cta": "Start Free Trial"
+      }
+    },
+    "footer": {
+      "product": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "changelog": "Changelog",
+      "company": "Company",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "support": "Support",
+      "helpCenter": "Help Center",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "copyright": "© 2025 Lumina. All rights reserved.",
+      "madeWith": "Made with ❤️ for people who love managing time"
+    }
+  }
+}

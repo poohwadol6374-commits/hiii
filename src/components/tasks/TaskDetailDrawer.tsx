@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTaskStore, type Task } from "@/stores/taskStore";
 import { useFocusStore } from "@/stores/focusStore";
+import { useUndoStore } from "@/stores/undoStore";
 
 interface TaskDetailDrawerProps {
   task: Task | null;
@@ -37,8 +38,9 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
   const t = useTranslations("Tasks");
   const tTask = useTranslations("Task");
   const tActions = useTranslations("Actions");
-  const { updateTask, deleteTask, toggleComplete, addSubtask, toggleSubtask, deleteSubtask, updateNotes } = useTaskStore();
+  const { updateTask, deleteTask, toggleComplete, addSubtask, toggleSubtask, deleteSubtask, updateNotes, addTask } = useTaskStore();
   const startFocus = useFocusStore((s) => s.startFocus);
+  const pushUndo = useUndoStore((s) => s.push);
 
   const [editing, setEditing] = useState(false);
   const [editTitle, setEditTitle] = useState("");
@@ -67,18 +69,30 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
 
   const handleDelete = () => {
     if (!task) return;
+    const deletedTask = { ...task };
     deleteTask(task.id);
+    pushUndo({
+      label: `Delete "${task.title}"`,
+      undo: () => addTask(deletedTask),
+      redo: () => deleteTask(deletedTask.id),
+    });
     setShowDeleteConfirm(false);
     onClose();
   };
 
   const handleToggleComplete = () => {
     if (!task) return;
-    if (task.status !== "completed") {
+    const wasCompleted = task.status === "completed";
+    if (!wasCompleted) {
       setJustCompleted(true);
       setTimeout(() => setJustCompleted(false), 1200);
     }
     toggleComplete(task.id);
+    pushUndo({
+      label: wasCompleted ? `Mark "${task.title}" incomplete` : `Complete "${task.title}"`,
+      undo: () => toggleComplete(task.id),
+      redo: () => toggleComplete(task.id),
+    });
   };
 
   const formatDeadline = (deadline?: string) => {

@@ -7,6 +7,7 @@ import TaskCreateModal from "@/components/tasks/TaskCreateModal";
 import { usePomodoroStore } from "@/stores/pomodoroStore";
 import { useTaskStore, type Task } from "@/stores/taskStore";
 import { useToast } from "@/components/app/Toast";
+import { useUndoStore } from "@/stores/undoStore";
 import Link from "next/link";
 
 interface Notification {
@@ -39,7 +40,9 @@ export default function TopBar() {
   const togglePomodoro = usePomodoroStore((s) => s.toggleOpen);
   const pomoStatus = usePomodoroStore((s) => s.status);
   const addTask = useTaskStore((s) => s.addTask);
+  const deleteTask = useTaskStore((s) => s.deleteTask);
   const { showToast } = useToast();
+  const pushUndo = useUndoStore((s) => s.push);
 
   // Quick Capture
   const [quickInput, setQuickInput] = useState("");
@@ -60,9 +63,14 @@ export default function TopBar() {
       createdAt: new Date().toISOString(),
     };
     addTask(newTask);
+    pushUndo({
+      label: `Add "${text}"`,
+      undo: () => deleteTask(newTask.id),
+      redo: () => addTask(newTask),
+    });
     setQuickInput("");
     showToast(`Added: ${text}`, "success");
-  }, [quickInput, addTask, showToast]);
+  }, [quickInput, addTask, deleteTask, pushUndo, showToast]);
 
   // Notifications
   const [notifOpen, setNotifOpen] = useState(false);

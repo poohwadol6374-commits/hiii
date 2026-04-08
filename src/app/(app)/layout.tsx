@@ -7,9 +7,42 @@ import BottomNav from "@/components/app/BottomNav";
 import PomodoroTimer from "@/components/app/PomodoroTimer";
 import FocusMode from "@/components/app/FocusMode";
 import CommandPalette from "@/components/app/CommandPalette";
-import { ToastProvider } from "@/components/app/Toast";
+import { ToastProvider, useToast } from "@/components/app/Toast";
 import { useFocusStore } from "@/stores/focusStore";
-import { useEffect } from "react";
+import { useUndoStore } from "@/stores/undoStore";
+import { useEffect, useCallback } from "react";
+
+function UndoRedoHandler() {
+  const undo = useUndoStore((s) => s.undo);
+  const redo = useUndoStore((s) => s.redo);
+  const canUndo = useUndoStore((s) => s.canUndo);
+  const canRedo = useUndoStore((s) => s.canRedo);
+  const { showToast } = useToast();
+
+  const handler = useCallback((e: KeyboardEvent) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "z" && !e.shiftKey) {
+      e.preventDefault();
+      if (canUndo()) {
+        const action = undo();
+        if (action) showToast(`Undo: ${action.label}`, "info");
+      }
+    }
+    if ((e.metaKey || e.ctrlKey) && (e.key === "y" || (e.key === "z" && e.shiftKey))) {
+      e.preventDefault();
+      if (canRedo()) {
+        const action = redo();
+        if (action) showToast(`Redo: ${action.label}`, "info");
+      }
+    }
+  }, [undo, redo, canUndo, canRedo, showToast]);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [handler]);
+
+  return null;
+}
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const focusActive = useFocusStore((s) => s.active);
@@ -41,6 +74,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <PomodoroTimer />
       <FocusMode />
       <CommandPalette />
+      <UndoRedoHandler />
     </ToastProvider>
   );
 }

@@ -13,6 +13,7 @@ import ShortcutsHelp from "@/components/app/ShortcutsHelp";
 import { useKeyboardShortcuts, type ShortcutDef } from "@/hooks/useKeyboardShortcuts";
 import { useToast } from "@/components/app/Toast";
 import { usePomodoroStore } from "@/stores/pomodoroStore";
+import { useSwipe } from "@/hooks/useSwipe";
 import {
   getMonday,
   MONTH_NAMES,
@@ -140,6 +141,12 @@ export default function CalendarPage() {
 
   const { helpOpen, closeHelp } = useKeyboardShortcuts({ shortcuts });
 
+  // Swipe gestures for mobile
+  const swipeHandlers = useSwipe(
+    () => navigate("next"),
+    () => navigate("prev"),
+  );
+
   // Build date label
   const dateLabel = (() => {
     if (view === "day") {
@@ -170,6 +177,7 @@ export default function CalendarPage() {
       <div
         className="flex-1 bg-white dark:bg-lumina-900 rounded-2xl border border-lumina-100 dark:border-lumina-800 overflow-hidden"
         style={{ boxShadow: "var(--shadow-card)" }}
+        {...swipeHandlers}
       >
         <AnimatePresence mode="wait">
           {view === "week" && <WeekView key="week" monday={monday} />}

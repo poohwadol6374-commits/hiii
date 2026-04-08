@@ -39,7 +39,7 @@ export default function CalendarHeader({
         <div className="flex items-center gap-0.5">
           <button
             onClick={onPrev}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-lumina-500 hover:bg-lumina-100 dark:hover:bg-lumina-800 hover:text-lumina-700 dark:hover:text-lumina-300 transition-colors"
             aria-label={t("prev")}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -48,7 +48,7 @@ export default function CalendarHeader({
           </button>
           <button
             onClick={onNext}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-lumina-500 hover:bg-lumina-100 dark:hover:bg-lumina-800 hover:text-lumina-700 dark:hover:text-lumina-300 transition-colors"
             aria-label={t("next")}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -56,25 +56,25 @@ export default function CalendarHeader({
             </svg>
           </button>
         </div>
-        <h2 className="text-base md:text-lg font-semibold text-lumina-900 ml-1">
+        <h2 className="text-base md:text-lg font-semibold text-lumina-900 dark:text-lumina-100 ml-1">
           {dateLabel}
         </h2>
       </div>
 
       {/* Right: View Switcher */}
-      <div className="relative flex items-center bg-lumina-100 rounded-xl p-0.5">
+      <div className="relative flex items-center bg-lumina-100 dark:bg-lumina-800 rounded-xl p-0.5">
         {views.map((v) => (
           <button
             key={v}
             onClick={() => onViewChange(v)}
             className={`relative z-10 px-4 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-              view === v ? "text-google-blue-700" : "text-lumina-500 hover:text-lumina-700"
+              view === v ? "text-google-blue-700 dark:text-google-blue-300" : "text-lumina-500 hover:text-lumina-700 dark:hover:text-lumina-300"
             }`}
           >
             {view === v && (
               <motion.div
                 layoutId="calendar-view-tab"
-                className="absolute inset-0 bg-white rounded-lg shadow-soft"
+                className="absolute inset-0 bg-white dark:bg-lumina-700 rounded-lg shadow-soft"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}

@@ -69,7 +69,7 @@ export default function MonthView({ date, onDayClick }: MonthViewProps) {
       className="flex flex-col h-full"
     >
       {/* Day name headers */}
-      <div className="grid grid-cols-7 border-b border-lumina-200 bg-white/80 backdrop-blur-sm sticky top-0 z-20">
+      <div className="grid grid-cols-7 border-b border-lumina-200 dark:border-lumina-800 bg-white/80 dark:bg-lumina-900/80 backdrop-blur-sm sticky top-0 z-20">
         {DAY_NAMES_SHORT.map((name) => (
           <div
             key={name}
@@ -81,7 +81,7 @@ export default function MonthView({ date, onDayClick }: MonthViewProps) {
       </div>
 
       {/* Calendar grid */}
-      <div className="flex-1 grid grid-cols-7 grid-rows-6 border-l border-lumina-100">
+      <div className="flex-1 grid grid-cols-7 grid-rows-6 border-l border-lumina-100 dark:border-lumina-800">
         {cells.map((cellDate, i) => {
           if (!cellDate) return <div key={i} />;
           const isToday = isSameDay(cellDate, today);
@@ -90,20 +90,24 @@ export default function MonthView({ date, onDayClick }: MonthViewProps) {
           const visibleEvents = events.slice(0, 3);
           const moreCount = events.length - 3;
 
+          // Heatmap intensity based on event count
+          const intensity = events.length;
+          const heatmapBg = intensity === 0 ? "" : intensity <= 1 ? "bg-google-blue-50/30 dark:bg-google-blue-900/10" : intensity <= 2 ? "bg-google-blue-50/50 dark:bg-google-blue-900/15" : intensity <= 3 ? "bg-google-blue-100/50 dark:bg-google-blue-900/20" : "bg-google-blue-100/70 dark:bg-google-blue-900/30";
+
           return (
             <motion.div
               key={i}
               whileHover={{ backgroundColor: "rgba(66,133,244,0.04)" }}
               onClick={() => onDayClick?.(cellDate)}
-              className={`border-r border-b border-lumina-100 p-1.5 min-h-[80px] md:min-h-[100px] cursor-pointer transition-colors ${
+              className={`border-r border-b border-lumina-100 dark:border-lumina-800 p-1 md:p-1.5 min-h-[60px] md:min-h-[100px] cursor-pointer transition-colors ${
                 inMonth ? "" : "opacity-40"
-              }`}
+              } ${heatmapBg}`}
             >
               <span
                 className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium mb-1 ${
                   isToday
                     ? "bg-google-blue-500 text-white"
-                    : "text-lumina-700"
+                    : "text-lumina-700 dark:text-lumina-300"
                 }`}
               >
                 {cellDate.getDate()}
@@ -117,7 +121,7 @@ export default function MonthView({ date, onDayClick }: MonthViewProps) {
                     className="flex items-center gap-1 truncate"
                   >
                     <EventDot category={event.category} />
-                    <span className="text-[10px] text-lumina-600 truncate hidden md:inline">
+                    <span className="text-[10px] text-lumina-600 dark:text-lumina-400 truncate hidden md:inline">
                       {event.title}
                     </span>
                   </div>

@@ -11,16 +11,16 @@ export default function HeroSection() {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24" aria-label="Hero">
       {/* Pure white base with very subtle warm gradient */}
       <div className="pointer-events-none absolute inset-0 bg-white" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/20 via-transparent to-purple-50/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/30 via-transparent to-transparent" />
 
       {/* Soft ambient orbs */}
-      <motion.div className="pointer-events-none absolute left-[15%] top-[20%] h-[500px] w-[500px] rounded-full bg-orange-100/30 blur-[120px]"
+      <motion.div className="pointer-events-none absolute left-[15%] top-[20%] h-[500px] w-[500px] rounded-full bg-google-blue-100/25 blur-[120px]"
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div className="pointer-events-none absolute right-[10%] top-[30%] h-[400px] w-[400px] rounded-full bg-pink-100/25 blur-[100px]"
+      <motion.div className="pointer-events-none absolute right-[10%] top-[30%] h-[400px] w-[400px] rounded-full bg-google-green-100/20 blur-[100px]"
         animate={{ x: [0, -15, 0], y: [0, 20, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div className="pointer-events-none absolute bottom-[15%] left-[30%] h-[350px] w-[350px] rounded-full bg-purple-100/20 blur-[100px]"
+      <motion.div className="pointer-events-none absolute bottom-[15%] left-[30%] h-[350px] w-[350px] rounded-full bg-google-yellow-100/15 blur-[100px]"
         animate={{ x: [0, 15, 0], y: [0, -10, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} />
-      <motion.div className="pointer-events-none absolute right-[25%] bottom-[25%] h-[300px] w-[300px] rounded-full bg-blue-100/15 blur-[80px]"
+      <motion.div className="pointer-events-none absolute right-[25%] bottom-[25%] h-[300px] w-[300px] rounded-full bg-google-red-100/10 blur-[80px]"
         animate={{ x: [0, -10, 0], y: [0, 12, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} />
 
       <div className="relative z-10 flex max-w-3xl flex-col items-center text-center">
@@ -32,8 +32,8 @@ export default function HeroSection() {
           className="mb-10 relative"
         >
           {/* Glow behind logo */}
-          <div className="absolute inset-0 rounded-3xl blur-2xl opacity-20"
-            style={{ background: "linear-gradient(135deg, #E08A5E, #C76B8F, #9B7EC8, #7BA4D4)", transform: "scale(1.5)" }} />
+          <div className="absolute inset-0 rounded-3xl blur-2xl opacity-25"
+            style={{ background: "linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335)", transform: "scale(1.5)" }} />
           <LumaLogo size={100} />
         </motion.div>
 
@@ -77,9 +77,9 @@ export default function HeroSection() {
         >
           <motion.a
             href="/signup"
-            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(155,126,200,0.2)" }}
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(66,133,244,0.25)" }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center justify-center rounded-full gradient-bg px-10 py-4 text-base font-semibold text-white shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
+            className="inline-flex items-center justify-center rounded-full gradient-bg px-10 py-4 text-base font-semibold text-white shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-google-blue-400 focus:ring-offset-2"
             role="button"
           >
             {t("signUp")}
@@ -91,7 +91,7 @@ export default function HeroSection() {
             href="/signin"
             whileHover={{ scale: 1.04, backgroundColor: "rgba(0,0,0,0.02)" }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center justify-center rounded-full border border-lumina-200 bg-white/80 backdrop-blur-sm px-10 py-4 text-base font-semibold text-lumina-700 shadow-sm transition-all hover:border-lumina-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
+            className="inline-flex items-center justify-center rounded-full border border-lumina-200 bg-white/80 backdrop-blur-sm px-10 py-4 text-base font-semibold text-lumina-700 shadow-sm transition-all hover:border-lumina-300 focus:outline-none focus:ring-2 focus:ring-google-blue-400 focus:ring-offset-2"
             role="button"
           >
             {t("signIn")}

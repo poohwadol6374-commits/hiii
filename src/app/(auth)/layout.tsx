@@ -11,7 +11,7 @@ export default function AuthLayout({
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center px-4 py-12 bg-white dark:bg-lumina-950">
       {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/30 via-pink-50/15 to-purple-50/20 dark:from-purple-900/10 dark:via-transparent dark:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/30 dark:from-google-blue-900/10 via-transparent to-transparent" />
 
       {/* Floating orbs */}
       <motion.div

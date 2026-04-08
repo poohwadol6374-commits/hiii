@@ -4,99 +4,83 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 const steps = [
-  {
-    key: "step1",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-      </svg>
-    ),
-    color: "from-google-blue-400 to-google-blue-600",
-    ring: "ring-google-blue-100",
-  },
-  {
-    key: "step2",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
-      </svg>
-    ),
-    color: "from-google-yellow-400 to-google-yellow-600",
-    ring: "ring-google-yellow-100",
-  },
-  {
-    key: "step3",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-    ),
-    color: "from-google-green-400 to-google-green-600",
-    ring: "ring-google-green-100",
-  },
+  { num: "01", icon: "📝", color: "from-google-blue-500 to-google-blue-600" },
+  { num: "02", icon: "🤖", color: "from-google-green-500 to-google-green-600" },
+  { num: "03", icon: "✨", color: "from-google-yellow-500 to-google-yellow-600" },
 ];
 
 export default function HowItWorksSection() {
   const t = useTranslations("Landing.howItWorks");
 
   return (
-    <section
-      className="bg-lumina-50 px-6 py-24"
-      aria-label="How it works"
-      id="how-it-works"
-    >
-      <div className="mx-auto max-w-5xl">
+    <section className="relative py-24 px-6 bg-lumina-50/50 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <motion.div
-          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-lumina-900 sm:text-5xl">
-            {t("title")}
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-lumina-500">
-            {t("subtitle")}
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-lumina-900 mb-4">{t("title")}</h2>
+          <p className="text-lg text-lumina-500 max-w-xl mx-auto">{t("subtitle")}</p>
         </motion.div>
 
-        <div className="grid gap-12 md:grid-cols-3">
+        {/* Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          {/* Connecting line (desktop) */}
+          <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-google-blue-200 via-google-green-200 to-google-yellow-200" />
+
           {steps.map((step, i) => (
             <motion.div
-              key={step.key}
-              className="flex flex-col items-center text-center"
+              key={step.num}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="flex flex-col items-center text-center relative"
             >
-              {/* Step number + icon */}
-              <div className="relative mb-6">
-                <div
-                  className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${step.color} text-white shadow-elevated ring-4 ${step.ring}`}
-                >
-                  {step.icon}
-                </div>
-                <span className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-white text-xs font-bold text-lumina-700 shadow-card">
-                  {i + 1}
-                </span>
-              </div>
+              {/* Number circle */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-2xl text-white shadow-lg mb-6 relative z-10`}
+              >
+                {step.icon}
+              </motion.div>
 
-              <h3 className="mb-2 text-xl font-semibold text-lumina-900">
-                {t(`${step.key}.title`)}
+              <span className="text-[11px] font-bold text-google-blue-500 uppercase tracking-widest mb-2">
+                Step {step.num}
+              </span>
+              <h3 className="text-lg font-semibold text-lumina-900 mb-2">
+                {t(`step${i + 1}.title`)}
               </h3>
-              <p className="text-sm leading-relaxed text-lumina-500">
-                {t(`${step.key}.description`)}
+              <p className="text-sm text-lumina-500 leading-relaxed max-w-xs">
+                {t(`step${i + 1}.description`)}
               </p>
-
-              {/* Connector line (hidden on last item and mobile) */}
-              {i < steps.length - 1 && (
-                <div className="mt-8 hidden h-0.5 w-full bg-gradient-to-r from-transparent via-lumina-200 to-transparent md:block" />
-              )}
             </motion.div>
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <motion.a
+            href="/signup"
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(66,133,244,0.25)" }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 gradient-bg text-white px-8 py-4 rounded-full text-base font-semibold shadow-lg transition-all"
+          >
+            เริ่มใช้งานฟรี
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </motion.a>
+          <p className="mt-3 text-xs text-lumina-400">ไม่ต้องใส่บัตรเครดิต · ใช้ได้ทุกฟีเจอร์</p>
+        </motion.div>
       </div>
     </section>
   );

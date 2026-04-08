@@ -98,27 +98,39 @@ export default function HeroSection() {
           </motion.a>
         </motion.div>
 
-        {/* Trust badges */}
+        {/* Free badge */}
         <motion.div
-          className="mt-16 flex items-center gap-6 text-lumina-400"
+          className="mt-6 mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.6, delay: 0.85 }}
         >
-          <div className="flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 5.5L15 6L11.5 9.5L12.5 14.5L8 12L3.5 14.5L4.5 9.5L1 6L6 5.5L8 1Z" fill="currentColor" /></svg>
-            <span className="text-xs font-medium">4.9/5 Rating</span>
-          </div>
-          <div className="h-4 w-px bg-lumina-200" />
-          <div className="flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5" /><path d="M5 8L7 10L11 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            <span className="text-xs font-medium">Free to start</span>
-          </div>
-          <div className="h-4 w-px bg-lumina-200" />
-          <div className="flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2V5M8 11V14M14 8H11M5 8H2M12.2 3.8L10.1 5.9M5.9 10.1L3.8 12.2M12.2 12.2L10.1 10.1M5.9 5.9L3.8 3.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
-            <span className="text-xs font-medium">AI-powered</span>
-          </div>
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-google-green-600 bg-google-green-50 rounded-full border border-google-green-100">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5" /><path d="M4.5 7L6 8.5L9.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            ฟรีทุกฟีเจอร์ · ไม่ต้องใส่บัตรเครดิต
+          </span>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          className="grid grid-cols-3 gap-8 md:gap-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1 }}
+        >
+          {[
+            { value: "10K+", label: "ผู้ใช้งาน" },
+            { value: "50K+", label: "งานที่จัดการแล้ว" },
+            { value: "4.9", label: "คะแนนรีวิว" },
+          ].map((stat, i) => (
+            <motion.div key={stat.label} className="text-center"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1 + i * 0.1 }}>
+              <p className="text-2xl md:text-3xl font-bold text-lumina-900">{stat.value}</p>
+              <p className="text-xs text-lumina-400 mt-1">{stat.label}</p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
 

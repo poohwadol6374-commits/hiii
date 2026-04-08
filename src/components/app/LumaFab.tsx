@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTaskStore } from "@/stores/taskStore";
+import { useSettingsStore } from "@/stores/settingsStore";
 import { generateResponse, type LumaChatResponse } from "@/lib/ai/lumaChat";
 
 interface ChatMessage {
@@ -19,6 +20,7 @@ export default function LumaFab() {
   const t = useTranslations("App.rightPanel");
   const tLuma = useTranslations("Luma");
   const tasks = useTaskStore((s) => s.tasks);
+  const personality = useSettingsStore((s) => s.lumaPersonality);
 
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState({ x: -1, y: -1 });
@@ -71,7 +73,7 @@ export default function LumaFab() {
 
       // Simulate typing delay for responsiveness
       setTimeout(() => {
-        const response: LumaChatResponse = generateResponse(text, tasks);
+        const response: LumaChatResponse = generateResponse(text, tasks, new Date(), personality);
         const lumaMsg: ChatMessage = {
           id: `l_${Date.now()}`,
           role: "luma",

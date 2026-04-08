@@ -6,6 +6,7 @@ import { useTaskStore } from "@/stores/taskStore";
 import { useGoalStore } from "@/stores/goalStore";
 import { signOut } from "next-auth/react";
 import { useMemo } from "react";
+import LumaLogo from "@/components/landing/LumaLogo";
 
 const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.06 } } };
 const cardVariants = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 260, damping: 24 } } };

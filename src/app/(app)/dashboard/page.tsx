@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import TaskIntelligencePanel from "@/components/ai/TaskIntelligencePanel";
 import DailyBriefing from "@/components/dashboard/DailyBriefing";
 import WeeklyReview from "@/components/dashboard/WeeklyReview";
+import LumaLogo from "@/components/landing/LumaLogo";
 
 const mockEvents = [
   { id: "e1", title: "Team Standup", time: "09:00 – 09:30", type: "meeting" as const, color: "google-blue" },
@@ -57,8 +58,8 @@ export default function DashboardPage() {
       {/* Welcome Header */}
       <motion.div variants={cardVariants} className="mb-6">
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
-            <span className="text-white text-sm font-bold">L</span>
+          <div className="w-10 h-10 gradient-bg flex items-center justify-center flex-shrink-0" style={{ borderRadius: 10 }}>
+            <LumaLogo size={40} />
           </div>
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-lumina-900 dark:text-lumina-100">{t("title")}</h1>

@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useTaskStore } from "@/stores/taskStore";
 import { useSettingsStore } from "@/stores/settingsStore";
 import { generateResponse, type LumaChatResponse } from "@/lib/ai/lumaChat";
+import LumaLogo from "@/components/landing/LumaLogo";
 
 interface ChatMessage {
   id: string;
@@ -162,7 +163,7 @@ export default function LumaFab() {
             }}
           >
             <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-white/25 to-transparent pointer-events-none" />
-            <span className="relative text-white font-bold text-sm select-none">L</span>
+            <LumaLogo size={SIZE} className="rounded-full" />
             <div className="absolute -top-[1px] -right-[1px] w-3 h-3 rounded-full bg-google-green-400 border-[1.5px] border-white" />
           </div>
         </motion.div>
@@ -192,9 +193,7 @@ export default function LumaFab() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-lumina-100 dark:border-lumina-800">
                 <div className="flex items-center gap-2.5">
                   <div className="relative">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 flex items-center justify-center">
-                      <span className="text-white text-[10px] font-bold">L</span>
-                    </div>
+                    <LumaLogo size={28} />
                     <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-google-green-400 border-[1.5px] border-white" />
                   </div>
                   <div>

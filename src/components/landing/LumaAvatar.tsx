@@ -9,7 +9,7 @@ export default function LumaAvatar({ size = 96 }: { size?: number }) {
       {/* Outer glow ring */}
       <motion.div
         className="absolute inset-0 rounded-2xl opacity-30 blur-xl"
-        style={{ background: "linear-gradient(135deg, #F97316, #EC4899, #8B5CF6, #60A5FA)" }}
+        style={{ background: "linear-gradient(135deg, #E08A5E, #C76B8F, #9B7EC8, #7BA4D4)" }}
         animate={{
           scale: [1, 1.15, 1],
           opacity: [0.25, 0.4, 0.25],

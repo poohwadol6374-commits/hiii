@@ -15,11 +15,10 @@ export default function LumaLogo({ size = 40, className = "" }: LumaLogoProps) {
       <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="luma-bg" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#FBBC05" />
-            <stop offset="25%" stopColor="#F97316" />
-            <stop offset="50%" stopColor="#EC4899" />
-            <stop offset="75%" stopColor="#8B5CF6" />
-            <stop offset="100%" stopColor="#60A5FA" />
+            <stop offset="0%" stopColor="#EAB07A" />
+            <stop offset="30%" stopColor="#D4899E" />
+            <stop offset="60%" stopColor="#B09AD4" />
+            <stop offset="100%" stopColor="#8FB8DE" />
           </linearGradient>
           <linearGradient id="luma-glow" x1="30" y1="30" x2="50" y2="50" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />

@@ -149,26 +149,26 @@
 
 /* ===== Apple Intelligence Gradient Utilities ===== */
 .gradient-text {
-  background: linear-gradient(135deg, #F97316, #EC4899, #8B5CF6, #3B82F6);
+  background: linear-gradient(135deg, #E08A5E, #C76B8F, #9B7EC8, #7BA4D4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #F97316, #EC4899, #8B5CF6, #3B82F6);
+  background: linear-gradient(135deg, #E08A5E, #C76B8F, #9B7EC8, #7BA4D4);
 }
 
 .gradient-bg-soft {
-  background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(236,72,153,0.08), rgba(139,92,246,0.08), rgba(59,130,246,0.08));
+  background: linear-gradient(135deg, rgba(224,138,94,0.06), rgba(199,107,143,0.06), rgba(155,126,200,0.06), rgba(123,164,212,0.06));
 }
 
 .gradient-border {
-  border-image: linear-gradient(135deg, #F97316, #EC4899, #8B5CF6, #3B82F6) 1;
+  border-image: linear-gradient(135deg, #E08A5E, #C76B8F, #9B7EC8, #7BA4D4) 1;
 }
 
 .gradient-glow {
-  box-shadow: 0 0 20px rgba(236,72,153,0.15), 0 0 40px rgba(139,92,246,0.1), 0 0 60px rgba(249,115,22,0.05);
+  box-shadow: 0 0 16px rgba(155,126,200,0.12), 0 0 32px rgba(199,107,143,0.06);
 }
 
 @keyframes gradient-shift {
@@ -178,7 +178,7 @@
 }
 
 .gradient-animated {
-  background: linear-gradient(270deg, #F97316, #EC4899, #8B5CF6, #3B82F6, #EC4899, #F97316);
+  background: linear-gradient(270deg, #E08A5E, #C76B8F, #9B7EC8, #7BA4D4, #C76B8F, #E08A5E);
   background-size: 300% 300%;
   animation: gradient-shift 6s ease infinite;
 }

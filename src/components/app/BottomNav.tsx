@@ -90,7 +90,7 @@ export default function BottomNav() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setCreateOpen(true)}
-                className="flex items-center justify-center w-12 h-12 -mt-4 rounded-2xl bg-google-blue-500 text-white shadow-lg"
+                className="flex items-center justify-center w-12 h-12 -mt-4 rounded-2xl gradient-bg text-white shadow-lg hover-pop"
                 style={{ boxShadow: "0 4px 16px rgba(66, 133, 244, 0.35)" }}
                 aria-label={t(item.key)}
               >

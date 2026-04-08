@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -18,7 +18,7 @@ export default function Footer() {
               <span className="text-lg font-bold text-lumina-900">Lumina</span>
             </div>
             <p className="text-sm text-lumina-500 leading-relaxed mb-4">
-              ปฏิทินอัจฉริยะที่เข้าใจคุณ พร้อมผู้ช่วย AI Luma ที่จัดตารางงานให้อัตโนมัติ
+              à¸›à¸à¸´à¸—à¸´à¸™à¸­à¸±à¸ˆà¸‰à¸£à¸´à¸¢à¸°à¸—à¸µà¹ˆà¹€à¸‚à¹‰à¸²à¹ƒà¸ˆà¸„à¸¸à¸“ à¸žà¸£à¹‰à¸­à¸¡à¸œà¸¹à¹‰à¸Šà¹ˆà¸§à¸¢ AI Luma à¸—à¸µà¹ˆà¸ˆà¸±à¸”à¸•à¸²à¸£à¸²à¸‡à¸‡à¸²à¸™à¹ƒà¸«à¹‰à¸­à¸±à¸•à¹‚à¸™à¸¡à¸±à¸•à¸´
             </p>
           </div>
 
@@ -26,23 +26,23 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-semibold text-lumina-900 uppercase tracking-wider mb-4">{t("product")}</h4>
             <ul className="space-y-2.5">
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("features")}</a></li>
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("changelog")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("features")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("changelog")}</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs font-semibold text-lumina-900 uppercase tracking-wider mb-4">{t("company")}</h4>
             <ul className="space-y-2.5">
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("about")}</a></li>
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("blog")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("about")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("blog")}</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs font-semibold text-lumina-900 uppercase tracking-wider mb-4">{t("support")}</h4>
             <ul className="space-y-2.5">
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("helpCenter")}</a></li>
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("contact")}</a></li>
-              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors">{t("privacy")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("helpCenter")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("contact")}</a></li>
+              <li><a href="#" className="text-sm text-lumina-500 hover:text-google-blue-600 transition-colors underline-slide">{t("privacy")}</a></li>
             </ul>
           </div>
         </div>

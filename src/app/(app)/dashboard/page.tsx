@@ -78,7 +78,7 @@ export default function DashboardPage() {
         {/* Today's Schedule */}
         <motion.div
           variants={cardVariants}
-          className="lg:col-span-2 bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
+          className="lg:col-span-2 bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800 hover-lift border-highlight"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <div className="flex items-center justify-between mb-4">
@@ -112,7 +112,7 @@ export default function DashboardPage() {
         {/* Priority Tasks */}
         <motion.div
           variants={cardVariants}
-          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800 hover-lift border-highlight"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <div className="flex items-center justify-between mb-4">
@@ -247,7 +247,7 @@ function InsightCard({
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, type: "spring" as const, stiffness: 260, damping: 24 }}
-      className={`${c.bg} rounded-2xl p-4 border ${c.border} cursor-pointer hover:shadow-md transition-shadow`}
+      className={`${c.bg} rounded-2xl p-4 border ${c.border} cursor-pointer hover-lift hover-glow transition-all`}
     >
       <div className={`w-9 h-9 rounded-xl ${c.iconBg} ${c.iconText} flex items-center justify-center mb-3`}>
         {icon}

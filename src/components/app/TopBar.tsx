@@ -100,7 +100,7 @@ export default function TopBar() {
             </svg>
             <input type="text" placeholder={`${t("search")}  ⌘K`} readOnly
               onClick={() => { window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true })); }}
-              className="w-full pl-9 pr-4 py-2 text-sm bg-lumina-100/80 dark:bg-lumina-800/80 rounded-xl border-none outline-none cursor-pointer hover:bg-lumina-200/80 dark:hover:bg-lumina-700/80 transition-all placeholder:text-lumina-400 dark:text-lumina-100" />
+              className="w-full pl-9 pr-4 py-2 text-sm bg-lumina-100/80 dark:bg-lumina-800/80 rounded-xl border-none outline-none cursor-pointer hover:bg-lumina-200/80 dark:hover:bg-lumina-700/80 transition-all placeholder:text-lumina-400 dark:text-lumina-100 focus-ring press-effect" />
           </div>
         </div>
 

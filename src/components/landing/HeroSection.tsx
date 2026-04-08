@@ -2,68 +2,68 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import LumaAvatar from "./LumaAvatar";
+import LumaLogo from "./LumaLogo";
 
 export default function HeroSection() {
   const t = useTranslations("Landing.hero");
 
   return (
-    <section
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24"
-      aria-label="Hero"
-    >
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/60 via-transparent to-transparent" />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24" aria-label="Hero">
+      {/* Pure white base with very subtle warm gradient */}
+      <div className="pointer-events-none absolute inset-0 bg-white" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/20 via-transparent to-purple-50/10" />
 
-      {/* Floating orbs */}
-      <motion.div
-        className="pointer-events-none absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-google-blue-200/20 blur-3xl"
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="pointer-events-none absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-google-green-200/15 blur-3xl"
-        animate={{ x: [0, -25, 0], y: [0, 25, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Soft ambient orbs */}
+      <motion.div className="pointer-events-none absolute left-[15%] top-[20%] h-[500px] w-[500px] rounded-full bg-orange-100/30 blur-[120px]"
+        animate={{ x: [0, 20, 0], y: [0, -15, 0] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} />
+      <motion.div className="pointer-events-none absolute right-[10%] top-[30%] h-[400px] w-[400px] rounded-full bg-pink-100/25 blur-[100px]"
+        animate={{ x: [0, -15, 0], y: [0, 20, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} />
+      <motion.div className="pointer-events-none absolute bottom-[15%] left-[30%] h-[350px] w-[350px] rounded-full bg-purple-100/20 blur-[100px]"
+        animate={{ x: [0, 15, 0], y: [0, -10, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} />
+      <motion.div className="pointer-events-none absolute right-[25%] bottom-[25%] h-[300px] w-[300px] rounded-full bg-blue-100/15 blur-[80px]"
+        animate={{ x: [0, -10, 0], y: [0, 12, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} />
 
       <div className="relative z-10 flex max-w-3xl flex-col items-center text-center">
-        {/* Luma Avatar */}
+        {/* Logo with entrance */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
+          initial={{ opacity: 0, scale: 0.6, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 150, damping: 18, delay: 0.1 }}
+          className="mb-10 relative"
         >
-          <LumaAvatar size={96} />
+          {/* Glow behind logo */}
+          <div className="absolute inset-0 rounded-3xl blur-2xl opacity-30"
+            style={{ background: "linear-gradient(135deg, #F97316, #EC4899, #8B5CF6, #60A5FA)", transform: "scale(1.5)" }} />
+          <LumaLogo size={100} />
         </motion.div>
 
-        {/* Title */}
+        {/* Title with gradient */}
         <motion.h1
-          className="mb-4 text-6xl font-bold tracking-tight text-lumina-900 sm:text-7xl"
-          initial={{ opacity: 0, y: 20 }}
+          className="mb-5 text-6xl font-bold tracking-tight sm:text-8xl"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
         >
-          {t("title")}
+          <span className="text-lumina-900">Lum</span>
+          <span className="gradient-text">ina</span>
         </motion.h1>
 
-        {/* Tagline */}
+        {/* Tagline with gradient text */}
         <motion.p
-          className="mb-4 text-xl font-medium text-google-blue-600 sm:text-2xl"
-          initial={{ opacity: 0, y: 20 }}
+          className="mb-5 text-xl font-semibold sm:text-2xl gradient-text"
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
         >
           {t("tagline")}
         </motion.p>
 
         {/* Description */}
         <motion.p
-          className="mb-10 max-w-xl text-lg text-lumina-500"
+          className="mb-12 max-w-lg text-base leading-relaxed text-lumina-500 sm:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
+          transition={{ duration: 0.7, delay: 0.55 }}
         >
           {t("description")}
         </motion.p>
@@ -73,26 +73,66 @@ export default function HeroSection() {
           className="flex flex-col gap-4 sm:flex-row"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
         >
-          <a
+          <motion.a
             href="/signup"
-            className="inline-flex items-center justify-center rounded-full bg-google-blue-500 px-8 py-3.5 text-base font-semibold text-white shadow-elevated transition-all hover:bg-google-blue-600 hover:shadow-modal focus:outline-none focus:ring-2 focus:ring-google-blue-500 focus:ring-offset-2"
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(168,85,247,0.25)" }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center justify-center rounded-full gradient-bg px-10 py-4 text-base font-semibold text-white shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
             role="button"
-            aria-label={t("signUp")}
           >
             {t("signUp")}
-          </a>
-          <a
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
+              <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </motion.a>
+          <motion.a
             href="/signin"
-            className="inline-flex items-center justify-center rounded-full border border-lumina-200 bg-white px-8 py-3.5 text-base font-semibold text-lumina-700 shadow-soft transition-all hover:border-lumina-300 hover:bg-lumina-50 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-google-blue-500 focus:ring-offset-2"
+            whileHover={{ scale: 1.04, backgroundColor: "rgba(0,0,0,0.02)" }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center justify-center rounded-full border border-lumina-200 bg-white/80 backdrop-blur-sm px-10 py-4 text-base font-semibold text-lumina-700 shadow-sm transition-all hover:border-lumina-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
             role="button"
-            aria-label={t("signIn")}
           >
             {t("signIn")}
-          </a>
+          </motion.a>
+        </motion.div>
+
+        {/* Trust badges */}
+        <motion.div
+          className="mt-16 flex items-center gap-6 text-lumina-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 5.5L15 6L11.5 9.5L12.5 14.5L8 12L3.5 14.5L4.5 9.5L1 6L6 5.5L8 1Z" fill="currentColor" /></svg>
+            <span className="text-xs font-medium">4.9/5 Rating</span>
+          </div>
+          <div className="h-4 w-px bg-lumina-200" />
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.5" /><path d="M5 8L7 10L11 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <span className="text-xs font-medium">Free to start</span>
+          </div>
+          <div className="h-4 w-px bg-lumina-200" />
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2V5M8 11V14M14 8H11M5 8H2M12.2 3.8L10.1 5.9M5.9 10.1L3.8 12.2M12.2 12.2L10.1 10.1M5.9 5.9L3.8 3.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
+            <span className="text-xs font-medium">AI-powered</span>
+          </div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ opacity: { delay: 1.5 }, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-lumina-300">
+          <path d="M12 5V19M12 19L6 13M12 19L18 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </motion.div>
     </section>
   );
 }

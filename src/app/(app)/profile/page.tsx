@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useSettingsStore } from "@/stores/settingsStore";
 import { useTaskStore } from "@/stores/taskStore";
 import { useGoalStore } from "@/stores/goalStore";
+import { signOut } from "next-auth/react";
 import { useMemo } from "react";
 
 const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.06 } } };
@@ -102,6 +103,23 @@ export default function ProfilePage() {
           ช่วงเวลาที่คุณทำงานได้ดีที่สุดคือ 9:00–11:00 น. แนะนำให้จัดงาน deep work ไว้ช่วงนี้ต่อไป 
           เป้าหมายออกกำลังกายเหลืออีก 1 ครั้งจะครบ — สู้ๆ นะ! 💪
         </p>
+      </motion.div>
+
+      {/* Sign Out */}
+      <motion.div variants={cardVariants} className="mt-6">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => signOut({ callbackUrl: "/" })}
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-google-red-50 dark:bg-google-red-900/20 text-google-red-600 dark:text-google-red-400 text-sm font-medium rounded-2xl border border-google-red-200 dark:border-google-red-800 hover:bg-google-red-100 dark:hover:bg-google-red-900/30 transition-colors"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M6 15H3.5C3.22386 15 3 14.7761 3 14.5V3.5C3 3.22386 3.22386 3 3.5 3H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M11.5 12.5L15 9L11.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M15 9H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          ออกจากระบบ
+        </motion.button>
       </motion.div>
     </motion.div>
   );

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 const navItems = [
   {
@@ -169,6 +170,31 @@ export default function Sidebar() {
           );
         })}
       </nav>
+
+      {/* Sign Out */}
+      <button
+        onClick={() => signOut({ callbackUrl: "/" })}
+        className="mt-1 mb-1 flex items-center gap-3 rounded-xl px-3 py-2.5 w-[calc(100%-16px)] mx-2 text-lumina-400 hover:text-google-red-500 hover:bg-google-red-50 dark:hover:bg-google-red-900/20 transition-colors"
+        aria-label={t("signOut")}
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="flex-shrink-0">
+          <path d="M7 17H4C3.44772 17 3 16.5523 3 16V4C3 3.44772 3.44772 3 4 3H7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M13 14L17 10L13 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M17 10H7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <AnimatePresence>
+          {expanded && (
+            <motion.span
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: "auto" }}
+              exit={{ opacity: 0, width: 0 }}
+              className="text-sm font-medium whitespace-nowrap overflow-hidden"
+            >
+              {t("signOut")}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </button>
 
       {/* Toggle Button */}
       <button

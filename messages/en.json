@@ -205,7 +205,8 @@
       "tags": "Tags",
       "settings": "Settings",
       "collapse": "Collapse sidebar",
-      "expand": "Expand sidebar"
+      "expand": "Expand sidebar",
+      "signOut": "Sign Out"
     },
     "rightPanel": {
       "lumaAssistant": "Luma Assistant",

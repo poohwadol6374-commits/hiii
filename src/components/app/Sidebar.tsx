@@ -73,6 +73,16 @@ const navItems = [
     ),
   },
   {
+    key: "tags",
+    href: "/tags",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 5C2 3.89543 2.89543 3 4 3H9.17157C9.70201 3 10.2107 3.21071 10.5858 3.58579L17.4142 10.4142C18.1953 11.1953 18.1953 12.4616 17.4142 13.2426L13.2426 17.4142C12.4616 18.1953 11.1953 18.1953 10.4142 17.4142L3.58579 10.5858C3.21071 10.2107 3 9.70201 3 9.17157V5Z" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="6.5" cy="6.5" r="1" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
     key: "settings",
     href: "/settings",
     icon: (

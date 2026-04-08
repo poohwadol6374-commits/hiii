@@ -84,7 +84,7 @@ const securityHeaders: Record<string, string> = {
 // ── Auth route sets ──────────────────────────────────────────────
 
 /** Routes under /(app)/ that require authentication */
-const PROTECTED_PATHS = ["/dashboard", "/onboarding", "/calendar", "/tasks", "/analytics", "/settings", "/goals", "/profile"];
+const PROTECTED_PATHS = ["/dashboard", "/onboarding", "/calendar", "/tasks", "/analytics", "/settings", "/goals", "/profile", "/tags"];
 
 /** Auth pages — redirect away if already logged in */
 const AUTH_PATHS = ["/signin", "/signup"];

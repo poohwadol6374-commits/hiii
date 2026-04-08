@@ -7,6 +7,7 @@ import { useTaskStore, type Task } from "@/stores/taskStore";
 import TaskCreateModal from "@/components/tasks/TaskCreateModal";
 import TaskDetailDrawer from "@/components/tasks/TaskDetailDrawer";
 import KanbanBoard from "@/components/tasks/KanbanBoard";
+import { useTagStore, tagColorMap } from "@/stores/tagStore";
 
 type FilterTab = "all" | "high" | "medium" | "low" | "completed";
 type ViewMode = "list" | "kanban";
@@ -43,6 +44,8 @@ export default function TasksPage() {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>("list");
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const allTags = useTagStore((s) => s.tags);
 
   const filteredTasks = useMemo(() => {
     let result = tasks;
@@ -50,6 +53,9 @@ export default function TasksPage() {
       result = result.filter((t) => t.status === "completed");
     } else if (filter !== "all") {
       result = result.filter((t) => t.priority === filter && t.status !== "completed");
+    }
+    if (selectedTag) {
+      result = result.filter((t) => t.tags.includes(selectedTag));
     }
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -178,6 +184,29 @@ export default function TasksPage() {
           </button>
         ))}
       </div>
+
+      {/* Tag filter */}
+      {allTags.length > 0 && (
+        <div className="flex gap-1.5 mb-4 overflow-x-auto pb-1">
+          <button onClick={() => setSelectedTag(null)}
+            className={`px-2.5 py-1 text-[11px] font-medium rounded-lg whitespace-nowrap transition-all ${
+              !selectedTag ? "bg-lumina-800 dark:bg-lumina-200 text-white dark:text-lumina-900" : "bg-lumina-100 dark:bg-lumina-800 text-lumina-500 hover:bg-lumina-200 dark:hover:bg-lumina-700"
+            }`}>
+            All tags
+          </button>
+          {allTags.filter((t) => tasks.some((task) => task.tags.includes(t.name))).map((tag) => {
+            const c = tagColorMap[tag.color] || tagColorMap.gray;
+            return (
+              <button key={tag.id} onClick={() => setSelectedTag(selectedTag === tag.name ? null : tag.name)}
+                className={`px-2.5 py-1 text-[11px] font-medium rounded-lg whitespace-nowrap transition-all border ${
+                  selectedTag === tag.name ? `${c.bg} ${c.text} ${c.border}` : "border-transparent bg-lumina-100 dark:bg-lumina-800 text-lumina-500 hover:bg-lumina-200 dark:hover:bg-lumina-700"
+                }`}>
+                #{tag.name}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {/* Task count */}
       <p className="text-xs text-lumina-400 mb-3">{t("taskCount", { count: filteredTasks.length })}</p>

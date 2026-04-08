@@ -6,15 +6,10 @@ import {
 
 interface CalendarStore {
   events: CalendarEvent[];
-  /** Move an event to a new day/time */
-  moveEvent: (
-    eventId: string,
-    newDayOfWeek: number,
-    newStartHour: number,
-    newStartMinute: number,
-  ) => void;
-  /** Add a new event */
+  moveEvent: (eventId: string, newDayOfWeek: number, newStartHour: number, newStartMinute: number) => void;
   addEvent: (event: CalendarEvent) => void;
+  updateEvent: (eventId: string, updates: Partial<CalendarEvent>) => void;
+  deleteEvent: (eventId: string) => void;
 }
 
 export const useCalendarStore = create<CalendarStore>((set) => ({
@@ -40,4 +35,12 @@ export const useCalendarStore = create<CalendarStore>((set) => ({
 
   addEvent: (event) =>
     set((state) => ({ events: [...state.events, event] })),
+
+  updateEvent: (eventId, updates) =>
+    set((state) => ({
+      events: state.events.map((e) => e.id === eventId ? { ...e, ...updates } : e),
+    })),
+
+  deleteEvent: (eventId) =>
+    set((state) => ({ events: state.events.filter((e) => e.id !== eventId) })),
 }));

@@ -1,9 +1,9 @@
 // Calendar utility functions
 
 /** Start hour of the calendar grid */
-export const START_HOUR = 7;
+export const START_HOUR = 6;
 /** End hour of the calendar grid */
-export const END_HOUR = 22;
+export const END_HOUR = 23;
 /** Height in pixels per hour */
 export const HOUR_HEIGHT = 64;
 

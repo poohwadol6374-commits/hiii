@@ -11,6 +11,7 @@ import { ToastProvider, useToast } from "@/components/app/Toast";
 import { useFocusStore } from "@/stores/focusStore";
 import { useUndoStore } from "@/stores/undoStore";
 import { useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 
 function UndoRedoHandler() {
   const undo = useUndoStore((s) => s.undo);
@@ -47,6 +48,8 @@ function UndoRedoHandler() {
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const focusActive = useFocusStore((s) => s.active);
   const stopFocus = useFocusStore((s) => s.stopFocus);
+  const pathname = usePathname();
+  const isOnboarding = pathname === "/onboarding";
 
   // Esc to exit focus mode
   useEffect(() => {
@@ -57,6 +60,17 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [focusActive, stopFocus]);
+
+  // Onboarding = fullscreen, no chrome
+  if (isOnboarding) {
+    return (
+      <ToastProvider>
+        <div className="h-screen overflow-y-auto bg-lumina-50 dark:bg-lumina-950">
+          {children}
+        </div>
+      </ToastProvider>
+    );
+  }
 
   return (
     <ToastProvider>

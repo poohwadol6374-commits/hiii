@@ -124,30 +124,41 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center px-4 py-12">
+    <div className="relative flex min-h-screen flex-col items-center justify-center px-4 py-12 bg-lumina-50 dark:bg-lumina-950">
       {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/60 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/60 dark:from-google-blue-900/20 via-transparent to-transparent" />
 
-      {/* Floating orbs */}
+      {/* Floating orbs with more variety */}
       <motion.div
         className="pointer-events-none absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-google-blue-200/20 blur-3xl"
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="pointer-events-none absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-google-green-200/15 blur-3xl"
-        animate={{ x: [0, -25, 0], y: [0, 25, 0] }}
+        animate={{ x: [0, -25, 0], y: [0, 25, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="pointer-events-none absolute top-1/3 right-1/3 h-48 w-48 rounded-full bg-google-yellow-200/10 blur-3xl"
+        animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <div className="relative z-10 flex w-full max-w-lg flex-col items-center">
-        {/* Luma Avatar */}
+        {/* Luma Avatar with glow */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6"
+          initial={{ opacity: 0, scale: 0.5, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+          className="mb-6 relative"
         >
+          <motion.div
+            className="absolute inset-0 rounded-full bg-google-blue-400/20 blur-xl"
+            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.2, 0.5] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            style={{ inset: -12 }}
+          />
           <LumaAvatar size={80} />
         </motion.div>
 
@@ -169,8 +180,13 @@ export default function OnboardingPage() {
         </div>
 
         {/* Step content card */}
-        <div className="w-full overflow-hidden rounded-2xl bg-white/80 shadow-[var(--shadow-elevated)] backdrop-blur-sm">
-          <div className="relative min-h-[400px] p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.3 }}
+          className="w-full overflow-hidden rounded-3xl bg-white/90 dark:bg-lumina-900/90 backdrop-blur-xl border border-lumina-200/40 dark:border-lumina-800/40"
+          style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.04)" }}
+        >  <div className="relative min-h-[400px] p-8">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={step}
@@ -200,48 +216,56 @@ export default function OnboardingPage() {
           </div>
 
           {/* Navigation buttons */}
-          <div className="flex items-center justify-between border-t border-lumina-200 px-8 py-4">
+          <div className="flex items-center justify-between border-t border-lumina-200/60 dark:border-lumina-800/60 px-8 py-4">
             <div>
               {step > 1 && step < TOTAL_STEPS && (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={goBack}
-                  className="rounded-xl px-5 py-2.5 text-sm font-medium text-lumina-600 transition-colors hover:bg-lumina-100"
+                  className="rounded-xl px-5 py-2.5 text-sm font-medium text-lumina-600 dark:text-lumina-400 transition-colors hover:bg-lumina-100 dark:hover:bg-lumina-800"
                 >
-                  {t("back")}
-                </button>
+                  ← {t("back")}
+                </motion.button>
               )}
             </div>
 
             <div className="flex items-center gap-3">
               {step < TOTAL_STEPS && (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={handleSkip}
                   disabled={saving}
-                  className="rounded-xl px-5 py-2.5 text-sm font-medium text-lumina-500 transition-colors hover:bg-lumina-100 disabled:opacity-50"
+                  className="rounded-xl px-5 py-2.5 text-sm font-medium text-lumina-500 dark:text-lumina-400 transition-colors hover:bg-lumina-100 dark:hover:bg-lumina-800 disabled:opacity-50"
                 >
                   {t("skip")}
-                </button>
+                </motion.button>
               )}
 
               {step < TOTAL_STEPS ? (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(66,133,244,0.3)" }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={goNext}
-                  className="rounded-xl bg-google-blue-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-google-blue-600 hover:shadow-md active:scale-[0.98]"
+                  className="rounded-xl bg-google-blue-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-google-blue-600"
                 >
-                  {t("next")}
-                </button>
+                  {t("next")} →
+                </motion.button>
               ) : (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(66,133,244,0.3)" }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={handleFinish}
                   disabled={saving}
-                  className="rounded-xl bg-google-blue-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-google-blue-600 hover:shadow-md active:scale-[0.98] disabled:opacity-50"
+                  className="rounded-xl bg-gradient-to-r from-google-blue-500 to-google-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-xl disabled:opacity-50"
                 >
-                  {saving ? "..." : t("startUsing")}
-                </button>
+                  {saving ? "..." : `🚀 ${t("startUsing")}`}
+                </motion.button>
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -253,11 +277,14 @@ export default function OnboardingPage() {
 function StepWelcome({ t }: { t: ReturnType<typeof useTranslations<"Onboarding">> }) {
   return (
     <div className="flex flex-col items-center text-center">
-      <h2 className="mb-2 text-2xl font-bold text-lumina-900">
+      <motion.h2 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+        className="mb-2 text-2xl font-bold text-lumina-900 dark:text-lumina-100">
         {t("step1.title")}
-      </h2>
-      <p className="mb-6 text-lumina-600">{t("step1.description")}</p>
-      <p className="leading-relaxed text-lumina-700">{t("step1.body")}</p>
+      </motion.h2>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+        className="mb-6 text-lumina-600 dark:text-lumina-400">{t("step1.description")}</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+        className="leading-relaxed text-lumina-700 dark:text-lumina-300">{t("step1.body")}</motion.p>
     </div>
   );
 }
@@ -561,16 +588,18 @@ function OptionCard({
   label: string;
 }) {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.97 }}
       onClick={onClick}
       className={`flex flex-col items-center gap-1.5 rounded-xl border-2 px-3 py-3 text-center transition-all ${
         selected
-          ? "border-google-blue-500 bg-google-blue-50 shadow-sm"
-          : "border-lumina-200 bg-white hover:border-lumina-300"
+          ? "border-google-blue-500 bg-google-blue-50 dark:bg-google-blue-900/30 shadow-md"
+          : "border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 hover:border-lumina-300 dark:hover:border-lumina-600"
       }`}
     >
-      <span className="text-lg">{icon}</span>
-      <span className="text-xs font-medium text-lumina-800">{label}</span>
-    </button>
+      <motion.span className="text-lg" animate={selected ? { scale: [1, 1.2, 1] } : {}} transition={{ duration: 0.3 }}>{icon}</motion.span>
+      <span className="text-xs font-medium text-lumina-800 dark:text-lumina-200">{label}</span>
+    </motion.button>
   );
 }

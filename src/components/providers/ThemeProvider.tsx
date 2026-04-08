@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSettingsStore } from "@/stores/settingsStore";
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSettingsStore((s) => s.theme);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const root = document.documentElement;
 
     function applyTheme(isDark: boolean) {
@@ -37,7 +44,7 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
-  }, [theme]);
+  }, [theme, mounted]);
 
   return <>{children}</>;
 }

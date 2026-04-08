@@ -154,6 +154,7 @@ export default function Sidebar() {
         onClick={() => setExpanded(!expanded)}
         className="mt-2 flex items-center justify-center w-8 h-8 rounded-lg text-lumina-400 hover:text-lumina-700 hover:bg-lumina-100 dark:hover:bg-lumina-800 dark:hover:text-lumina-200 transition-colors"
         aria-label={expanded ? t("collapse") : t("expand")}
+        suppressHydrationWarning
       >
         <motion.svg
           width="16"

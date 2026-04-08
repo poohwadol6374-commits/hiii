@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTaskStore, type Task } from "@/stores/taskStore";
@@ -22,16 +22,22 @@ export default function DailyBriefing() {
   const t = useTranslations("DailyBriefing");
   const tasks = useTaskStore((s) => s.tasks);
 
-  const now = useMemo(() => new Date(), []);
-  const hour = now.getHours();
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setNow(new Date());
+  }, []);
+
+  const hour = now ? now.getHours() : 9;
 
   const { pendingTasks, highPriorityCount, meetingCount, topTasks } = useMemo(() => {
+    const currentDate = now || new Date(2026, 3, 8, 9, 0); // fallback for SSR
     const pending = tasks.filter((t) => t.status !== "completed");
     const high = pending.filter((t) => t.priority === "high").length;
     const meetings = pending.filter((t) => t.category === "meeting").length;
 
     const ranked = pending
-      .map((task) => ({ task, score: calculatePriorityScore(task, now) }))
+      .map((task) => ({ task, score: calculatePriorityScore(task, currentDate) }))
       .sort((a, b) => b.score - a.score)
       .slice(0, 3);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTaskStore, type Task } from "@/stores/taskStore";
@@ -27,7 +27,11 @@ export default function TaskIntelligencePanel() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showOptimize, setShowOptimize] = useState(false);
 
-  const now = useMemo(() => new Date(), []);
+  const [now, setNow] = useState(() => new Date(2026, 3, 8, 9, 0));
+
+  useEffect(() => {
+    setNow(new Date());
+  }, []);
 
   const ranked = useMemo(() => {
     const pending = tasks.filter((t) => t.status !== "completed");
@@ -174,7 +178,11 @@ function OptimizeModal({ onClose }: { onClose: () => void }) {
   const tasks = useTaskStore((s) => s.tasks);
   const [applied, setApplied] = useState(false);
 
-  const now = useMemo(() => new Date(), []);
+  const [now, setNow] = useState(() => new Date(2026, 3, 8, 9, 0));
+
+  useEffect(() => {
+    setNow(new Date());
+  }, []);
 
   const result = useMemo(() => {
     return optimizeSchedule(tasks, { start: 9, end: 18 }, now);

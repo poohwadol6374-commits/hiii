@@ -21,7 +21,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
+      <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased" suppressHydrationWarning>
         <AuthProvider>
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider>

@@ -164,7 +164,7 @@ export default function CalendarPage() {
   })();
 
   return (
-    <div className="flex flex-col h-full p-3 md:p-4">
+    <div className="flex flex-col h-[calc(100vh-3.5rem)] p-3 md:p-4 overflow-hidden">
       <CalendarHeader
         view={view}
         onViewChange={setView}

@@ -4,6 +4,7 @@ import TopBar from "@/components/app/TopBar";
 import Sidebar from "@/components/app/Sidebar";
 import LumaFab from "@/components/app/LumaFab";
 import BottomNav from "@/components/app/BottomNav";
+import PomodoroTimer from "@/components/app/PomodoroTimer";
 import { ToastProvider } from "@/components/app/Toast";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <BottomNav />
       </div>
       <LumaFab />
+      <PomodoroTimer />
     </ToastProvider>
   );
 }

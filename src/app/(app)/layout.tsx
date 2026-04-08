@@ -6,6 +6,7 @@ import LumaFab from "@/components/app/LumaFab";
 import BottomNav from "@/components/app/BottomNav";
 import PomodoroTimer from "@/components/app/PomodoroTimer";
 import FocusMode from "@/components/app/FocusMode";
+import CommandPalette from "@/components/app/CommandPalette";
 import { ToastProvider } from "@/components/app/Toast";
 import { useFocusStore } from "@/stores/focusStore";
 import { useEffect } from "react";
@@ -39,6 +40,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <LumaFab />
       <PomodoroTimer />
       <FocusMode />
+      <CommandPalette />
     </ToastProvider>
   );
 }

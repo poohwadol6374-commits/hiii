@@ -90,8 +90,9 @@ export default function TopBar() {
               <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
               <path d="M11 11L14.5 14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
-            <input type="text" placeholder={t("search")} readOnly
-              className="w-full pl-9 pr-4 py-2 text-sm bg-lumina-100/80 dark:bg-lumina-800/80 rounded-xl border-none outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white dark:focus:bg-lumina-800 transition-all placeholder:text-lumina-400 dark:text-lumina-100" />
+            <input type="text" placeholder={`${t("search")}  ⌘K`} readOnly
+              onClick={() => { window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true })); }}
+              className="w-full pl-9 pr-4 py-2 text-sm bg-lumina-100/80 dark:bg-lumina-800/80 rounded-xl border-none outline-none cursor-pointer hover:bg-lumina-200/80 dark:hover:bg-lumina-700/80 transition-all placeholder:text-lumina-400 dark:text-lumina-100" />
           </div>
         </div>
 

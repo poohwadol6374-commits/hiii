@@ -17,6 +17,9 @@ export default function Navbar() {
   const links = [
     { label: "ฟีเจอร์", href: "#features" },
     { label: "วิธีใช้งาน", href: "#how-it-works" },
+    { label: "ศูนย์ช่วยเหลือ", href: "#" },
+    { label: "ติดต่อเรา", href: "#" },
+    { label: "นโยบายความเป็นส่วนตัว", href: "#" },
   ];
 
   return (

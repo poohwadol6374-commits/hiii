@@ -11,6 +11,8 @@ import {
   type AIAggressiveness,
   type AppLocale,
 } from "@/stores/settingsStore";
+import { useTaskStore } from "@/stores/taskStore";
+import { useCalendarStore } from "@/stores/calendarStore";
 
 const HOURS = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, "0")}:00`);
 
@@ -22,6 +24,8 @@ const fadeUp = {
 export default function SettingsPage() {
   const t = useTranslations("Settings");
   const s = useSettingsStore();
+  const taskStore = useTaskStore();
+  const calStore = useCalendarStore();
 
   return (
     <div className="max-w-2xl mx-auto px-4 md:px-6 py-8 pb-24">
@@ -198,6 +202,31 @@ export default function SettingsPage() {
                 >+</button>
                 <span className="text-xs text-lumina-500 dark:text-lumina-400">{t("minutes")}</span>
               </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Export */}
+        <Section index={6} title="ส่งออกข้อมูล" icon="📤">
+          <div className="space-y-3">
+            <p className="text-xs text-lumina-500 dark:text-lumina-400">ส่งออกงานและกิจกรรมปฏิทินเป็นไฟล์ CSV หรือ ICS</p>
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={() => { import("@/lib/export").then((m) => m.exportTasksCSV(taskStore.tasks)); }}
+                className="px-4 py-2.5 text-xs font-medium bg-google-green-50 dark:bg-google-green-900/20 text-google-green-600 dark:text-google-green-400 rounded-xl hover:bg-google-green-100 dark:hover:bg-google-green-900/30 transition-colors border border-google-green-200 dark:border-google-green-800">
+                📊 Export Tasks (CSV)
+              </button>
+              <button onClick={() => { import("@/lib/export").then((m) => m.exportEventsCSV(calStore.events)); }}
+                className="px-4 py-2.5 text-xs font-medium bg-google-blue-50 dark:bg-google-blue-900/20 text-google-blue-600 dark:text-google-blue-400 rounded-xl hover:bg-google-blue-100 dark:hover:bg-google-blue-900/30 transition-colors border border-google-blue-200 dark:border-google-blue-800">
+                📅 Export Events (CSV)
+              </button>
+              <button onClick={() => { import("@/lib/export").then((m) => m.exportTasksICS(taskStore.tasks)); }}
+                className="px-4 py-2.5 text-xs font-medium bg-google-yellow-50 dark:bg-google-yellow-900/20 text-google-yellow-700 dark:text-google-yellow-400 rounded-xl hover:bg-google-yellow-100 dark:hover:bg-google-yellow-900/30 transition-colors border border-google-yellow-200 dark:border-google-yellow-800">
+                📋 Export Tasks (ICS)
+              </button>
+              <button onClick={() => { import("@/lib/export").then((m) => { const mon = new Date(); mon.setDate(mon.getDate() - mon.getDay() + 1); m.exportEventsICS(calStore.events, mon); }); }}
+                className="px-4 py-2.5 text-xs font-medium bg-google-red-50 dark:bg-google-red-900/20 text-google-red-600 dark:text-google-red-400 rounded-xl hover:bg-google-red-100 dark:hover:bg-google-red-900/30 transition-colors border border-google-red-200 dark:border-google-red-800">
+                🗓️ Export Events (ICS)
+              </button>
             </div>
           </div>
         </Section>

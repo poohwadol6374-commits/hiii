@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import LumaLogo from "./LumaLogo";
+import AppMockup from "./AppMockup";
 
 export default function HeroSection() {
   const t = useTranslations("Landing.hero");
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24" aria-label="Hero">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-32" aria-label="Hero">
       {/* Pure white base with very subtle warm gradient */}
       <div className="pointer-events-none absolute inset-0 bg-white" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/30 via-transparent to-transparent" />
@@ -98,6 +99,9 @@ export default function HeroSection() {
           </motion.a>
         </motion.div>
       </div>
+
+      {/* App Mockup */}
+      <AppMockup />
 
       {/* Scroll indicator */}
       <motion.div

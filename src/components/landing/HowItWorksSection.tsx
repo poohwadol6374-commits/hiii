@@ -13,7 +13,7 @@ export default function HowItWorksSection() {
   const t = useTranslations("Landing.howItWorks");
 
   return (
-    <section className="relative py-24 px-6 bg-lumina-50/50 overflow-hidden">
+    <section id="how-it-works" className="relative py-24 px-6 bg-lumina-50/50 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.div

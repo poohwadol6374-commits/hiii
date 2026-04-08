@@ -16,7 +16,7 @@ export default function FeaturesSection() {
   const t = useTranslations("Landing.features");
 
   return (
-    <section className="relative py-24 px-6 bg-white overflow-hidden">
+    <section id="features" className="relative py-24 px-6 bg-white overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-google-blue-50/20 to-transparent" />
 

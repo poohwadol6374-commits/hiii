@@ -33,7 +33,7 @@ export default function HeroSection() {
         >
           {/* Glow behind logo */}
           <div className="absolute inset-0 rounded-3xl blur-2xl opacity-25"
-            style={{ background: "linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335)", transform: "scale(1.5)" }} />
+            style={{ background: "linear-gradient(135deg, #4285F4, #1A73E8)", transform: "scale(1.5)" }} />
           <LumaLogo size={100} />
         </motion.div>
 

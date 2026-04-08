@@ -3,7 +3,7 @@
 import HeroSection from "@/components/landing/HeroSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import PricingSection from "@/components/landing/PricingSection";
+import CtaSection from "@/components/landing/CtaSection";
 import Footer from "@/components/landing/Footer";
 
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />
+      <CtaSection />
       <Footer />
     </main>
   );

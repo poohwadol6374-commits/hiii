@@ -45,8 +45,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
         >
-          <span className="text-lumina-900">Lum</span>
-          <span className="gradient-text">ina</span>
+          <span className="text-lumina-900">Lumi</span>
+          <span className="gradient-text">na</span>
         </motion.h1>
 
         {/* Tagline with gradient text */}

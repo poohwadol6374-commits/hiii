@@ -182,11 +182,11 @@ export default function CommandPalette() {
                         onClick={item.action}
                         onMouseEnter={() => setSelectedIndex(idx)}
                         className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
-                          isSelected ? "bg-google-blue-50 dark:bg-google-blue-900/20" : "hover:bg-lumina-50 dark:hover:bg-lumina-800"
+                          isSelected ? "bg-pink-50 dark:bg-pink-900/20" : "hover:bg-lumina-50 dark:hover:bg-lumina-800"
                         }`}>
                         <span className="text-base flex-shrink-0">{item.icon}</span>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-sm font-medium truncate ${isSelected ? "text-google-blue-700 dark:text-google-blue-300" : "text-lumina-800 dark:text-lumina-200"}`}>{item.label}</p>
+                          <p className={`text-sm font-medium truncate ${isSelected ? "text-pink-700 dark:text-pink-300" : "text-lumina-800 dark:text-lumina-200"}`}>{item.label}</p>
                           {item.description && <p className="text-[11px] text-lumina-400 truncate">{item.description}</p>}
                         </div>
                         {isSelected && (

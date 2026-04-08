@@ -140,7 +140,7 @@ export default function Sidebar() {
               <motion.div
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors cursor-pointer group relative ${
                   isActive
-                    ? "bg-google-blue-50 text-google-blue-600 dark:bg-google-blue-900/30 dark:text-google-blue-300"
+                    ? "bg-pink-50 text-pink-600 dark:bg-pink-900/30 dark:text-pink-300"
                     : "text-lumina-500 hover:bg-lumina-100 hover:text-lumina-800 dark:hover:bg-lumina-800 dark:hover:text-lumina-200"
                 }`}
                 whileHover={{ scale: 1.02 }}

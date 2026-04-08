@@ -28,7 +28,7 @@ export default function GoalsPage() {
           <p className="text-sm text-lumina-500 dark:text-lumina-400 mt-1">ตั้งเป้าหมายและติดตามความก้าวหน้า</p>
         </div>
         <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} onClick={() => setShowCreate(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-google-blue-500 text-white text-sm font-medium rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm">
+          className="flex items-center gap-2 px-4 py-2.5 bg-pink-600 text-white text-sm font-medium rounded-xl hover:bg-pink-700 transition-colors shadow-sm">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2V14M2 8H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
           เพิ่มเป้าหมาย
         </motion.button>
@@ -182,7 +182,7 @@ function CreateGoalModal({ onClose, onAdd }: { onClose: () => void; onAdd: (g: G
               <div className="flex gap-2">
                 {(["weekly", "monthly", "custom"] as const).map((t) => (
                   <button key={t} onClick={() => setType(t)}
-                    className={`flex-1 px-3 py-2 text-xs font-medium rounded-xl border transition-all ${type === t ? "bg-google-blue-500 text-white border-google-blue-500" : "border-lumina-200 dark:border-lumina-700 text-lumina-500 hover:bg-lumina-50 dark:hover:bg-lumina-800"}`}>
+                    className={`flex-1 px-3 py-2 text-xs font-medium rounded-xl border transition-all ${type === t ? "bg-pink-600 text-white border-pink-600" : "border-lumina-200 dark:border-lumina-700 text-lumina-500 hover:bg-lumina-50 dark:hover:bg-lumina-800"}`}>
                     {{ weekly: "สัปดาห์", monthly: "เดือน", custom: "กำหนดเอง" }[t]}
                   </button>
                 ))}
@@ -201,7 +201,7 @@ function CreateGoalModal({ onClose, onAdd }: { onClose: () => void; onAdd: (g: G
           <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-lumina-200/60 dark:border-lumina-800">
             <button onClick={onClose} className="px-4 py-2 text-sm font-medium text-lumina-600 dark:text-lumina-300 hover:bg-lumina-100 dark:hover:bg-lumina-800 rounded-xl transition-colors">ยกเลิก</button>
             <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} onClick={handleSubmit}
-              className="px-5 py-2 text-sm font-medium bg-google-blue-500 text-white rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm">สร้าง</motion.button>
+              className="px-5 py-2 text-sm font-medium bg-pink-600 text-white rounded-xl hover:bg-pink-700 transition-colors shadow-sm">สร้าง</motion.button>
           </div>
         </div>
       </motion.div>

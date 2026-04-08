@@ -86,7 +86,7 @@ export default function DashboardPage() {
         >
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("todaySchedule")}</h2>
-            <Link href="/calendar" className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
+            <Link href="/calendar" className="text-xs text-pink-600 font-medium hover:text-pink-700 transition-colors">
               {t("viewAll")}
             </Link>
           </div>
@@ -121,7 +121,7 @@ export default function DashboardPage() {
         >
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("priorityTasks")}</h2>
-            <Link href="/tasks" className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
+            <Link href="/tasks" className="text-xs text-pink-600 font-medium hover:text-pink-700 transition-colors">
               {t("viewAll")}
             </Link>
           </div>

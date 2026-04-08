@@ -193,7 +193,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
                         onClick={() => setCategory(cat)}
                         className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
                           category === cat
-                            ? "bg-google-blue-500 text-white border-google-blue-500"
+                            ? "bg-pink-600 text-white border-pink-600"
                             : "border-lumina-200 text-lumina-600 hover:bg-lumina-100"
                         }`}
                       >
@@ -263,7 +263,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
                         onClick={() => setEnergyLevel(e)}
                         className={`flex-1 px-3 py-2 text-xs font-medium rounded-xl border transition-all ${
                           energyLevel === e
-                            ? "bg-google-blue-50 border-google-blue-300 text-google-blue-700"
+                            ? "bg-pink-50 border-pink-300 text-pink-700"
                             : "border-lumina-200 text-lumina-500 hover:bg-lumina-50"
                         }`}
                       >
@@ -281,7 +281,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
                       <button key={val} onClick={() => setRecurrence(val)}
                         className={`px-2.5 py-1.5 text-[11px] font-medium rounded-lg border transition-all ${
                           recurrence === val
-                            ? "bg-google-blue-500 text-white border-google-blue-500"
+                            ? "bg-pink-600 text-white border-pink-600"
                             : "border-lumina-200 text-lumina-500 hover:bg-lumina-50"
                         }`}>
                         {val !== "none" && "🔄 "}{label}
@@ -297,7 +297,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
                     {tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-google-blue-50 text-google-blue-700 rounded-lg"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-pink-50 text-pink-700 rounded-lg"
                       >
                         {tag}
                         <button onClick={() => removeTag(tag)} className="hover:text-google-red-500 transition-colors">
@@ -329,7 +329,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={handleSubmit}
-                  className="px-5 py-2 text-sm font-medium bg-google-blue-500 text-white rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm"
+                  className="px-5 py-2 text-sm font-medium bg-pink-600 text-white rounded-xl hover:bg-pink-700 transition-colors shadow-sm"
                 >
                   {t("addTask")}
                 </motion.button>

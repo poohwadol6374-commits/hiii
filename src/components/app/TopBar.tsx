@@ -117,10 +117,10 @@ export default function TopBar() {
               onChange={(e) => setQuickInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") handleQuickCapture(); }}
               placeholder={t("quickCapture")}
-              className="w-full pl-9 pr-10 py-2 text-sm bg-google-blue-50/50 dark:bg-google-blue-900/20 rounded-xl border border-google-blue-100 dark:border-google-blue-800 outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white dark:focus:bg-lumina-800 transition-all placeholder:text-lumina-400 dark:text-lumina-100"
+              className="w-full pl-9 pr-10 py-2 text-sm bg-pink-50/50 dark:bg-pink-900/20 rounded-xl border border-pink-100 dark:border-pink-800 outline-none focus:ring-2 focus:ring-pink-200 focus:bg-white dark:focus:bg-lumina-800 transition-all placeholder:text-lumina-400 dark:text-lumina-100"
             />
             {quickInput && (
-              <button onClick={handleQuickCapture} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-google-blue-500 hover:text-google-blue-600 transition-colors">
+              <button onClick={handleQuickCapture} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-pink-600 hover:text-pink-700 transition-colors">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M14 2L7 9M14 2L9.5 14L7 9M14 2L2 6.5L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -187,7 +187,7 @@ export default function TopBar() {
                     <div className="flex items-center justify-between px-4 py-3 border-b border-lumina-100 dark:border-lumina-800">
                       <h3 className="text-sm font-semibold text-lumina-900 dark:text-lumina-100">{t("notifications")}</h3>
                       {unreadCount > 0 && (
-                        <button onClick={markAllRead} className="text-[11px] text-google-blue-500 hover:text-google-blue-600 font-medium">
+                        <button onClick={markAllRead} className="text-[11px] text-pink-600 hover:text-pink-700 font-medium">
                           Mark all read
                         </button>
                       )}

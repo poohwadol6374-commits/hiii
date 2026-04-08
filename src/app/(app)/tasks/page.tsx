@@ -135,7 +135,7 @@ export default function TasksPage() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setCreateOpen(true)}
-            className="flex items-center gap-2 px-4 py-2.5 bg-google-blue-500 text-white text-sm font-medium rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm"
+            className="flex items-center gap-2 px-4 py-2.5 bg-pink-600 text-white text-sm font-medium rounded-xl hover:bg-pink-700 transition-colors shadow-sm"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 2V14M2 8H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -176,7 +176,7 @@ export default function TasksPage() {
             onClick={() => setFilter(f.key)}
             className={`relative px-4 py-2 text-sm font-medium rounded-xl whitespace-nowrap transition-all ${
               filter === f.key
-                ? "bg-google-blue-500 text-white shadow-sm"
+                ? "bg-pink-600 text-white shadow-sm"
                 : "text-lumina-500 hover:bg-lumina-100 dark:hover:bg-lumina-800 hover:text-lumina-700 dark:hover:text-lumina-200"
             }`}
           >

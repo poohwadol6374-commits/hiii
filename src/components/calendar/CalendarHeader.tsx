@@ -32,7 +32,7 @@ export default function CalendarHeader({
       <div className="flex items-center gap-2">
         <button
           onClick={onToday}
-          className="px-3 py-1.5 text-xs font-medium text-google-blue-600 bg-google-blue-50 hover:bg-google-blue-100 rounded-lg transition-colors"
+          className="px-3 py-1.5 text-xs font-medium text-pink-600 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors"
         >
           {t("today")}
         </button>
@@ -68,7 +68,7 @@ export default function CalendarHeader({
             key={v}
             onClick={() => onViewChange(v)}
             className={`relative z-10 px-4 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-              view === v ? "text-google-blue-700 dark:text-google-blue-300" : "text-lumina-500 hover:text-lumina-700 dark:hover:text-lumina-300"
+              view === v ? "text-pink-700 dark:text-pink-300" : "text-lumina-500 hover:text-lumina-700 dark:hover:text-lumina-300"
             }`}
           >
             {view === v && (

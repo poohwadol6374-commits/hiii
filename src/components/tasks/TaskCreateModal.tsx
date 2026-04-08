@@ -58,6 +58,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
   const [energyLevel, setEnergyLevel] = useState<Task["energyLevel"]>("medium");
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState("");
+  const [recurrence, setRecurrence] = useState<Task["recurrence"]>("none");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const resetForm = useCallback(() => {
@@ -70,6 +71,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
     setEnergyLevel("medium");
     setTags([]);
     setTagInput("");
+    setRecurrence("none");
     setErrors({});
   }, []);
 
@@ -95,6 +97,7 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
       tags,
       energyLevel,
       createdAt: new Date().toISOString(),
+      recurrence: recurrence !== "none" ? recurrence : undefined,
     };
     addTask(newTask);
     resetForm();
@@ -265,6 +268,23 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
                         }`}
                       >
                         {t(`energy${e.charAt(0).toUpperCase() + e.slice(1)}`)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recurrence */}
+                <div>
+                  <label className="block text-xs font-medium text-lumina-500 mb-2">ทำซ้ำ</label>
+                  <div className="flex flex-wrap gap-1.5">
+                    {([["none", "ไม่ทำซ้ำ"], ["daily", "ทุกวัน"], ["weekdays", "วันทำงาน"], ["weekly", "ทุกสัปดาห์"], ["biweekly", "ทุก 2 สัปดาห์"], ["monthly", "ทุกเดือน"]] as const).map(([val, label]) => (
+                      <button key={val} onClick={() => setRecurrence(val)}
+                        className={`px-2.5 py-1.5 text-[11px] font-medium rounded-lg border transition-all ${
+                          recurrence === val
+                            ? "bg-google-blue-500 text-white border-google-blue-500"
+                            : "border-lumina-200 text-lumina-500 hover:bg-lumina-50"
+                        }`}>
+                        {val !== "none" && "🔄 "}{label}
                       </button>
                     ))}
                   </div>

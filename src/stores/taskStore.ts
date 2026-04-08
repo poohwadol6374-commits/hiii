@@ -6,6 +6,8 @@ export interface Subtask {
   completed: boolean;
 }
 
+export type TaskRecurrence = "none" | "daily" | "weekdays" | "weekly" | "biweekly" | "monthly";
+
 export interface Task {
   id: string;
   title: string;
@@ -20,6 +22,7 @@ export interface Task {
   createdAt: string;
   subtasks?: Subtask[];
   notes?: string;
+  recurrence?: TaskRecurrence;
 }
 
 const mockTasks: Task[] = [
@@ -55,6 +58,7 @@ const mockTasks: Task[] = [
     tags: ["code-review", "team"],
     energyLevel: "medium",
     createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+    recurrence: "daily",
   },
   {
     id: "t3",

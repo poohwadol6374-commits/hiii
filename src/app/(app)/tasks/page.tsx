@@ -243,6 +243,9 @@ export default function TasksPage() {
                             <path d="M4 7L6 9L10 5" stroke="#34A853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         )}
+                        {task.recurrence && task.recurrence !== "none" && (
+                          <span className="text-[10px] text-google-blue-500 flex-shrink-0">🔄</span>
+                        )}
                       </div>
 
                       {task.description && (

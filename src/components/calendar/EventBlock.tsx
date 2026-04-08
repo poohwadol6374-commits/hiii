@@ -93,7 +93,7 @@ export default function EventBlock({
         className={`flex ${isShort ? "flex-row items-center gap-2" : "flex-col justify-center gap-0.5"} h-full py-1`}
       >
         <p className={`text-xs font-semibold ${style.text} truncate leading-tight`}>
-          {event.title}
+          {event.recurrence && event.recurrence !== "none" && "🔄 "}{event.title}
         </p>
         {!isShort && (
           <p className="text-[10px] text-lumina-500 leading-tight">{timeStr}</p>

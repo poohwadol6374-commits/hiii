@@ -29,9 +29,6 @@ export default function FeaturesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold text-google-blue-600 bg-google-blue-50 rounded-full mb-4 border border-google-blue-100">
-            ✨ ฟีเจอร์ทั้งหมดใช้ฟรี
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-lumina-900 mb-4">{t("title")}</h2>
           <p className="text-lg text-lumina-500 max-w-2xl mx-auto">{t("subtitle")}</p>
         </motion.div>

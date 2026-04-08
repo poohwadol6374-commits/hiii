@@ -76,10 +76,9 @@ export default function HowItWorksSection() {
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 gradient-bg text-white px-8 py-4 rounded-full text-base font-semibold shadow-lg transition-all"
           >
-            เริ่มใช้งานฟรี
+            เริ่มใช้งาน
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </motion.a>
-          <p className="mt-3 text-xs text-lumina-400">ไม่ต้องใส่บัตรเครดิต · ใช้ได้ทุกฟีเจอร์</p>
         </motion.div>
       </div>
     </section>

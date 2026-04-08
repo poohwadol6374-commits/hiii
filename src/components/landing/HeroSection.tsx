@@ -97,41 +97,6 @@ export default function HeroSection() {
             {t("signIn")}
           </motion.a>
         </motion.div>
-
-        {/* Free badge */}
-        <motion.div
-          className="mt-6 mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.85 }}
-        >
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-google-green-600 bg-google-green-50 rounded-full border border-google-green-100">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5" /><path d="M4.5 7L6 8.5L9.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            ฟรีทุกฟีเจอร์ · ไม่ต้องใส่บัตรเครดิต
-          </span>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          className="grid grid-cols-3 gap-8 md:gap-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1 }}
-        >
-          {[
-            { value: "10K+", label: "ผู้ใช้งาน" },
-            { value: "50K+", label: "งานที่จัดการแล้ว" },
-            { value: "4.9", label: "คะแนนรีวิว" },
-          ].map((stat, i) => (
-            <motion.div key={stat.label} className="text-center"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1 + i * 0.1 }}>
-              <p className="text-2xl md:text-3xl font-bold text-lumina-900">{stat.value}</p>
-              <p className="text-xs text-lumina-400 mt-1">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}

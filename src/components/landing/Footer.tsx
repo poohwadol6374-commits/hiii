@@ -20,11 +20,6 @@ export default function Footer() {
             <p className="text-sm text-lumina-500 leading-relaxed mb-4">
               ปฏิทินอัจฉริยะที่เข้าใจคุณ พร้อมผู้ช่วย AI Luma ที่จัดตารางงานให้อัตโนมัติ
             </p>
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-[10px] font-semibold text-google-green-600 bg-google-green-50 rounded-full border border-google-green-100">
-                ✓ ฟรีทุกฟีเจอร์
-              </span>
-            </div>
           </div>
 
           {/* Links */}

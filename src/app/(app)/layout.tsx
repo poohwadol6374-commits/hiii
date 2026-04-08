@@ -7,6 +7,8 @@ import BottomNav from "@/components/app/BottomNav";
 import PomodoroTimer from "@/components/app/PomodoroTimer";
 import FocusMode from "@/components/app/FocusMode";
 import CommandPalette from "@/components/app/CommandPalette";
+import PageTransition from "@/components/app/PageTransition";
+import { AnimatePresence } from "framer-motion";
 import { ToastProvider, useToast } from "@/components/app/Toast";
 import { useFocusStore } from "@/stores/focusStore";
 import { useUndoStore } from "@/stores/undoStore";
@@ -79,7 +81,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="flex flex-col flex-1 min-w-0">
           <TopBar />
           <main className="flex-1 overflow-y-auto pb-16 md:pb-0">
-            {children}
+            <AnimatePresence mode="wait">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </AnimatePresence>
           </main>
         </div>
         <BottomNav />

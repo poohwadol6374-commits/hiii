@@ -129,17 +129,21 @@ export default function EventDetailModal({ event, open, onClose }: EventDetailMo
                         })}
                       </div>
                     </div>
-                    {/* Day selector */}
+                    {/* Date picker */}
                     <div>
-                      <p className="text-xs font-medium text-lumina-500 mb-2">วัน</p>
-                      <div className="flex gap-1">
-                        {dayLabels.map((d, i) => (
-                          <button key={i} onClick={() => setEditDay(i)}
-                            className={`flex-1 py-1.5 text-[10px] font-medium rounded-lg transition-all ${
-                              editDay === i ? "gradient-bg text-white" : "bg-lumina-50 dark:bg-lumina-800 text-lumina-500 hover:bg-lumina-100"
-                            }`}>{d}</button>
-                        ))}
-                      </div>
+                      <p className="text-xs font-medium text-lumina-500 mb-2">วันที่</p>
+                      <input type="date"
+                        defaultValue={new Date().toISOString().split("T")[0]}
+                        onChange={(e) => {
+                          const d = new Date(e.target.value);
+                          const dow = d.getDay();
+                          setEditDay(dow === 0 ? 6 : dow - 1);
+                        }}
+                        className="w-full px-3 py-2 text-sm bg-lumina-50 dark:bg-lumina-800 rounded-xl border border-lumina-200 dark:border-lumina-700 outline-none focus:ring-2 focus:ring-pink-200 dark:text-lumina-100"
+                      />
+                      <p className="text-[10px] text-lumina-400 mt-1">
+                        {dayLabels[editDay]}
+                      </p>
                     </div>
                     {/* Time selector */}
                     <div className="grid grid-cols-3 gap-3">

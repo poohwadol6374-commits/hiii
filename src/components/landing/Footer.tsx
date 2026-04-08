@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import LumaLogo from "./LumaLogo";
-import SpuBusLogo from "./SpuBusLogo";
 
 export default function Footer() {
   const t = useTranslations("Landing.footer");
@@ -49,14 +48,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-lumina-100 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <p className="text-xs text-lumina-400">{t("copyright")}</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] text-lumina-400">โปรเจกต์โดย</span>
-            <SpuBusLogo height={24} />
-          </div>
+        <div className="pt-8 border-t border-lumina-100 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-lumina-400">{t("copyright")}</p>
           <p className="text-xs text-lumina-400">{t("madeWith")}</p>
         </div>
       </div>

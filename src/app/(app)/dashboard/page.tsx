@@ -6,6 +6,8 @@ import TaskIntelligencePanel from "@/components/ai/TaskIntelligencePanel";
 import DailyBriefing from "@/components/dashboard/DailyBriefing";
 import WeeklyReview from "@/components/dashboard/WeeklyReview";
 import LumaLogo from "@/components/landing/LumaLogo";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const mockEvents = [
   { id: "e1", title: "Team Standup", time: "09:00 – 09:30", type: "meeting" as const, color: "google-blue" },
@@ -46,6 +48,7 @@ const cardVariants = {
 
 export default function DashboardPage() {
   const t = useTranslations("Dashboard");
+  const router = useRouter();
 
   return (
     <motion.div
@@ -83,9 +86,9 @@ export default function DashboardPage() {
         >
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("todaySchedule")}</h2>
-            <button className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
+            <Link href="/calendar" className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
               {t("viewAll")}
-            </button>
+            </Link>
           </div>
           <div className="flex flex-col gap-2.5">
             {mockEvents.map((event, i) => {
@@ -96,7 +99,8 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 + i * 0.06 }}
-                  className={`flex items-center gap-3 p-3 rounded-xl ${style.bg} border ${style.border} cursor-pointer hover:shadow-sm transition-shadow`}
+                  className={`flex items-center gap-3 p-3 rounded-xl ${style.bg} border ${style.border} cursor-pointer hover:shadow-sm transition-shadow press-effect`}
+                  onClick={() => router.push("/calendar")}
                 >
                   <div className={`w-2 h-2 rounded-full flex-shrink-0 ${style.dot}`} />
                   <div className="flex-1 min-w-0">
@@ -117,9 +121,9 @@ export default function DashboardPage() {
         >
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("priorityTasks")}</h2>
-            <button className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
+            <Link href="/tasks" className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
               {t("viewAll")}
-            </button>
+            </Link>
           </div>
           <div className="flex flex-col gap-2.5">
             {mockTasks.map((task, i) => {
@@ -130,7 +134,8 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, x: 12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + i * 0.06 }}
-                  className="p-3 rounded-xl bg-lumina-50/80 dark:bg-lumina-800/60 hover:bg-lumina-100/80 dark:hover:bg-lumina-800 transition-colors cursor-pointer group"
+                  className="p-3 rounded-xl bg-lumina-50/80 dark:bg-lumina-800/60 hover:bg-lumina-100/80 dark:hover:bg-lumina-800 transition-colors cursor-pointer group press-effect"
+                  onClick={() => router.push("/tasks")}
                 >
                   <div className="flex items-start justify-between mb-1.5">
                     <p className="text-sm font-medium text-lumina-800 dark:text-lumina-200 group-hover:text-lumina-900 dark:group-hover:text-lumina-100 truncate pr-2">
@@ -186,6 +191,7 @@ export default function DashboardPage() {
               description={t("bestFocusDesc")}
               color="blue"
               delay={0.35}
+              onClick={() => router.push("/analytics")}
             />
             <InsightCard
               icon={
@@ -201,6 +207,7 @@ export default function DashboardPage() {
               description={t("tasksAtRiskDesc")}
               color="red"
               delay={0.42}
+              onClick={() => router.push("/tasks")}
             />
             <InsightCard
               icon={
@@ -214,6 +221,7 @@ export default function DashboardPage() {
               description={t("weeklyCompletionDesc")}
               color="green"
               delay={0.49}
+              onClick={() => router.push("/analytics")}
             />
           </div>
         </motion.div>
@@ -228,12 +236,14 @@ function InsightCard({
   description,
   color,
   delay,
+  onClick,
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
   color: "blue" | "red" | "green";
   delay: number;
+  onClick?: () => void;
 }) {
   const colorMap = {
     blue: { bg: "bg-google-blue-50", iconBg: "bg-google-blue-100", iconText: "text-google-blue-600", border: "border-google-blue-100" },
@@ -248,6 +258,7 @@ function InsightCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, type: "spring" as const, stiffness: 260, damping: 24 }}
       className={`${c.bg} rounded-2xl p-4 border ${c.border} cursor-pointer hover-lift hover-glow transition-all`}
+      onClick={onClick}
     >
       <div className={`w-9 h-9 rounded-xl ${c.iconBg} ${c.iconText} flex items-center justify-center mb-3`}>
         {icon}

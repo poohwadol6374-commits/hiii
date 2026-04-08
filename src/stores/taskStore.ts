@@ -1,5 +1,11 @@
 import { create } from "zustand";
 
+export interface Subtask {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
 export interface Task {
   id: string;
   title: string;
@@ -12,6 +18,8 @@ export interface Task {
   tags: string[];
   energyLevel: "high" | "medium" | "low";
   createdAt: string;
+  subtasks?: Subtask[];
+  notes?: string;
 }
 
 const mockTasks: Task[] = [
@@ -27,6 +35,13 @@ const mockTasks: Task[] = [
     tags: ["finance", "report"],
     energyLevel: "high",
     createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+    subtasks: [
+      { id: "st1", title: "Collect revenue data", completed: true },
+      { id: "st2", title: "Create charts", completed: true },
+      { id: "st3", title: "Write executive summary", completed: false },
+      { id: "st4", title: "Review with finance team", completed: false },
+    ],
+    notes: "ต้องส่งก่อนวันศุกร์ ใช้ template ใหม่จากทีม finance",
   },
   {
     id: "t2",
@@ -113,6 +128,10 @@ interface TaskStore {
   deleteTask: (id: string) => void;
   toggleComplete: (id: string) => void;
   getTasksByPriority: () => Task[];
+  addSubtask: (taskId: string, title: string) => void;
+  toggleSubtask: (taskId: string, subtaskId: string) => void;
+  deleteSubtask: (taskId: string, subtaskId: string) => void;
+  updateNotes: (taskId: string, notes: string) => void;
 }
 
 export const useTaskStore = create<TaskStore>((set, get) => ({
@@ -144,4 +163,36 @@ export const useTaskStore = create<TaskStore>((set, get) => ({
     const order = { high: 0, medium: 1, low: 2 };
     return [...get().tasks].sort((a, b) => order[a.priority] - order[b.priority]);
   },
+
+  addSubtask: (taskId, title) =>
+    set((state) => ({
+      tasks: state.tasks.map((t) =>
+        t.id === taskId
+          ? { ...t, subtasks: [...(t.subtasks || []), { id: `st-${Date.now()}`, title, completed: false }] }
+          : t
+      ),
+    })),
+
+  toggleSubtask: (taskId, subtaskId) =>
+    set((state) => ({
+      tasks: state.tasks.map((t) =>
+        t.id === taskId
+          ? { ...t, subtasks: (t.subtasks || []).map((st) => st.id === subtaskId ? { ...st, completed: !st.completed } : st) }
+          : t
+      ),
+    })),
+
+  deleteSubtask: (taskId, subtaskId) =>
+    set((state) => ({
+      tasks: state.tasks.map((t) =>
+        t.id === taskId
+          ? { ...t, subtasks: (t.subtasks || []).filter((st) => st.id !== subtaskId) }
+          : t
+      ),
+    })),
+
+  updateNotes: (taskId, notes) =>
+    set((state) => ({
+      tasks: state.tasks.map((t) => t.id === taskId ? { ...t, notes } : t),
+    })),
 }));

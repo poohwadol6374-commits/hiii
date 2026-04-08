@@ -37,7 +37,7 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
   const t = useTranslations("Tasks");
   const tTask = useTranslations("Task");
   const tActions = useTranslations("Actions");
-  const { updateTask, deleteTask, toggleComplete } = useTaskStore();
+  const { updateTask, deleteTask, toggleComplete, addSubtask, toggleSubtask, deleteSubtask, updateNotes } = useTaskStore();
   const startFocus = useFocusStore((s) => s.startFocus);
 
   const [editing, setEditing] = useState(false);
@@ -45,6 +45,9 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
   const [editDescription, setEditDescription] = useState("");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
+  const [newSubtask, setNewSubtask] = useState("");
+  const [editingNotes, setEditingNotes] = useState(false);
+  const [notesText, setNotesText] = useState("");
 
   const startEdit = () => {
     if (!task) return;
@@ -226,6 +229,108 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
                   </div>
                 </div>
               )}
+
+              {/* Subtasks */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs font-medium text-lumina-500">Subtasks</p>
+                  {task.subtasks && task.subtasks.length > 0 && (
+                    <span className="text-[10px] text-lumina-400">
+                      {task.subtasks.filter((st) => st.completed).length}/{task.subtasks.length}
+                    </span>
+                  )}
+                </div>
+                {task.subtasks && task.subtasks.length > 0 && (
+                  <div className="space-y-1.5 mb-2">
+                    {task.subtasks.map((st) => (
+                      <div key={st.id} className="flex items-center gap-2 group">
+                        <button onClick={() => toggleSubtask(task.id, st.id)}
+                          className={`w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center transition-colors ${
+                            st.completed ? "bg-google-green-500 border-google-green-500" : "border-lumina-300 dark:border-lumina-600 hover:border-google-blue-400"
+                          }`}>
+                          {st.completed && (
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                              <path d="M2 5L4 7L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          )}
+                        </button>
+                        <span className={`text-sm flex-1 ${st.completed ? "line-through text-lumina-400" : "text-lumina-700 dark:text-lumina-300"}`}>
+                          {st.title}
+                        </span>
+                        <button onClick={() => deleteSubtask(task.id, st.id)}
+                          className="opacity-0 group-hover:opacity-100 p-0.5 text-lumina-400 hover:text-google-red-500 transition-all">
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M3 3L9 9M9 3L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={newSubtask}
+                    onChange={(e) => setNewSubtask(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && newSubtask.trim()) {
+                        addSubtask(task.id, newSubtask.trim());
+                        setNewSubtask("");
+                      }
+                    }}
+                    placeholder="เพิ่ม subtask..."
+                    className="flex-1 px-3 py-1.5 text-xs bg-lumina-50 dark:bg-lumina-800 rounded-lg border border-lumina-200 dark:border-lumina-700 outline-none focus:ring-1 focus:ring-google-blue-200 placeholder:text-lumina-400 dark:text-lumina-100"
+                  />
+                  {newSubtask.trim() && (
+                    <button onClick={() => { addSubtask(task.id, newSubtask.trim()); setNewSubtask(""); }}
+                      className="p-1.5 text-google-blue-500 hover:text-google-blue-600">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M7 2V12M2 7H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Notes */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs font-medium text-lumina-500">Notes</p>
+                  {!editingNotes && (
+                    <button onClick={() => { setNotesText(task.notes || ""); setEditingNotes(true); }}
+                      className="text-[10px] text-google-blue-500 hover:text-google-blue-600 font-medium">
+                      {task.notes ? "แก้ไข" : "เพิ่ม"}
+                    </button>
+                  )}
+                </div>
+                {editingNotes ? (
+                  <div>
+                    <textarea
+                      value={notesText}
+                      onChange={(e) => setNotesText(e.target.value)}
+                      rows={3}
+                      className="w-full px-3 py-2 text-sm bg-lumina-50 dark:bg-lumina-800 rounded-xl border border-lumina-200 dark:border-lumina-700 outline-none focus:ring-1 focus:ring-google-blue-200 resize-none dark:text-lumina-100"
+                      autoFocus
+                    />
+                    <div className="flex gap-2 mt-2">
+                      <button onClick={() => { updateNotes(task.id, notesText); setEditingNotes(false); }}
+                        className="px-3 py-1 text-xs font-medium bg-google-blue-500 text-white rounded-lg hover:bg-google-blue-600 transition-colors">
+                        บันทึก
+                      </button>
+                      <button onClick={() => setEditingNotes(false)}
+                        className="px-3 py-1 text-xs font-medium text-lumina-500 hover:bg-lumina-100 dark:hover:bg-lumina-800 rounded-lg transition-colors">
+                        ยกเลิก
+                      </button>
+                    </div>
+                  </div>
+                ) : task.notes ? (
+                  <p className="text-sm text-lumina-600 dark:text-lumina-400 leading-relaxed whitespace-pre-line bg-lumina-50 dark:bg-lumina-800/50 rounded-xl p-3">
+                    {task.notes}
+                  </p>
+                ) : (
+                  <p className="text-xs text-lumina-400 italic">ยังไม่มี notes</p>
+                )}
+              </div>
 
               {/* Delete confirmation */}
               <AnimatePresence>

@@ -235,6 +235,11 @@ export default function TasksPage() {
                             {dl.text}
                           </span>
                         )}
+                        {task.subtasks && task.subtasks.length > 0 && (
+                          <span className="text-[10px] text-lumina-400 flex items-center gap-0.5">
+                            ☑ {task.subtasks.filter((st) => st.completed).length}/{task.subtasks.length}
+                          </span>
+                        )}
                       </div>
                     </div>
 

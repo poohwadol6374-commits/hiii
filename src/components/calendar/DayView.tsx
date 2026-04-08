@@ -8,6 +8,7 @@ import TimeColumn from "./TimeColumn";
 import CurrentTimeIndicator from "./CurrentTimeIndicator";
 import { useCalendarStore } from "@/stores/calendarStore";
 import { useToast } from "@/components/app/Toast";
+import EventCreateModal from "./EventCreateModal";
 import {
   START_HOUR,
   END_HOUR,
@@ -42,6 +43,9 @@ export default function DayView({ date }: DayViewProps) {
 
   const [isDragOver, setIsDragOver] = useState(false);
   const [dropHour, setDropHour] = useState<number | null>(null);
+  const [createOpen, setCreateOpen] = useState(false);
+  const [createHour, setCreateHour] = useState(9);
+  const [createMinute, setCreateMinute] = useState(0);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -157,6 +161,14 @@ export default function DayView({ date }: DayViewProps) {
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onDragLeave={handleDragLeave}
+            onClick={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const y = e.clientY - rect.top + (scrollRef.current?.scrollTop || 0);
+              const totalMin = Math.round(((y / HOUR_HEIGHT) * 60 + START_HOUR * 60) / 15) * 15;
+              setCreateHour(Math.floor(totalMin / 60));
+              setCreateMinute(totalMin % 60);
+              setCreateOpen(true);
+            }}
           >
             {Array.from({ length: totalHours }, (_, i) => (
               <div
@@ -189,6 +201,7 @@ export default function DayView({ date }: DayViewProps) {
           </div>
         </div>
       </div>
+      <EventCreateModal open={createOpen} onClose={() => setCreateOpen(false)} defaultDay={dayOfWeek} defaultStartHour={createHour} defaultStartMinute={createMinute} />
     </motion.div>
   );
 }

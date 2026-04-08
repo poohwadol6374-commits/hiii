@@ -15,9 +15,9 @@ export default function LumaLogo({ size = 40, className = "" }: LumaLogoProps) {
       <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="luma-bg" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#4285F4" />
-            <stop offset="50%" stopColor="#1A73E8" />
-            <stop offset="100%" stopColor="#1967D2" />
+            <stop offset="0%" stopColor="#E91E90" />
+            <stop offset="50%" stopColor="#C2185B" />
+            <stop offset="100%" stopColor="#AD1457" />
           </linearGradient>
           <linearGradient id="luma-glow" x1="30" y1="30" x2="50" y2="50" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />

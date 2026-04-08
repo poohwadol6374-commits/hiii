@@ -34,7 +34,7 @@ export default function HeroSection() {
         >
           {/* Glow behind logo */}
           <div className="absolute inset-0 rounded-3xl blur-2xl opacity-25"
-            style={{ background: "linear-gradient(135deg, #4285F4, #1A73E8)", transform: "scale(1.5)" }} />
+            style={{ background: "linear-gradient(135deg, #E91E90, #C2185B)", transform: "scale(1.5)" }} />
           <LumaLogo size={100} />
         </motion.div>
 
@@ -78,7 +78,7 @@ export default function HeroSection() {
         >
           <motion.a
             href="/signup"
-            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(66,133,244,0.25)" }}
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 30px rgba(233,30,144,0.25)" }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center justify-center rounded-full gradient-bg px-10 py-4 text-base font-semibold text-white shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-google-blue-400 focus:ring-offset-2"
             role="button"

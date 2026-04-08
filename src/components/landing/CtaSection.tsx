@@ -10,7 +10,7 @@ export default function CtaSection() {
   return (
     <section className="relative py-24 px-6 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-google-blue-500 via-google-blue-600 to-google-blue-700" />
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-600 via-pink-700 to-pink-800" />
 
       {/* Decorative orbs */}
       <motion.div
@@ -68,7 +68,7 @@ export default function CtaSection() {
             href="/signup"
             whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(0,0,0,0.2)" }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 bg-white text-google-blue-600 px-10 py-4 rounded-full text-base font-semibold shadow-lg transition-all"
+            className="inline-flex items-center gap-2 bg-white text-pink-600 px-10 py-4 rounded-full text-base font-semibold shadow-lg transition-all"
           >
             {t("signUp")}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

@@ -155,11 +155,11 @@ export default function LumaFab() {
             onMouseDown={handleMouseDown}
             className="relative w-full h-full rounded-full flex items-center justify-center cursor-pointer"
             style={{
-              background: "linear-gradient(135deg, #4285F4, #1A73E8)",
+              background: "linear-gradient(135deg, #E91E90, #C2185B)",
               backdropFilter: "blur(8px)",
               boxShadow: isDragging
-                ? "0 8px 28px rgba(66,133,244,0.4), 0 0 0 3px rgba(66,133,244,0.15)"
-                : "0 3px 14px rgba(66,133,244,0.25), 0 1px 4px rgba(0,0,0,0.06)",
+                ? "0 8px 28px rgba(233,30,144,0.4), 0 0 0 3px rgba(233,30,144,0.15)"
+                : "0 3px 14px rgba(233,30,144,0.25), 0 1px 4px rgba(0,0,0,0.06)",
             }}
           >
             <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-white/25 to-transparent pointer-events-none" />

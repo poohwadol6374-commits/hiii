@@ -6,8 +6,10 @@ import { useTranslations } from "next-intl";
 import { useTaskStore, type Task } from "@/stores/taskStore";
 import TaskCreateModal from "@/components/tasks/TaskCreateModal";
 import TaskDetailDrawer from "@/components/tasks/TaskDetailDrawer";
+import KanbanBoard from "@/components/tasks/KanbanBoard";
 
 type FilterTab = "all" | "high" | "medium" | "low" | "completed";
+type ViewMode = "list" | "kanban";
 
 const priorityBadge: Record<string, string> = {
   high: "bg-google-red-50 text-google-red-600",
@@ -40,6 +42,7 @@ export default function TasksPage() {
   const [createOpen, setCreateOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [viewMode, setViewMode] = useState<ViewMode>("list");
 
   const filteredTasks = useMemo(() => {
     let result = tasks;
@@ -102,19 +105,45 @@ export default function TasksPage() {
           <h1 className="text-2xl font-bold text-lumina-900 dark:text-lumina-100">{t("pageTitle")}</h1>
           <p className="text-sm text-lumina-500 dark:text-lumina-400 mt-1">{t("pageSubtitle")}</p>
         </div>
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => setCreateOpen(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-google-blue-500 text-white text-sm font-medium rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 2V14M2 8H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-          {t("addTask")}
-        </motion.button>
+        <div className="flex items-center gap-2">
+          {/* View toggle */}
+          <div className="flex items-center bg-lumina-100 dark:bg-lumina-800 rounded-xl p-0.5">
+            <button onClick={() => setViewMode("list")}
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${viewMode === "list" ? "bg-white dark:bg-lumina-700 text-lumina-900 dark:text-lumina-100 shadow-sm" : "text-lumina-500"}`}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline mr-1">
+                <path d="M2 3H12M2 7H12M2 11H12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+              List
+            </button>
+            <button onClick={() => setViewMode("kanban")}
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${viewMode === "kanban" ? "bg-white dark:bg-lumina-700 text-lumina-900 dark:text-lumina-100 shadow-sm" : "text-lumina-500"}`}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline mr-1">
+                <rect x="1" y="1" width="3.5" height="12" rx="1" stroke="currentColor" strokeWidth="1.2" />
+                <rect x="5.25" y="1" width="3.5" height="8" rx="1" stroke="currentColor" strokeWidth="1.2" />
+                <rect x="9.5" y="1" width="3.5" height="10" rx="1" stroke="currentColor" strokeWidth="1.2" />
+              </svg>
+              Kanban
+            </button>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => setCreateOpen(true)}
+            className="flex items-center gap-2 px-4 py-2.5 bg-google-blue-500 text-white text-sm font-medium rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+            {t("addTask")}
+          </motion.button>
+        </div>
       </div>
 
+      {/* Kanban or List view */}
+      {viewMode === "kanban" ? (
+        <KanbanBoard onTaskClick={openDetail} />
+      ) : (
+      <>
       {/* Search */}
       <div className="relative mb-4">
         <svg
@@ -257,6 +286,8 @@ export default function TasksPage() {
           )}
         </AnimatePresence>
       </div>
+      </>
+      )}
 
       {/* Modals */}
       <TaskCreateModal open={createOpen} onClose={() => setCreateOpen(false)} />

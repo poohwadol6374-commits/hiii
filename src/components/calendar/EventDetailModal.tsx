@@ -28,7 +28,13 @@ export default function EventDetailModal({ event, open, onClose }: EventDetailMo
   const [editTitle, setEditTitle] = useState("");
   const [editDesc, setEditDesc] = useState("");
   const [editCategory, setEditCategory] = useState<EventCategory>("meeting");
+  const [editDay, setEditDay] = useState(0);
+  const [editStartH, setEditStartH] = useState(9);
+  const [editStartM, setEditStartM] = useState(0);
+  const [editDuration, setEditDuration] = useState(60);
   const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const dayLabels = ["จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส.", "อา."];
 
   if (!event) return null;
   const style = categoryStyles[event.category];
@@ -40,13 +46,27 @@ export default function EventDetailModal({ event, open, onClose }: EventDetailMo
     setEditTitle(event.title);
     setEditDesc(event.description || "");
     setEditCategory(event.category);
+    setEditDay(event.dayOfWeek);
+    setEditStartH(event.startHour);
+    setEditStartM(event.startMinute);
+    setEditDuration((event.endHour * 60 + event.endMinute) - (event.startHour * 60 + event.startMinute));
     setEditing(true);
     setConfirmDelete(false);
   };
 
   const saveEdit = () => {
     if (!editTitle.trim()) return;
-    updateEvent(event.id, { title: editTitle.trim(), description: editDesc.trim() || undefined, category: editCategory });
+    const endMin = editStartH * 60 + editStartM + editDuration;
+    updateEvent(event.id, {
+      title: editTitle.trim(),
+      description: editDesc.trim() || undefined,
+      category: editCategory,
+      dayOfWeek: editDay,
+      startHour: editStartH,
+      startMinute: editStartM,
+      endHour: Math.floor(endMin / 60),
+      endMinute: endMin % 60,
+    });
     setEditing(false);
     onClose();
   };
@@ -107,6 +127,44 @@ export default function EventDetailModal({ event, open, onClose }: EventDetailMo
                             </button>
                           );
                         })}
+                      </div>
+                    </div>
+                    {/* Day selector */}
+                    <div>
+                      <p className="text-xs font-medium text-lumina-500 mb-2">วัน</p>
+                      <div className="flex gap-1">
+                        {dayLabels.map((d, i) => (
+                          <button key={i} onClick={() => setEditDay(i)}
+                            className={`flex-1 py-1.5 text-[10px] font-medium rounded-lg transition-all ${
+                              editDay === i ? "gradient-bg text-white" : "bg-lumina-50 dark:bg-lumina-800 text-lumina-500 hover:bg-lumina-100"
+                            }`}>{d}</button>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Time selector */}
+                    <div className="grid grid-cols-3 gap-3">
+                      <div>
+                        <p className="text-xs font-medium text-lumina-500 mb-1.5">เริ่ม</p>
+                        <select value={editStartH * 60 + editStartM} onChange={(e) => { const v = Number(e.target.value); setEditStartH(Math.floor(v / 60)); setEditStartM(v % 60); }}
+                          className="w-full px-2 py-2 text-sm bg-lumina-50 dark:bg-lumina-800 rounded-xl border border-lumina-200 dark:border-lumina-700 outline-none dark:text-lumina-100">
+                          {Array.from({ length: 48 }, (_, i) => { const h = Math.floor((i * 30) / 60) + 6; const m = (i * 30) % 60; if (h > 22) return null;
+                            return <option key={i} value={h * 60 + m}>{fmt(h, m)}</option>; })}
+                        </select>
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-lumina-500 mb-1.5">ระยะเวลา</p>
+                        <select value={editDuration} onChange={(e) => setEditDuration(Number(e.target.value))}
+                          className="w-full px-2 py-2 text-sm bg-lumina-50 dark:bg-lumina-800 rounded-xl border border-lumina-200 dark:border-lumina-700 outline-none dark:text-lumina-100">
+                          {[15, 30, 45, 60, 90, 120, 180, 240].map((d) => (
+                            <option key={d} value={d}>{d < 60 ? `${d} นาที` : `${d / 60} ชม.`}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-lumina-500 mb-1.5">สิ้นสุด</p>
+                        <div className="px-2 py-2 text-sm bg-lumina-100 dark:bg-lumina-800 rounded-xl text-lumina-500 text-center">
+                          {fmt(Math.floor((editStartH * 60 + editStartM + editDuration) / 60), (editStartH * 60 + editStartM + editDuration) % 60)}
+                        </div>
                       </div>
                     </div>
                   </>

@@ -7,6 +7,7 @@ import TaskCreateModal from "@/components/tasks/TaskCreateModal";
 import { usePomodoroStore } from "@/stores/pomodoroStore";
 import { useTaskStore, type Task } from "@/stores/taskStore";
 import { useToast } from "@/components/app/Toast";
+import Link from "next/link";
 
 interface Notification {
   id: string;
@@ -208,11 +209,13 @@ export default function TopBar() {
           </div>
 
           {/* Profile Avatar */}
-          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 text-white text-xs font-bold"
-            aria-label={t("profile")}>
-            U
-          </motion.button>
+          <Link href="/profile">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 text-white text-xs font-bold cursor-pointer"
+              aria-label={t("profile")}>
+              U
+            </motion.div>
+          </Link>
         </div>
       </header>
 

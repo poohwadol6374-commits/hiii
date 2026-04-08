@@ -57,7 +57,7 @@ export default function DashboardPage() {
       {/* Welcome Header */}
       <motion.div variants={cardVariants} className="mb-6">
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-10 h-10 rounded-full gradient-animated flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
             <span className="text-white text-sm font-bold">L</span>
           </div>
           <div>

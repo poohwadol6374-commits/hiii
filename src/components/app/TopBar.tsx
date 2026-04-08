@@ -220,7 +220,7 @@ export default function TopBar() {
           {/* Profile Avatar */}
           <Link href="/profile">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center w-8 h-8 rounded-full gradient-animated text-white text-xs font-bold cursor-pointer"
+              className="flex items-center justify-center w-8 h-8 rounded-full gradient-bg text-white text-xs font-bold cursor-pointer"
               aria-label={t("profile")}>
               U
             </motion.div>

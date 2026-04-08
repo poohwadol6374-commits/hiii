@@ -30,7 +30,7 @@ export default function ProfilePage() {
       {/* Profile Header */}
       <motion.div variants={cardVariants} className="flex flex-col items-center mb-8">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="w-24 h-24 rounded-full gradient-animated flex items-center justify-center mb-4 shadow-lg"
+          className="w-24 h-24 rounded-full gradient-bg flex items-center justify-center mb-4 shadow-lg"
           style={{ boxShadow: "0 0 30px rgba(168,85,247,0.2)" }}>
           <span className="text-white text-3xl font-bold">{displayName.charAt(0).toUpperCase()}</span>
         </motion.div>

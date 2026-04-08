@@ -20,6 +20,7 @@ interface EventBlockProps {
   positioned?: boolean;
   draggable?: boolean;
   onDragStartCallback?: (event: CalendarEvent) => void;
+  onClickEvent?: () => void;
 }
 
 export default function EventBlock({
@@ -28,6 +29,7 @@ export default function EventBlock({
   positioned = true,
   draggable = false,
   onDragStartCallback,
+  onClickEvent,
 }: EventBlockProps) {
   const style = categoryStyles[event.category];
   const timeStr = formatTimeRange(
@@ -72,6 +74,7 @@ export default function EventBlock({
       whileHover={{ scale: 1.02, boxShadow: "0 4px 16px rgba(0,0,0,0.10)" }}
       transition={{ type: "spring", stiffness: 400, damping: 28 }}
       draggable={draggable}
+      onClick={(e) => { if (onClickEvent) { e.stopPropagation(); onClickEvent(); } }}
       className={`${style.bg} ${style.border} border rounded-lg px-2.5 overflow-hidden cursor-pointer select-none group ${
         positioned ? "absolute left-1 right-1" : "relative"
       } ${draggable ? "active:opacity-60 active:shadow-lg" : ""}`}

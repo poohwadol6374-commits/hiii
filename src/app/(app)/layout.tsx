@@ -5,9 +5,25 @@ import Sidebar from "@/components/app/Sidebar";
 import LumaFab from "@/components/app/LumaFab";
 import BottomNav from "@/components/app/BottomNav";
 import PomodoroTimer from "@/components/app/PomodoroTimer";
+import FocusMode from "@/components/app/FocusMode";
 import { ToastProvider } from "@/components/app/Toast";
+import { useFocusStore } from "@/stores/focusStore";
+import { useEffect } from "react";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const focusActive = useFocusStore((s) => s.active);
+  const stopFocus = useFocusStore((s) => s.stopFocus);
+
+  // Esc to exit focus mode
+  useEffect(() => {
+    if (!focusActive) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") stopFocus();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [focusActive, stopFocus]);
+
   return (
     <ToastProvider>
       <div className="flex h-screen overflow-hidden bg-lumina-50 dark:bg-lumina-950">
@@ -22,6 +38,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </div>
       <LumaFab />
       <PomodoroTimer />
+      <FocusMode />
     </ToastProvider>
   );
 }

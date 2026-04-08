@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTaskStore, type Task } from "@/stores/taskStore";
+import { useFocusStore } from "@/stores/focusStore";
 
 interface TaskDetailDrawerProps {
   task: Task | null;
@@ -37,6 +38,7 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
   const tTask = useTranslations("Task");
   const tActions = useTranslations("Actions");
   const { updateTask, deleteTask, toggleComplete } = useTaskStore();
+  const startFocus = useFocusStore((s) => s.startFocus);
 
   const [editing, setEditing] = useState(false);
   const [editTitle, setEditTitle] = useState("");
@@ -286,6 +288,18 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
                   >
                     {task.status === "completed" ? t("markIncomplete") : t("markComplete")}
                   </motion.button>
+                  <button
+                    onClick={() => { if (task) { startFocus(task.id, task.title); onClose(); } }}
+                    className="p-2.5 rounded-xl text-google-blue-500 hover:bg-google-blue-50 hover:text-google-blue-600 dark:hover:bg-google-blue-900/20 transition-colors"
+                    aria-label="Focus Mode"
+                    title="Focus Mode"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <circle cx="9" cy="9" r="7" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="9" cy="9" r="3" stroke="currentColor" strokeWidth="1.5" />
+                      <circle cx="9" cy="9" r="1" fill="currentColor" />
+                    </svg>
+                  </button>
                   <button
                     onClick={startEdit}
                     className="p-2.5 rounded-xl text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700 transition-colors"

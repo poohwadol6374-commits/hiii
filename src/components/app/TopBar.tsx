@@ -15,7 +15,7 @@ export default function TopBar() {
   return (
     <>
       <header
-        className="flex items-center justify-between h-14 px-4 md:px-6 bg-white/80 backdrop-blur-xl border-b border-lumina-200/60 z-20"
+        className="flex items-center justify-between h-14 px-4 md:px-6 bg-white/80 dark:bg-lumina-900/80 backdrop-blur-xl border-b border-lumina-200/60 dark:border-lumina-800/60 z-20"
         style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.03)" }}
       >
         {/* Left: Search */}
@@ -31,7 +31,7 @@ export default function TopBar() {
             <input
               type="text"
               placeholder={t("search")}
-              className="w-full pl-9 pr-4 py-2 text-sm bg-lumina-100/80 rounded-xl border-none outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white transition-all placeholder:text-lumina-400"
+              className="w-full pl-9 pr-4 py-2 text-sm bg-lumina-100/80 dark:bg-lumina-800/80 rounded-xl border-none outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white dark:focus:bg-lumina-800 transition-all placeholder:text-lumina-400 dark:text-lumina-100"
               readOnly
             />
           </div>
@@ -49,7 +49,7 @@ export default function TopBar() {
             <input
               type="text"
               placeholder={t("quickCapture")}
-              className="w-full pl-9 pr-4 py-2 text-sm bg-google-blue-50/50 rounded-xl border border-google-blue-100 outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white transition-all placeholder:text-lumina-400"
+              className="w-full pl-9 pr-4 py-2 text-sm bg-google-blue-50/50 dark:bg-google-blue-900/20 rounded-xl border border-google-blue-100 dark:border-google-blue-800 outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white dark:focus:bg-lumina-800 transition-all placeholder:text-lumina-400 dark:text-lumina-100"
               readOnly
             />
           </div>
@@ -65,7 +65,7 @@ export default function TopBar() {
             className={`relative p-2 rounded-xl transition-colors ${
               pomoStatus !== "idle"
                 ? "text-google-red-500 bg-google-red-50 hover:bg-google-red-100"
-                : "text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700"
+                : "text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700 dark:hover:bg-lumina-800 dark:hover:text-lumina-200"
             }`}
             aria-label="Pomodoro Timer"
           >
@@ -97,7 +97,7 @@ export default function TopBar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative p-2 rounded-xl text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700 transition-colors"
+            className="relative p-2 rounded-xl text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700 dark:hover:bg-lumina-800 dark:hover:text-lumina-200 transition-colors"
             aria-label={t("notifications")}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">

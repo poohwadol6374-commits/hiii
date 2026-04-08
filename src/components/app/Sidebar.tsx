@@ -80,7 +80,7 @@ export default function Sidebar() {
 
   return (
     <motion.aside
-      className="hidden md:flex flex-col items-center bg-white/80 backdrop-blur-xl border-r border-lumina-200/60 py-4 z-30 h-full"
+      className="hidden md:flex flex-col items-center bg-white/80 dark:bg-lumina-900/80 backdrop-blur-xl border-r border-lumina-200/60 dark:border-lumina-800/60 py-4 z-30 h-full"
       animate={{ width: expanded ? 200 : 64 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       style={{ boxShadow: "1px 0 8px rgba(0,0,0,0.03)" }}
@@ -100,7 +100,7 @@ export default function Sidebar() {
               initial={{ opacity: 0, width: 0 }}
               animate={{ opacity: 1, width: "auto" }}
               exit={{ opacity: 0, width: 0 }}
-              className="ml-2.5 font-semibold text-lumina-900 text-sm whitespace-nowrap overflow-hidden"
+              className="ml-2.5 font-semibold text-lumina-900 dark:text-lumina-100 text-sm whitespace-nowrap overflow-hidden"
             >
               Lumina
             </motion.span>
@@ -117,8 +117,8 @@ export default function Sidebar() {
               <motion.div
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors cursor-pointer group relative ${
                   isActive
-                    ? "bg-google-blue-50 text-google-blue-600"
-                    : "text-lumina-500 hover:bg-lumina-100 hover:text-lumina-800"
+                    ? "bg-google-blue-50 text-google-blue-600 dark:bg-google-blue-900/30 dark:text-google-blue-300"
+                    : "text-lumina-500 hover:bg-lumina-100 hover:text-lumina-800 dark:hover:bg-lumina-800 dark:hover:text-lumina-200"
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
@@ -152,7 +152,7 @@ export default function Sidebar() {
       {/* Toggle Button */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-2 flex items-center justify-center w-8 h-8 rounded-lg text-lumina-400 hover:text-lumina-700 hover:bg-lumina-100 transition-colors"
+        className="mt-2 flex items-center justify-center w-8 h-8 rounded-lg text-lumina-400 hover:text-lumina-700 hover:bg-lumina-100 dark:hover:bg-lumina-800 dark:hover:text-lumina-200 transition-colors"
         aria-label={expanded ? t("collapse") : t("expand")}
       >
         <motion.svg

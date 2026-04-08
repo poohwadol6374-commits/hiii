@@ -62,10 +62,10 @@ export default function SignInPage() {
       className="w-full"
       suppressHydrationWarning
     >
-      <h1 className="mb-1 text-center text-2xl font-bold text-lumina-900">
+      <h1 className="mb-1 text-center text-2xl font-bold text-lumina-900 dark:text-lumina-100">
         {t("signIn")}
       </h1>
-      <p className="mb-8 text-center text-sm text-lumina-500">
+      <p className="mb-8 text-center text-sm text-lumina-500 dark:text-lumina-400">
         {t("signInDesc")}
       </p>
 
@@ -74,7 +74,7 @@ export default function SignInPage() {
         type="button"
         onClick={handleGoogleDemo}
         disabled={loading}
-        className="mb-6 flex w-full items-center justify-center gap-3 rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm font-medium text-lumina-700 shadow-[var(--shadow-soft)] transition-all hover:border-lumina-300 hover:bg-lumina-50 hover:shadow-[var(--shadow-card)] disabled:opacity-60"
+        className="mb-6 flex w-full items-center justify-center gap-3 rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-900 px-4 py-3 text-sm font-medium text-lumina-700 dark:text-lumina-200 shadow-[var(--shadow-soft)] transition-all hover:border-lumina-300 dark:hover:border-lumina-600 hover:bg-lumina-50 dark:hover:bg-lumina-800 hover:shadow-[var(--shadow-card)] disabled:opacity-60"
       >
         <svg className="h-5 w-5" viewBox="0 0 24 24">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -86,20 +86,20 @@ export default function SignInPage() {
       </button>
 
       <div className="mb-6 flex items-center gap-3">
-        <div className="h-px flex-1 bg-lumina-200" />
+        <div className="h-px flex-1 bg-lumina-200 dark:bg-lumina-700" />
         <span className="text-xs text-lumina-400">{t("or")}</span>
-        <div className="h-px flex-1 bg-lumina-200" />
+        <div className="h-px flex-1 bg-lumina-200 dark:bg-lumina-700" />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
-          <div className="rounded-lg bg-google-red-50 px-4 py-3 text-sm text-google-red-600">
+          <div className="rounded-lg bg-google-red-50 dark:bg-google-red-900/20 px-4 py-3 text-sm text-google-red-600 dark:text-google-red-400">
             {error}
           </div>
         )}
 
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium text-lumina-700">
+          <label htmlFor="email" className="mb-1 block text-sm font-medium text-lumina-700 dark:text-lumina-300">
             {t("email")}
           </label>
           <input
@@ -109,13 +109,13 @@ export default function SignInPage() {
             autoComplete="email"
             value={form.email}
             onChange={handleChange}
-            className="w-full rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm text-lumina-900 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100"
+            className="w-full rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-4 py-3 text-sm text-lumina-900 dark:text-lumina-100 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100 dark:focus:ring-google-blue-900"
             placeholder={t("emailPlaceholder")}
           />
         </div>
 
         <div>
-          <label htmlFor="password" className="mb-1 block text-sm font-medium text-lumina-700">
+          <label htmlFor="password" className="mb-1 block text-sm font-medium text-lumina-700 dark:text-lumina-300">
             {t("password")}
           </label>
           <input
@@ -125,7 +125,7 @@ export default function SignInPage() {
             autoComplete="current-password"
             value={form.password}
             onChange={handleChange}
-            className="w-full rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm text-lumina-900 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100"
+            className="w-full rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-4 py-3 text-sm text-lumina-900 dark:text-lumina-100 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100 dark:focus:ring-google-blue-900"
             placeholder={t("passwordPlaceholder")}
           />
         </div>
@@ -145,7 +145,7 @@ export default function SignInPage() {
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-lumina-500">
+      <p className="mt-6 text-center text-sm text-lumina-500 dark:text-lumina-400">
         {t("dontHaveAccount")}{" "}
         <Link href="/signup" className="font-medium text-google-blue-500 hover:text-google-blue-600">
           {t("signUp")}

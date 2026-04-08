@@ -31,7 +31,7 @@ export default function WeeklyReview() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 24, delay: 0.1 }}
-      className="rounded-2xl border border-lumina-100 bg-white p-5"
+      className="rounded-2xl border border-lumina-100 dark:border-lumina-800 bg-white dark:bg-lumina-900 p-5"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       <div className="flex items-center gap-2 mb-4">
@@ -40,13 +40,13 @@ export default function WeeklyReview() {
             <path d="M2 7L5.5 10.5L12 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h2 className="text-base font-semibold text-lumina-900">{t("title")}</h2>
+        <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("title")}</h2>
         <span className="ml-auto text-[11px] text-lumina-400 font-medium">{t("thisWeek")}</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Completion rate */}
-        <div className="flex flex-col items-center justify-center bg-lumina-50/80 rounded-xl p-4">
+        <div className="flex flex-col items-center justify-center bg-lumina-50/80 dark:bg-lumina-800/60 rounded-xl p-4">
           <div className="relative w-20 h-20 mb-2">
             <svg viewBox="0 0 80 80" className="w-full h-full -rotate-90">
               <circle cx="40" cy="40" r="34" fill="none" stroke="#EBEDF0" strokeWidth="6" />
@@ -63,23 +63,23 @@ export default function WeeklyReview() {
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-lg font-bold text-lumina-900">{completionPct}%</span>
+              <span className="text-lg font-bold text-lumina-900 dark:text-lumina-100">{completionPct}%</span>
             </div>
           </div>
-          <p className="text-xs font-semibold text-lumina-700">{t("completionRate")}</p>
+          <p className="text-xs font-semibold text-lumina-700 dark:text-lumina-300">{t("completionRate")}</p>
           <p className="text-[11px] text-lumina-400">{t("tasksCompleted", { completed, total })}</p>
         </div>
 
         {/* Time by category */}
-        <div className="bg-lumina-50/80 rounded-xl p-4">
-          <h3 className="text-xs font-semibold text-lumina-500 uppercase tracking-wider mb-3">
+        <div className="bg-lumina-50/80 dark:bg-lumina-800/60 rounded-xl p-4">
+          <h3 className="text-xs font-semibold text-lumina-500 dark:text-lumina-400 uppercase tracking-wider mb-3">
             {t("timeByCategory")}
           </h3>
           <div className="flex flex-col gap-2">
             {categoryData.map((cat, i) => (
               <div key={cat.key} className="flex items-center gap-2">
                 <span className="text-[11px] text-lumina-500 w-16 truncate">{cat.key}</span>
-                <div className="flex-1 h-2 bg-lumina-200 rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-lumina-200 dark:bg-lumina-700 rounded-full overflow-hidden">
                   <motion.div
                     className={`h-full rounded-full ${cat.color}`}
                     initial={{ width: 0 }}
@@ -98,7 +98,7 @@ export default function WeeklyReview() {
         {/* Streak + Luma recommendation */}
         <div className="flex flex-col gap-3">
           {/* Streak */}
-          <div className="bg-lumina-50/80 rounded-xl p-4 flex items-center gap-3">
+          <div className="bg-lumina-50/80 dark:bg-lumina-800/60 rounded-xl p-4 flex items-center gap-3">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -108,7 +108,7 @@ export default function WeeklyReview() {
               🔥
             </motion.div>
             <div>
-              <p className="text-sm font-bold text-lumina-900">{t("streakDays", { days: streakDays })}</p>
+              <p className="text-sm font-bold text-lumina-900 dark:text-lumina-100">{t("streakDays", { days: streakDays })}</p>
               <p className="text-[11px] text-lumina-400">{t("streakMessage")}</p>
             </div>
           </div>

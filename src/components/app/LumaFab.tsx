@@ -183,11 +183,11 @@ export default function LumaFab() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: 340, opacity: 0 }}
               transition={{ type: "spring", stiffness: 340, damping: 32 }}
-              className="fixed right-0 top-0 bottom-0 z-[999] w-[320px] flex flex-col bg-white/95 backdrop-blur-xl border-l border-lumina-200/60"
+              className="fixed right-0 top-0 bottom-0 z-[999] w-[320px] flex flex-col bg-white/95 dark:bg-lumina-900/95 backdrop-blur-xl border-l border-lumina-200/60 dark:border-lumina-800/60"
               style={{ boxShadow: "-4px 0 32px rgba(0,0,0,0.08)" }}
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-lumina-100">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-lumina-100 dark:border-lumina-800">
                 <div className="flex items-center gap-2.5">
                   <div className="relative">
                     <div className="w-7 h-7 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 flex items-center justify-center">
@@ -196,13 +196,13 @@ export default function LumaFab() {
                     <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-google-green-400 border-[1.5px] border-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-lumina-900">{t("lumaAssistant")}</p>
+                    <p className="text-sm font-semibold text-lumina-900 dark:text-lumina-100">{t("lumaAssistant")}</p>
                     <p className="text-[10px] text-google-green-600">Online</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-1.5 rounded-lg text-lumina-400 hover:text-lumina-700 hover:bg-lumina-100 transition-colors"
+                  className="p-1.5 rounded-lg text-lumina-400 hover:text-lumina-700 dark:hover:text-lumina-200 hover:bg-lumina-100 dark:hover:bg-lumina-800 transition-colors"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M3 3L11 11M11 3L3 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -224,7 +224,7 @@ export default function LumaFab() {
                       className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 ${
                         msg.role === "user"
                           ? "bg-google-blue-500 text-white"
-                          : "bg-google-blue-50/60 text-lumina-700"
+                          : "bg-google-blue-50/60 dark:bg-lumina-800 text-lumina-700 dark:text-lumina-200"
                       }`}
                     >
                       <p className="text-sm leading-relaxed whitespace-pre-line">{msg.text}</p>
@@ -282,15 +282,15 @@ export default function LumaFab() {
               </div>
 
               {/* Input */}
-              <div className="px-4 py-3 border-t border-lumina-100">
-                <div className="flex items-center gap-2 bg-lumina-50 rounded-xl px-3 py-2.5">
+              <div className="px-4 py-3 border-t border-lumina-100 dark:border-lumina-800">
+                <div className="flex items-center gap-2 bg-lumina-50 dark:bg-lumina-800 rounded-xl px-3 py-2.5">
                   <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={t("chatPlaceholder")}
-                    className="flex-1 bg-transparent text-sm outline-none placeholder:text-lumina-400 text-lumina-900"
+                    className="flex-1 bg-transparent text-sm outline-none placeholder:text-lumina-400 text-lumina-900 dark:text-lumina-100"
                   />
                   <button
                     onClick={() => sendMessage(input)}

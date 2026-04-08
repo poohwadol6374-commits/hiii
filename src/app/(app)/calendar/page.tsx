@@ -168,7 +168,7 @@ export default function CalendarPage() {
       />
 
       <div
-        className="flex-1 bg-white rounded-2xl border border-lumina-100 overflow-hidden"
+        className="flex-1 bg-white dark:bg-lumina-900 rounded-2xl border border-lumina-100 dark:border-lumina-800 overflow-hidden"
         style={{ boxShadow: "var(--shadow-card)" }}
       >
         <AnimatePresence mode="wait">

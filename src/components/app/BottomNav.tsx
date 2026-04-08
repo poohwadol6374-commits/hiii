@@ -75,7 +75,7 @@ export default function BottomNav() {
   return (
     <>
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-xl border-t border-lumina-200/60 px-2 pb-[env(safe-area-inset-bottom)]"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 dark:bg-lumina-900/90 backdrop-blur-xl border-t border-lumina-200/60 dark:border-lumina-800/60 px-2 pb-[env(safe-area-inset-bottom)]"
       style={{ boxShadow: "0 -2px 12px rgba(0,0,0,0.04)" }}
     >
       <div className="flex items-center justify-around h-14">

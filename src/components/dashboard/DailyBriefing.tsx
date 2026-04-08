@@ -57,7 +57,7 @@ export default function DailyBriefing() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
-      className="relative overflow-hidden rounded-2xl border border-lumina-100 bg-gradient-to-br from-white via-white to-google-blue-50/40 p-5"
+      className="relative overflow-hidden rounded-2xl border border-lumina-100 dark:border-lumina-800 bg-gradient-to-br from-white dark:from-lumina-900 via-white dark:via-lumina-900 to-google-blue-50/40 dark:to-google-blue-900/20 p-5"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       {/* Decorative glow */}
@@ -79,7 +79,7 @@ export default function DailyBriefing() {
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.15 }}
-            className="text-lg font-bold text-lumina-900"
+            className="text-lg font-bold text-lumina-900 dark:text-lumina-100"
           >
             {t(greetingKey)}
           </motion.h2>
@@ -105,9 +105,9 @@ export default function DailyBriefing() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-white/70 backdrop-blur-sm rounded-xl p-3.5 border border-lumina-100/60"
+          className="bg-white/70 dark:bg-lumina-800/70 backdrop-blur-sm rounded-xl p-3.5 border border-lumina-100/60 dark:border-lumina-700/60"
         >
-          <h3 className="text-xs font-semibold text-lumina-500 uppercase tracking-wider mb-2.5">
+          <h3 className="text-xs font-semibold text-lumina-500 dark:text-lumina-400 uppercase tracking-wider mb-2.5">
             {t("topPriority")}
           </h3>
           {topTasks.length === 0 ? (
@@ -128,7 +128,7 @@ export default function DailyBriefing() {
                       {i + 1}
                     </span>
                     <div className={`w-2 h-2 rounded-full flex-shrink-0 ${pc.dot}`} />
-                    <p className="text-sm text-lumina-800 truncate flex-1">{task.title}</p>
+                    <p className="text-sm text-lumina-800 dark:text-lumina-200 truncate flex-1">{task.title}</p>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-medium ${pc.bg} ${pc.text}`}>
                       {(score * 100).toFixed(0)}%
                     </span>
@@ -144,9 +144,9 @@ export default function DailyBriefing() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.38 }}
-          className="bg-white/70 backdrop-blur-sm rounded-xl p-3.5 border border-lumina-100/60"
+          className="bg-white/70 dark:bg-lumina-800/70 backdrop-blur-sm rounded-xl p-3.5 border border-lumina-100/60 dark:border-lumina-700/60"
         >
-          <h3 className="text-xs font-semibold text-lumina-500 uppercase tracking-wider mb-2.5">
+          <h3 className="text-xs font-semibold text-lumina-500 dark:text-lumina-400 uppercase tracking-wider mb-2.5">
             {t("bestFocusTime")}
           </h3>
           <div className="flex items-center gap-3">
@@ -157,7 +157,7 @@ export default function DailyBriefing() {
               </svg>
             </div>
             <div>
-              <p className="text-sm font-semibold text-lumina-900">{focusTime}</p>
+              <p className="text-sm font-semibold text-lumina-900 dark:text-lumina-100">{focusTime}</p>
               <p className="text-xs text-lumina-500 mt-0.5 leading-relaxed">
                 {t("focusRecommendation", { time: focusTime })}
               </p>

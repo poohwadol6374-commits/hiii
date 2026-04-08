@@ -134,13 +134,13 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             onClick={(e) => e.target === e.currentTarget && onClose()}
           >
-            <div className="bg-white rounded-2xl shadow-modal w-full max-w-lg max-h-[90vh] overflow-y-auto">
+            <div className="bg-white dark:bg-lumina-900 rounded-2xl shadow-modal w-full max-w-lg max-h-[90vh] overflow-y-auto">
               {/* Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-lumina-200/60">
-                <h2 className="text-lg font-semibold text-lumina-900">{t("createTitle")}</h2>
+              <div className="flex items-center justify-between px-6 py-4 border-b border-lumina-200/60 dark:border-lumina-800">
+                <h2 className="text-lg font-semibold text-lumina-900 dark:text-lumina-100">{t("createTitle")}</h2>
                 <button
                   onClick={onClose}
-                  className="p-1.5 rounded-lg text-lumina-400 hover:text-lumina-700 hover:bg-lumina-100 transition-colors"
+                  className="p-1.5 rounded-lg text-lumina-400 hover:text-lumina-700 dark:hover:text-lumina-200 hover:bg-lumina-100 dark:hover:bg-lumina-800 transition-colors"
                 >
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path d="M4.5 4.5L13.5 13.5M4.5 13.5L13.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -298,10 +298,10 @@ export default function TaskCreateModal({ open, onClose }: TaskCreateModalProps)
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-lumina-200/60">
+              <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-lumina-200/60 dark:border-lumina-800">
                 <button
                   onClick={() => { resetForm(); onClose(); }}
-                  className="px-4 py-2 text-sm font-medium text-lumina-600 hover:bg-lumina-100 rounded-xl transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-lumina-600 dark:text-lumina-300 hover:bg-lumina-100 dark:hover:bg-lumina-800 rounded-xl transition-colors"
                 >
                   {tActions("cancel")}
                 </button>

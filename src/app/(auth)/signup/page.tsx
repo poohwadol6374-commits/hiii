@@ -77,10 +77,10 @@ export default function SignUpPage() {
       className="w-full"
       suppressHydrationWarning
     >
-      <h1 className="mb-1 text-center text-2xl font-bold text-lumina-900">
+      <h1 className="mb-1 text-center text-2xl font-bold text-lumina-900 dark:text-lumina-100">
         {t("signUp")}
       </h1>
-      <p className="mb-8 text-center text-sm text-lumina-500">
+      <p className="mb-8 text-center text-sm text-lumina-500 dark:text-lumina-400">
         {t("signUpDesc")}
       </p>
 
@@ -89,7 +89,7 @@ export default function SignUpPage() {
         type="button"
         onClick={handleGoogleDemo}
         disabled={loading}
-        className="mb-6 flex w-full items-center justify-center gap-3 rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm font-medium text-lumina-700 shadow-[var(--shadow-soft)] transition-all hover:border-lumina-300 hover:bg-lumina-50 hover:shadow-[var(--shadow-card)] disabled:opacity-60"
+        className="mb-6 flex w-full items-center justify-center gap-3 rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-900 px-4 py-3 text-sm font-medium text-lumina-700 dark:text-lumina-200 shadow-[var(--shadow-soft)] transition-all hover:border-lumina-300 dark:hover:border-lumina-600 hover:bg-lumina-50 dark:hover:bg-lumina-800 hover:shadow-[var(--shadow-card)] disabled:opacity-60"
       >
         <svg className="h-5 w-5" viewBox="0 0 24 24">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -101,59 +101,59 @@ export default function SignUpPage() {
       </button>
 
       <div className="mb-6 flex items-center gap-3">
-        <div className="h-px flex-1 bg-lumina-200" />
+        <div className="h-px flex-1 bg-lumina-200 dark:bg-lumina-700" />
         <span className="text-xs text-lumina-400">{t("or")}</span>
-        <div className="h-px flex-1 bg-lumina-200" />
+        <div className="h-px flex-1 bg-lumina-200 dark:bg-lumina-700" />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="mb-1 block text-sm font-medium text-lumina-700">
+          <label htmlFor="name" className="mb-1 block text-sm font-medium text-lumina-700 dark:text-lumina-300">
             {t("name")}
           </label>
           <input
             id="name" name="name" type="text" autoComplete="name"
             value={form.name} onChange={handleChange}
-            className="w-full rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm text-lumina-900 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100"
+            className="w-full rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-4 py-3 text-sm text-lumina-900 dark:text-lumina-100 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100 dark:focus:ring-google-blue-900"
             placeholder={t("namePlaceholder")}
           />
           {errors.name && <p className="mt-1 text-xs text-google-red-500">{errors.name}</p>}
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium text-lumina-700">
+          <label htmlFor="email" className="mb-1 block text-sm font-medium text-lumina-700 dark:text-lumina-300">
             {t("email")}
           </label>
           <input
             id="email" name="email" type="email" autoComplete="email"
             value={form.email} onChange={handleChange}
-            className="w-full rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm text-lumina-900 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100"
+            className="w-full rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-4 py-3 text-sm text-lumina-900 dark:text-lumina-100 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100 dark:focus:ring-google-blue-900"
             placeholder={t("emailPlaceholder")}
           />
           {errors.email && <p className="mt-1 text-xs text-google-red-500">{errors.email}</p>}
         </div>
 
         <div>
-          <label htmlFor="password" className="mb-1 block text-sm font-medium text-lumina-700">
+          <label htmlFor="password" className="mb-1 block text-sm font-medium text-lumina-700 dark:text-lumina-300">
             {t("password")}
           </label>
           <input
             id="password" name="password" type="password" autoComplete="new-password"
             value={form.password} onChange={handleChange}
-            className="w-full rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm text-lumina-900 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100"
+            className="w-full rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-4 py-3 text-sm text-lumina-900 dark:text-lumina-100 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100 dark:focus:ring-google-blue-900"
             placeholder={t("passwordPlaceholder")}
           />
           {errors.password && <p className="mt-1 text-xs text-google-red-500">{errors.password}</p>}
         </div>
 
         <div>
-          <label htmlFor="confirmPassword" className="mb-1 block text-sm font-medium text-lumina-700">
+          <label htmlFor="confirmPassword" className="mb-1 block text-sm font-medium text-lumina-700 dark:text-lumina-300">
             {t("confirmPassword")}
           </label>
           <input
             id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password"
             value={form.confirmPassword} onChange={handleChange}
-            className="w-full rounded-xl border border-lumina-200 bg-white px-4 py-3 text-sm text-lumina-900 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100"
+            className="w-full rounded-xl border border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-4 py-3 text-sm text-lumina-900 dark:text-lumina-100 outline-none transition-colors placeholder:text-lumina-400 focus:border-google-blue-400 focus:ring-2 focus:ring-google-blue-100 dark:focus:ring-google-blue-900"
             placeholder={t("confirmPasswordPlaceholder")}
           />
           {errors.confirmPassword && <p className="mt-1 text-xs text-google-red-500">{errors.confirmPassword}</p>}
@@ -167,7 +167,7 @@ export default function SignUpPage() {
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-lumina-500">
+      <p className="mt-6 text-center text-sm text-lumina-500 dark:text-lumina-400">
         {t("alreadyHaveAccount")}{" "}
         <Link href="/signin" className="font-medium text-google-blue-500 hover:text-google-blue-600">
           {t("signIn")}

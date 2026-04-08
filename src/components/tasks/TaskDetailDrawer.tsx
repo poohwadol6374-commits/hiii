@@ -108,14 +108,14 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 350, damping: 35 }}
-            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-modal z-50 flex flex-col"
+            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white dark:bg-lumina-900 shadow-modal z-50 flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-lumina-200/60">
-              <h2 className="text-base font-semibold text-lumina-900">{t("taskDetails")}</h2>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-lumina-200/60 dark:border-lumina-800">
+              <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("taskDetails")}</h2>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-lg text-lumina-400 hover:text-lumina-700 hover:bg-lumina-100 transition-colors"
+                className="p-1.5 rounded-lg text-lumina-400 hover:text-lumina-700 dark:hover:text-lumina-200 hover:bg-lumina-100 dark:hover:bg-lumina-800 transition-colors"
               >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M4.5 4.5L13.5 13.5M4.5 13.5L13.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -167,7 +167,7 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
                   autoFocus
                 />
               ) : (
-                <h3 className={`text-lg font-semibold ${task.status === "completed" ? "line-through text-lumina-400" : "text-lumina-900"}`}>
+                <h3 className={`text-lg font-semibold ${task.status === "completed" ? "line-through text-lumina-400" : "text-lumina-900 dark:text-lumina-100"}`}>
                   {task.title}
                 </h3>
               )}
@@ -194,7 +194,7 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
                   className="w-full px-3 py-2 text-sm bg-lumina-50 rounded-xl border border-lumina-200 outline-none focus:ring-2 focus:ring-google-blue-200 resize-none"
                 />
               ) : task.description ? (
-                <p className="text-sm text-lumina-600 leading-relaxed">{task.description}</p>
+                <p className="text-sm text-lumina-600 dark:text-lumina-400 leading-relaxed">{task.description}</p>
               ) : null}
 
               {/* Details grid */}
@@ -256,7 +256,7 @@ export default function TaskDetailDrawer({ task, open, onClose }: TaskDetailDraw
             </div>
 
             {/* Footer actions */}
-            <div className="px-6 py-4 border-t border-lumina-200/60 flex items-center gap-2">
+            <div className="px-6 py-4 border-t border-lumina-200/60 dark:border-lumina-800 flex items-center gap-2">
               {editing ? (
                 <>
                   <button

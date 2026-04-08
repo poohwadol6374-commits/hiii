@@ -99,8 +99,8 @@ export default function TasksPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-lumina-900">{t("pageTitle")}</h1>
-          <p className="text-sm text-lumina-500 mt-1">{t("pageSubtitle")}</p>
+          <h1 className="text-2xl font-bold text-lumina-900 dark:text-lumina-100">{t("pageTitle")}</h1>
+          <p className="text-sm text-lumina-500 dark:text-lumina-400 mt-1">{t("pageSubtitle")}</p>
         </div>
         <motion.button
           whileHover={{ scale: 1.03 }}
@@ -129,7 +129,7 @@ export default function TasksPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={t("searchPlaceholder")}
-          className="w-full pl-10 pr-4 py-2.5 text-sm bg-white rounded-xl border border-lumina-200 outline-none focus:ring-2 focus:ring-google-blue-200 focus:border-google-blue-300 transition-all placeholder:text-lumina-400 shadow-soft"
+          className="w-full pl-10 pr-4 py-2.5 text-sm bg-white dark:bg-lumina-900 rounded-xl border border-lumina-200 dark:border-lumina-700 outline-none focus:ring-2 focus:ring-google-blue-200 focus:border-google-blue-300 transition-all placeholder:text-lumina-400 shadow-soft dark:text-lumina-100"
         />
       </div>
 
@@ -142,7 +142,7 @@ export default function TasksPage() {
             className={`relative px-4 py-2 text-sm font-medium rounded-xl whitespace-nowrap transition-all ${
               filter === f.key
                 ? "bg-google-blue-500 text-white shadow-sm"
-                : "text-lumina-500 hover:bg-lumina-100 hover:text-lumina-700"
+                : "text-lumina-500 hover:bg-lumina-100 dark:hover:bg-lumina-800 hover:text-lumina-700 dark:hover:text-lumina-200"
             }`}
           >
             {f.label}
@@ -187,7 +187,7 @@ export default function TasksPage() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ delay: i * 0.04, type: "spring", stiffness: 400, damping: 30 }}
                   onClick={() => openDetail(task)}
-                  className="group bg-white rounded-2xl border border-lumina-200/60 p-4 cursor-pointer hover:shadow-card hover:border-lumina-300/60 transition-all"
+                  className="group bg-white dark:bg-lumina-900 rounded-2xl border border-lumina-200/60 dark:border-lumina-800 p-4 cursor-pointer hover:shadow-card hover:border-lumina-300/60 dark:hover:border-lumina-700 transition-all"
                   style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}
                 >
                   <div className="flex items-start gap-3">
@@ -203,7 +203,7 @@ export default function TasksPage() {
                           className={`text-sm font-semibold truncate ${
                             task.status === "completed"
                               ? "line-through text-lumina-400"
-                              : "text-lumina-900 group-hover:text-google-blue-600"
+                              : "text-lumina-900 dark:text-lumina-100 group-hover:text-google-blue-600"
                           } transition-colors`}
                         >
                           {task.title}

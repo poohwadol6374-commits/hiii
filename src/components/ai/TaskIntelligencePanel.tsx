@@ -45,7 +45,7 @@ export default function TaskIntelligencePanel() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
-      className="bg-white rounded-2xl p-5 border border-lumina-100"
+      className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       {/* Header */}
@@ -54,7 +54,7 @@ export default function TaskIntelligencePanel() {
           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">L</span>
           </div>
-          <h2 className="text-base font-semibold text-lumina-900">
+          <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">
             {t("intelligenceTitle")}
           </h2>
         </div>

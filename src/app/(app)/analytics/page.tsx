@@ -78,8 +78,8 @@ export default function AnalyticsPage() {
     >
       {/* Header */}
       <motion.div variants={cardVariants} className="mb-6">
-        <h1 className="text-xl md:text-2xl font-bold text-lumina-900">{t("title")}</h1>
-        <p className="text-sm text-lumina-500 mt-0.5">{t("subtitle")}</p>
+        <h1 className="text-xl md:text-2xl font-bold text-lumina-900 dark:text-lumina-100">{t("title")}</h1>
+        <p className="text-sm text-lumina-500 dark:text-lumina-400 mt-0.5">{t("subtitle")}</p>
       </motion.div>
 
       {/* Top row: Completion ring + Productivity score + Streak */}
@@ -87,7 +87,7 @@ export default function AnalyticsPage() {
         {/* Completion Rate Ring */}
         <motion.div
           variants={cardVariants}
-          className="bg-white rounded-2xl p-5 border border-lumina-100 flex flex-col items-center justify-center"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800 flex flex-col items-center justify-center"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <div className="relative w-32 h-32 mb-3">
@@ -113,13 +113,13 @@ export default function AnalyticsPage() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8 }}
-                className="text-2xl font-bold text-lumina-900"
+                className="text-2xl font-bold text-lumina-900 dark:text-lumina-100"
               >
                 {completionPct}%
               </motion.span>
             </div>
           </div>
-          <p className="text-sm font-semibold text-lumina-800">{t("completionRate")}</p>
+          <p className="text-sm font-semibold text-lumina-800 dark:text-lumina-200">{t("completionRate")}</p>
           <p className="text-xs text-lumina-400 mt-0.5">
             {t("completionDesc", { completed, total })}
           </p>
@@ -128,14 +128,14 @@ export default function AnalyticsPage() {
         {/* Productivity Score */}
         <motion.div
           variants={cardVariants}
-          className="bg-white rounded-2xl p-5 border border-lumina-100 flex flex-col items-center justify-center"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800 flex flex-col items-center justify-center"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <div className="relative w-32 h-32 mb-3">
             <svg viewBox="0 0 128 128" className="w-full h-full -rotate-90">
               <circle
                 cx="64" cy="64" r={radius}
-                fill="none" stroke="#EBEDF0" strokeWidth="10"
+                fill="none" stroke="#EBEDF0" className="dark:stroke-lumina-800" strokeWidth="10"
               />
               <motion.circle
                 cx="64" cy="64" r={radius}
@@ -154,20 +154,20 @@ export default function AnalyticsPage() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9 }}
-                className="text-2xl font-bold text-lumina-900"
+                className="text-2xl font-bold text-lumina-900 dark:text-lumina-100"
               >
                 {productivityScore}
               </motion.span>
             </div>
           </div>
-          <p className="text-sm font-semibold text-lumina-800">{t("productivityScore")}</p>
+          <p className="text-sm font-semibold text-lumina-800 dark:text-lumina-200">{t("productivityScore")}</p>
           <p className="text-xs text-lumina-400 mt-0.5 text-center">{t("scoreDesc")}</p>
         </motion.div>
 
         {/* Streak */}
         <motion.div
           variants={cardVariants}
-          className="bg-white rounded-2xl p-5 border border-lumina-100 flex flex-col items-center justify-center"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800 flex flex-col items-center justify-center"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <motion.div
@@ -182,11 +182,11 @@ export default function AnalyticsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="text-2xl font-bold text-lumina-900"
+            className="text-2xl font-bold text-lumina-900 dark:text-lumina-100"
           >
             {streakDays}
           </motion.p>
-          <p className="text-sm font-semibold text-lumina-800 mt-1">{t("streak")}</p>
+          <p className="text-sm font-semibold text-lumina-800 dark:text-lumina-200 mt-1">{t("streak")}</p>
           <p className="text-xs text-lumina-400 mt-0.5">{t("streakDays", { days: streakDays })}</p>
         </motion.div>
       </div>
@@ -196,21 +196,21 @@ export default function AnalyticsPage() {
         {/* Time by Category — horizontal bars */}
         <motion.div
           variants={cardVariants}
-          className="bg-white rounded-2xl p-5 border border-lumina-100"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
-          <h2 className="text-sm font-semibold text-lumina-900 mb-4">{t("timeByCategory")}</h2>
+          <h2 className="text-sm font-semibold text-lumina-900 dark:text-lumina-100 mb-4">{t("timeByCategory")}</h2>
           <div className="flex flex-col gap-3">
             {categoryTimeData.map((cat, i) => (
               <div key={cat.key}>
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
                     <div className={`w-2.5 h-2.5 rounded-full ${cat.bg}`} />
-                    <span className="text-xs font-medium text-lumina-700">{t(cat.key)}</span>
+                    <span className="text-xs font-medium text-lumina-700 dark:text-lumina-300">{t(cat.key)}</span>
                   </div>
                   <span className="text-xs text-lumina-400">{cat.hours}{t("hours")}</span>
                 </div>
-                <div className="h-3 bg-lumina-100 rounded-full overflow-hidden">
+                <div className="h-3 bg-lumina-100 dark:bg-lumina-800 rounded-full overflow-hidden">
                   <motion.div
                     className="h-full rounded-full"
                     style={{ backgroundColor: cat.color }}
@@ -227,10 +227,10 @@ export default function AnalyticsPage() {
         {/* Weekly Activity Heatmap */}
         <motion.div
           variants={cardVariants}
-          className="bg-white rounded-2xl p-5 border border-lumina-100"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
-          <h2 className="text-sm font-semibold text-lumina-900 mb-4">{t("weeklyActivity")}</h2>
+          <h2 className="text-sm font-semibold text-lumina-900 dark:text-lumina-100 mb-4">{t("weeklyActivity")}</h2>
           <div className="grid grid-cols-7 gap-2">
             {weeklyActivity.map((day, i) => (
               <div key={day.dayKey} className="flex flex-col items-center gap-1.5">

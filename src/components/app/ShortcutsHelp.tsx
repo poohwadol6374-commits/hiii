@@ -47,13 +47,13 @@ export default function ShortcutsHelp({ open, onClose, shortcuts }: ShortcutsHel
             className="fixed inset-0 z-[201] flex items-center justify-center p-4 pointer-events-none"
           >
             <div
-              className="pointer-events-auto bg-white/95 backdrop-blur-xl rounded-3xl border border-lumina-200/60 w-full max-w-md overflow-hidden"
+              className="pointer-events-auto bg-white/95 dark:bg-lumina-900/95 backdrop-blur-xl rounded-3xl border border-lumina-200/60 dark:border-lumina-800 w-full max-w-md overflow-hidden"
               style={{ boxShadow: "var(--shadow-modal)" }}
             >
               {/* Header */}
               <div className="flex items-center justify-between px-6 pt-6 pb-4">
                 <div>
-                  <h2 className="text-lg font-semibold text-lumina-900">
+                  <h2 className="text-lg font-semibold text-lumina-900 dark:text-lumina-100">
                     {t("shortcutsTitle")}
                   </h2>
                   <p className="text-xs text-lumina-400 mt-0.5">

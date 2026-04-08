@@ -27,8 +27,8 @@ export default function SettingsPage() {
     <div className="max-w-2xl mx-auto px-4 md:px-6 py-8 pb-24">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="text-2xl font-bold text-lumina-900">{t("title")}</h1>
-        <p className="text-sm text-lumina-500 mt-1">{t("subtitle")}</p>
+        <h1 className="text-2xl font-bold text-lumina-900 dark:text-lumina-100">{t("title")}</h1>
+        <p className="text-sm text-lumina-500 dark:text-lumina-400 mt-1">{t("subtitle")}</p>
       </motion.div>
 
       <div className="flex flex-col gap-6">
@@ -42,10 +42,10 @@ export default function SettingsPage() {
               <input
                 value={s.displayName}
                 onChange={(e) => s.setDisplayName(e.target.value)}
-                className="w-full text-sm font-medium text-lumina-900 bg-lumina-100/80 rounded-xl px-3 py-2 border-none outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white transition-all"
+                className="w-full text-sm font-medium text-lumina-900 dark:text-lumina-100 bg-lumina-100/80 dark:bg-lumina-800/80 rounded-xl px-3 py-2 border-none outline-none focus:ring-2 focus:ring-google-blue-200 focus:bg-white dark:focus:bg-lumina-800 transition-all"
                 placeholder={t("displayName")}
               />
-              <p className="text-xs text-lumina-400 mt-1.5 px-1">{s.email}</p>
+              <p className="text-xs text-lumina-400 dark:text-lumina-500 mt-1.5 px-1">{s.email}</p>
             </div>
           </div>
         </Section>
@@ -97,14 +97,14 @@ export default function SettingsPage() {
             <select
               value={s.workingHoursStart}
               onChange={(e) => s.setWorkingHoursStart(e.target.value)}
-              className="rounded-xl border border-lumina-300 bg-white px-3 py-2.5 text-sm text-lumina-900 focus:border-google-blue-400 focus:outline-none focus:ring-2 focus:ring-google-blue-100"
+              className="rounded-xl border border-lumina-300 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-3 py-2.5 text-sm text-lumina-900 dark:text-lumina-100 focus:border-google-blue-400 focus:outline-none focus:ring-2 focus:ring-google-blue-100"
             >
               {HOURS.map((h) => <option key={h} value={h}>{h}</option>)}
             </select>
             <select
               value={s.workingHoursEnd}
               onChange={(e) => s.setWorkingHoursEnd(e.target.value)}
-              className="rounded-xl border border-lumina-300 bg-white px-3 py-2.5 text-sm text-lumina-900 focus:border-google-blue-400 focus:outline-none focus:ring-2 focus:ring-google-blue-100"
+              className="rounded-xl border border-lumina-300 dark:border-lumina-700 bg-white dark:bg-lumina-800 px-3 py-2.5 text-sm text-lumina-900 dark:text-lumina-100 focus:border-google-blue-400 focus:outline-none focus:ring-2 focus:ring-google-blue-100"
             >
               {HOURS.map((h) => <option key={h} value={h}>{h}</option>)}
             </select>
@@ -121,12 +121,12 @@ export default function SettingsPage() {
                 onClick={() => s.setLumaPersonality(p as LumaPersonality)}
                 className={`rounded-xl border-2 p-3 text-left transition-all ${
                   s.lumaPersonality === p
-                    ? "border-google-blue-500 bg-google-blue-50 shadow-sm"
-                    : "border-lumina-200 bg-white hover:border-lumina-300"
+                    ? "border-google-blue-500 bg-google-blue-50 dark:bg-google-blue-900/30 shadow-sm"
+                    : "border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 hover:border-lumina-300 dark:hover:border-lumina-600"
                 }`}
               >
-                <span className="text-sm font-semibold text-lumina-900">{t(`personality_${p}`)}</span>
-                <span className="text-xs text-lumina-500 ml-2">{t(`personality_${p}_desc`)}</span>
+                <span className="text-sm font-semibold text-lumina-900 dark:text-lumina-100">{t(`personality_${p}`)}</span>
+                <span className="text-xs text-lumina-500 dark:text-lumina-400 ml-2">{t(`personality_${p}_desc`)}</span>
               </button>
             ))}
           </div>
@@ -153,12 +153,12 @@ export default function SettingsPage() {
                 onClick={() => s.setLocale(loc as AppLocale)}
                 className={`flex flex-col items-center gap-2 rounded-xl border-2 p-5 transition-all ${
                   s.locale === loc
-                    ? "border-google-blue-500 bg-google-blue-50 shadow-sm"
-                    : "border-lumina-200 bg-white hover:border-lumina-300"
+                    ? "border-google-blue-500 bg-google-blue-50 dark:bg-google-blue-900/30 shadow-sm"
+                    : "border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 hover:border-lumina-300 dark:hover:border-lumina-600"
                 }`}
               >
                 <span className="text-2xl">{loc === "th" ? "🇹🇭" : "🇺🇸"}</span>
-                <span className="text-sm font-semibold text-lumina-900">
+                <span className="text-sm font-semibold text-lumina-900 dark:text-lumina-100">
                   {loc === "th" ? "ไทย" : "English"}
                 </span>
               </button>
@@ -174,14 +174,14 @@ export default function SettingsPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => s.setPomodoroWorkMinutes(s.pomodoroWorkMinutes - 5)}
-                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 text-lumina-700 font-bold transition-colors flex items-center justify-center"
+                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 dark:bg-lumina-800 dark:hover:bg-lumina-700 text-lumina-700 dark:text-lumina-300 font-bold transition-colors flex items-center justify-center"
                 >−</button>
-                <span className="text-lg font-bold text-lumina-900 w-12 text-center">{s.pomodoroWorkMinutes}</span>
+                <span className="text-lg font-bold text-lumina-900 dark:text-lumina-100 w-12 text-center">{s.pomodoroWorkMinutes}</span>
                 <button
                   onClick={() => s.setPomodoroWorkMinutes(s.pomodoroWorkMinutes + 5)}
-                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 text-lumina-700 font-bold transition-colors flex items-center justify-center"
+                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 dark:bg-lumina-800 dark:hover:bg-lumina-700 text-lumina-700 dark:text-lumina-300 font-bold transition-colors flex items-center justify-center"
                 >+</button>
-                <span className="text-xs text-lumina-500">{t("minutes")}</span>
+                <span className="text-xs text-lumina-500 dark:text-lumina-400">{t("minutes")}</span>
               </div>
             </div>
             <div>
@@ -189,14 +189,14 @@ export default function SettingsPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => s.setPomodoroBreakMinutes(s.pomodoroBreakMinutes - 1)}
-                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 text-lumina-700 font-bold transition-colors flex items-center justify-center"
+                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 dark:bg-lumina-800 dark:hover:bg-lumina-700 text-lumina-700 dark:text-lumina-300 font-bold transition-colors flex items-center justify-center"
                 >−</button>
-                <span className="text-lg font-bold text-lumina-900 w-12 text-center">{s.pomodoroBreakMinutes}</span>
+                <span className="text-lg font-bold text-lumina-900 dark:text-lumina-100 w-12 text-center">{s.pomodoroBreakMinutes}</span>
                 <button
                   onClick={() => s.setPomodoroBreakMinutes(s.pomodoroBreakMinutes + 1)}
-                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 text-lumina-700 font-bold transition-colors flex items-center justify-center"
+                  className="w-8 h-8 rounded-lg bg-lumina-100 hover:bg-lumina-200 dark:bg-lumina-800 dark:hover:bg-lumina-700 text-lumina-700 dark:text-lumina-300 font-bold transition-colors flex items-center justify-center"
                 >+</button>
-                <span className="text-xs text-lumina-500">{t("minutes")}</span>
+                <span className="text-xs text-lumina-500 dark:text-lumina-400">{t("minutes")}</span>
               </div>
             </div>
           </div>
@@ -215,11 +215,11 @@ function Section({ index, title, icon, children }: { index: number; title: strin
       initial="hidden"
       animate="show"
       variants={fadeUp}
-      className="rounded-2xl bg-white/80 backdrop-blur-sm p-5 shadow-[var(--shadow-card)]"
+      className="rounded-2xl bg-white/80 dark:bg-lumina-900/80 backdrop-blur-sm p-5 shadow-[var(--shadow-card)]"
     >
       <div className="flex items-center gap-2 mb-4">
         <span className="text-lg">{icon}</span>
-        <h2 className="text-base font-semibold text-lumina-900">{title}</h2>
+        <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{title}</h2>
       </div>
       {children}
     </motion.section>
@@ -227,7 +227,7 @@ function Section({ index, title, icon, children }: { index: number; title: strin
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <span className="block text-xs font-medium text-lumina-600 mb-2">{children}</span>;
+  return <span className="block text-xs font-medium text-lumina-600 dark:text-lumina-400 mb-2">{children}</span>;
 }
 
 function OptionCard({ selected, onClick, icon, label }: { selected: boolean; onClick: () => void; icon: string; label: string }) {
@@ -236,12 +236,12 @@ function OptionCard({ selected, onClick, icon, label }: { selected: boolean; onC
       onClick={onClick}
       className={`flex flex-col items-center gap-1.5 rounded-xl border-2 px-3 py-3 text-center transition-all ${
         selected
-          ? "border-google-blue-500 bg-google-blue-50 shadow-sm"
-          : "border-lumina-200 bg-white hover:border-lumina-300"
+          ? "border-google-blue-500 bg-google-blue-50 dark:bg-google-blue-900/30 shadow-sm"
+          : "border-lumina-200 dark:border-lumina-700 bg-white dark:bg-lumina-800 hover:border-lumina-300 dark:hover:border-lumina-600"
       }`}
     >
       <span className="text-lg">{icon}</span>
-      <span className="text-xs font-medium text-lumina-800">{label}</span>
+      <span className="text-xs font-medium text-lumina-800 dark:text-lumina-200">{label}</span>
     </button>
   );
 }

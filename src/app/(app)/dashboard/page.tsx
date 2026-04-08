@@ -61,8 +61,8 @@ export default function DashboardPage() {
             <span className="text-white text-sm font-bold">L</span>
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-lumina-900">{t("title")}</h1>
-            <p className="text-sm text-lumina-500">{t("greeting")}</p>
+            <h1 className="text-xl md:text-2xl font-bold text-lumina-900 dark:text-lumina-100">{t("title")}</h1>
+            <p className="text-sm text-lumina-500 dark:text-lumina-400">{t("greeting")}</p>
           </div>
         </div>
       </motion.div>
@@ -77,11 +77,11 @@ export default function DashboardPage() {
         {/* Today's Schedule */}
         <motion.div
           variants={cardVariants}
-          className="lg:col-span-2 bg-white rounded-2xl p-5 border border-lumina-100"
+          className="lg:col-span-2 bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-base font-semibold text-lumina-900">{t("todaySchedule")}</h2>
+            <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("todaySchedule")}</h2>
             <button className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
               {t("viewAll")}
             </button>
@@ -111,11 +111,11 @@ export default function DashboardPage() {
         {/* Priority Tasks */}
         <motion.div
           variants={cardVariants}
-          className="bg-white rounded-2xl p-5 border border-lumina-100"
+          className="bg-white dark:bg-lumina-900 rounded-2xl p-5 border border-lumina-100 dark:border-lumina-800"
           style={{ boxShadow: "var(--shadow-card)" }}
         >
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-base font-semibold text-lumina-900">{t("priorityTasks")}</h2>
+            <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100">{t("priorityTasks")}</h2>
             <button className="text-xs text-google-blue-600 font-medium hover:text-google-blue-700 transition-colors">
               {t("viewAll")}
             </button>
@@ -129,10 +129,10 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, x: 12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + i * 0.06 }}
-                  className="p-3 rounded-xl bg-lumina-50/80 hover:bg-lumina-100/80 transition-colors cursor-pointer group"
+                  className="p-3 rounded-xl bg-lumina-50/80 dark:bg-lumina-800/60 hover:bg-lumina-100/80 dark:hover:bg-lumina-800 transition-colors cursor-pointer group"
                 >
                   <div className="flex items-start justify-between mb-1.5">
-                    <p className="text-sm font-medium text-lumina-800 group-hover:text-lumina-900 truncate pr-2">
+                    <p className="text-sm font-medium text-lumina-800 dark:text-lumina-200 group-hover:text-lumina-900 dark:group-hover:text-lumina-100 truncate pr-2">
                       {task.title}
                     </p>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-medium flex-shrink-0 ${style.bg} ${style.text}`}>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
                     <span className="text-[11px] text-lumina-400">{task.deadline}</span>
                     {/* Progress bar */}
                     <div className="flex items-center gap-1.5">
-                      <div className="w-16 h-1.5 bg-lumina-200 rounded-full overflow-hidden">
+                      <div className="w-16 h-1.5 bg-lumina-200 dark:bg-lumina-700 rounded-full overflow-hidden">
                         <motion.div
                           className="h-full bg-google-blue-400 rounded-full"
                           initial={{ width: 0 }}
@@ -172,7 +172,7 @@ export default function DashboardPage() {
 
         {/* AI Insights */}
         <motion.div variants={cardVariants} className="lg:col-span-3">
-          <h2 className="text-base font-semibold text-lumina-900 mb-3">{t("aiInsights")}</h2>
+          <h2 className="text-base font-semibold text-lumina-900 dark:text-lumina-100 mb-3">{t("aiInsights")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <InsightCard
               icon={
@@ -251,8 +251,8 @@ function InsightCard({
       <div className={`w-9 h-9 rounded-xl ${c.iconBg} ${c.iconText} flex items-center justify-center mb-3`}>
         {icon}
       </div>
-      <h3 className="text-sm font-semibold text-lumina-900 mb-1">{title}</h3>
-      <p className="text-xs text-lumina-500 leading-relaxed">{description}</p>
+      <h3 className="text-sm font-semibold text-lumina-900 dark:text-lumina-100 mb-1">{title}</h3>
+      <p className="text-xs text-lumina-500 dark:text-lumina-400 leading-relaxed">{description}</p>
     </motion.div>
   );
 }

@@ -30,8 +30,8 @@ export default function ProfilePage() {
       {/* Profile Header */}
       <motion.div variants={cardVariants} className="flex flex-col items-center mb-8">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="w-24 h-24 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 flex items-center justify-center mb-4 shadow-lg"
-          style={{ boxShadow: "0 0 30px rgba(66,133,244,0.2)" }}>
+          className="w-24 h-24 rounded-full gradient-animated flex items-center justify-center mb-4 shadow-lg"
+          style={{ boxShadow: "0 0 30px rgba(168,85,247,0.2)" }}>
           <span className="text-white text-3xl font-bold">{displayName.charAt(0).toUpperCase()}</span>
         </motion.div>
         <h1 className="text-xl font-bold text-lumina-900 dark:text-lumina-100">{displayName}</h1>

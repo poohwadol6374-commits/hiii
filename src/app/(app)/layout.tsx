@@ -65,7 +65,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   if (isOnboarding) {
     return (
       <ToastProvider>
-        <div className="h-screen overflow-y-auto bg-lumina-50 dark:bg-lumina-950">
+        <div className="h-screen overflow-y-auto bg-white dark:bg-lumina-950">
           {children}
         </div>
       </ToastProvider>
@@ -74,7 +74,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <ToastProvider>
-      <div className="flex h-screen overflow-hidden bg-lumina-50 dark:bg-lumina-950">
+      <div className="flex h-screen overflow-hidden bg-white dark:bg-lumina-950">
         <Sidebar />
         <div className="flex flex-col flex-1 min-w-0">
           <TopBar />

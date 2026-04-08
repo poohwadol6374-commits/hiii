@@ -124,23 +124,23 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center px-4 py-12 bg-lumina-50 dark:bg-lumina-950">
+    <div className="relative flex min-h-screen flex-col items-center justify-center px-4 py-12 bg-white dark:bg-lumina-950">
       {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-google-blue-50/60 dark:from-google-blue-900/20 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/40 via-pink-50/20 to-purple-50/30 dark:from-purple-900/10 dark:via-transparent dark:to-transparent" />
 
       {/* Floating orbs with more variety */}
       <motion.div
-        className="pointer-events-none absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-google-blue-200/20 blur-3xl"
+        className="pointer-events-none absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-orange-200/20 blur-3xl"
         animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="pointer-events-none absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-google-green-200/15 blur-3xl"
+        className="pointer-events-none absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-purple-200/20 blur-3xl"
         animate={{ x: [0, -25, 0], y: [0, 25, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="pointer-events-none absolute top-1/3 right-1/3 h-48 w-48 rounded-full bg-google-yellow-200/10 blur-3xl"
+        className="pointer-events-none absolute top-1/3 right-1/3 h-48 w-48 rounded-full bg-pink-200/15 blur-3xl"
         animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -154,7 +154,7 @@ export default function OnboardingPage() {
           className="mb-6 relative"
         >
           <motion.div
-            className="absolute inset-0 rounded-full bg-google-blue-400/20 blur-xl"
+            className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400/20 via-pink-400/15 to-purple-400/20 blur-xl"
             animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.2, 0.5] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             style={{ inset: -12 }}

@@ -88,7 +88,7 @@ export default function TopBar() {
   return (
     <>
       <header
-        className="flex items-center justify-between h-14 px-4 md:px-6 bg-white/80 dark:bg-lumina-900/80 backdrop-blur-xl border-b border-lumina-200/60 dark:border-lumina-800/60 z-20"
+        className="flex items-center justify-between h-14 px-4 md:px-6 bg-white/90 dark:bg-lumina-900/90 backdrop-blur-xl border-b border-lumina-200/40 dark:border-lumina-800/40 z-20"
         style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.03)" }}
       >
         {/* Left: Search */}
@@ -145,7 +145,7 @@ export default function TopBar() {
 
           {/* Add Task */}
           <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => setCreateOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-google-blue-500 text-white text-sm font-medium rounded-xl hover:bg-google-blue-600 transition-colors shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 gradient-bg text-white text-sm font-medium rounded-xl hover:opacity-90 transition-all shadow-sm gradient-glow"
             aria-label={t("addTask")}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -220,7 +220,7 @@ export default function TopBar() {
           {/* Profile Avatar */}
           <Link href="/profile">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 text-white text-xs font-bold cursor-pointer"
+              className="flex items-center justify-center w-8 h-8 rounded-full gradient-animated text-white text-xs font-bold cursor-pointer"
               aria-label={t("profile")}>
               U
             </motion.div>

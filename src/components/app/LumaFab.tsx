@@ -145,7 +145,7 @@ export default function LumaFab() {
           style={{ width: SIZE, height: SIZE }}
         >
           <motion.div
-            className="absolute rounded-full bg-gradient-to-br from-google-blue-300/40 to-google-blue-500/20"
+            className="absolute rounded-full bg-gradient-to-br from-orange-300/30 via-pink-300/20 to-purple-300/30"
             style={{ inset: -6 }}
             animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.2, 0.6] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -154,11 +154,11 @@ export default function LumaFab() {
             onMouseDown={handleMouseDown}
             className="relative w-full h-full rounded-full flex items-center justify-center cursor-pointer"
             style={{
-              background: "linear-gradient(135deg, rgba(66,133,244,0.85), rgba(30,100,220,0.95))",
+              background: "linear-gradient(135deg, #F97316, #EC4899, #8B5CF6, #3B82F6)",
               backdropFilter: "blur(8px)",
               boxShadow: isDragging
-                ? "0 8px 28px rgba(66,133,244,0.5), 0 0 0 3px rgba(66,133,244,0.2)"
-                : "0 3px 14px rgba(66,133,244,0.3), 0 1px 4px rgba(0,0,0,0.08)",
+                ? "0 8px 28px rgba(168,85,247,0.4), 0 0 0 3px rgba(236,72,153,0.2)"
+                : "0 3px 14px rgba(168,85,247,0.25), 0 1px 4px rgba(0,0,0,0.08)",
             }}
           >
             <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-white/25 to-transparent pointer-events-none" />

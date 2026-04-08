@@ -102,7 +102,7 @@ export default function Sidebar() {
 
   return (
     <motion.aside
-      className="hidden md:flex flex-col items-center bg-white/80 dark:bg-lumina-900/80 backdrop-blur-xl border-r border-lumina-200/60 dark:border-lumina-800/60 py-4 z-30 h-full"
+      className="hidden md:flex flex-col items-center bg-white/95 dark:bg-lumina-900/95 backdrop-blur-xl border-r border-lumina-200/40 dark:border-lumina-800/40 py-4 z-30 h-full"
       animate={{ width: expanded ? 200 : 64 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       style={{ boxShadow: "1px 0 8px rgba(0,0,0,0.03)" }}
@@ -110,7 +110,7 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="mb-6 flex items-center justify-center w-full px-3">
         <motion.div
-          className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-google-blue-400 to-google-blue-600 text-white font-bold text-sm flex-shrink-0"
+          className="flex items-center justify-center w-9 h-9 rounded-full gradient-animated text-white font-bold text-sm flex-shrink-0"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -161,7 +161,7 @@ export default function Sidebar() {
                 {isActive && (
                   <motion.div
                     layoutId="sidebar-active"
-                    className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-google-blue-500"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full gradient-bg"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}

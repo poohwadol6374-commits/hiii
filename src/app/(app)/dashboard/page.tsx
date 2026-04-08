@@ -8,13 +8,29 @@ import WeeklyReview from "@/components/dashboard/WeeklyReview";
 import LumaLogo from "@/components/landing/LumaLogo";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import EventDetailModal from "@/components/calendar/EventDetailModal";
+import { type CalendarEvent } from "@/components/calendar/mockData";
 
-const mockEvents = [
-  { id: "e1", title: "Team Standup", time: "09:00 – 09:30", type: "meeting" as const, color: "google-blue" },
-  { id: "e2", title: "Deep Work: Q4 Report", time: "09:30 – 11:30", type: "focus" as const, color: "google-green" },
-  { id: "e3", title: "Design Review", time: "13:00 – 14:00", type: "meeting" as const, color: "google-blue" },
-  { id: "e4", title: "Focus: Code Review", time: "14:30 – 16:00", type: "focus" as const, color: "google-green" },
-  { id: "e5", title: "1:1 with Manager", time: "16:30 – 17:00", type: "meeting" as const, color: "google-yellow" },
+interface DashboardEvent {
+  id: string;
+  title: string;
+  description: string;
+  time: string;
+  type: "meeting" | "focus";
+  color: string;
+  startHour: number;
+  startMinute: number;
+  endHour: number;
+  endMinute: number;
+}
+
+const mockEvents: DashboardEvent[] = [
+  { id: "e1", title: "Team Standup", description: "Daily sync: blockers, progress, plans for today", time: "09:00 – 09:30", type: "meeting", color: "google-blue", startHour: 9, startMinute: 0, endHour: 9, endMinute: 30 },
+  { id: "e2", title: "Deep Work: Q4 Report", description: "Compile quarterly financial data, create charts", time: "09:30 – 11:30", type: "focus", color: "google-green", startHour: 9, startMinute: 30, endHour: 11, endMinute: 30 },
+  { id: "e3", title: "Design Review", description: "Review new UI mockups with design team", time: "13:00 – 14:00", type: "meeting", color: "google-blue", startHour: 13, startMinute: 0, endHour: 14, endMinute: 0 },
+  { id: "e4", title: "Focus: Code Review", description: "Review 5 pending PRs from frontend team", time: "14:30 – 16:00", type: "focus", color: "google-green", startHour: 14, startMinute: 30, endHour: 16, endMinute: 0 },
+  { id: "e5", title: "1:1 with Manager", description: "Career growth discussion, feedback on Q4 performance", time: "16:30 – 17:00", type: "meeting", color: "google-yellow", startHour: 16, startMinute: 30, endHour: 17, endMinute: 0 },
 ];
 
 const mockTasks = [
@@ -49,6 +65,7 @@ const cardVariants = {
 export default function DashboardPage() {
   const t = useTranslations("Dashboard");
   const router = useRouter();
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
 
   return (
     <motion.div
@@ -100,7 +117,17 @@ export default function DashboardPage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 + i * 0.06 }}
                   className={`flex items-center gap-3 p-3 rounded-xl ${style.bg} border ${style.border} cursor-pointer hover:shadow-sm transition-shadow press-effect`}
-                  onClick={() => router.push("/calendar")}
+                  onClick={() => setSelectedEvent({
+                    id: event.id,
+                    title: event.title,
+                    description: event.description,
+                    startHour: event.startHour,
+                    startMinute: event.startMinute,
+                    endHour: event.endHour,
+                    endMinute: event.endMinute,
+                    dayOfWeek: 0,
+                    category: event.type,
+                  })}
                 >
                   <div className={`w-2 h-2 rounded-full flex-shrink-0 ${style.dot}`} />
                   <div className="flex-1 min-w-0">
@@ -226,6 +253,9 @@ export default function DashboardPage() {
           </div>
         </motion.div>
       </div>
+
+      {/* Event Detail Modal */}
+      <EventDetailModal event={selectedEvent} open={!!selectedEvent} onClose={() => setSelectedEvent(null)} />
     </motion.div>
   );
 }
